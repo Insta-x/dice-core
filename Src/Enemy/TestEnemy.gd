@@ -24,3 +24,8 @@ func self_destruct() -> void:
 
 func do_nothing() -> void:
 	pass
+
+
+func _on_Timer_timeout() -> void:
+	current_roll = dice_core.get_number()
+	print(current_roll)
