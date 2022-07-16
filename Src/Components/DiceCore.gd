@@ -10,7 +10,14 @@ export (NodePath) onready var limiter = get_node(limiter) as Limiter
 var current_number := init_number
 
 
-func _next() -> int:
-	var new_number = current_number * 3
-	current_number = limiter.limit(new_number)
-	return current_number
+func get_number() -> int:
+	return limiter.limit(current_number)
+
+
+func next() -> void:
+	current_number = _formula(current_number) % limiter.modulo
+
+
+# Override for different DiceCore
+func _formula(number: int) -> int:
+	return number + 1
