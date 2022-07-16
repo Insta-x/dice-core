@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Assets/GUI/shoot-ui.png" type="Texture" id=1]
 [ext_resource path="res://Assets/GUI/reload-bar.png" type="Texture" id=2]
 [ext_resource path="res://Src/GUI/ReloadProgress.gd" type="Script" id=3]
 
