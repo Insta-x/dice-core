@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Src/Menu/ScreenFader.tscn" type="PackedScene" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+
+onready var screenFader = $ScreenFader
+func _ready():
+	screenFader.fade_in()
+"
+
+[sub_resource type="Animation" id=2]
+resource_name = "BlinkingAnimation"
+length = 2.0
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect/CenterContainer/VBoxContainer/ContinueLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/BlinkingAnimation = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="ScreenFader" parent="." instance=ExtResource( 2 )]
+visible = false
