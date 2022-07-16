@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "Limiter",
 "language": "GDScript",
 "path": "res://Src/Components/Limiter.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Src/Player/Player.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
 "DiceCore": "",
 "Emitter": "",
 "GitAPI": "",
-"Limiter": ""
+"Limiter": "",
+"Player": ""
 }
 
 [application]
