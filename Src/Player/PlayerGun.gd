@@ -21,6 +21,7 @@ func shoot() -> void:
 	bullet.global_position = global_position + emit_offset.rotated(global_rotation)
 	
 	can_shoot = false
+	GlobalSignals.emit_signal("player_shot")
 
 
 func _on_PlayerAnimationPlayer_animation_finished(anim_name: String) -> void:

@@ -45,7 +45,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Dice Core"
+run/main_scene="res://Src/Game.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GlobalSignals="*res://Src/Singletons/GlobalSignals.gd"
 
 [display]
 

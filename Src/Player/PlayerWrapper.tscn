@@ -40,7 +40,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "Shoot"
-length = 3.0
+length = 2.0
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/path = NodePath("Player/GunAnimationPoint:position")
@@ -49,7 +49,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.133333, 0.216667, 0.5 ),
+"times": PoolRealArray( 0, 0.1, 0.216667, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 72 ), Vector2( 90, 0 ), Vector2( 70, 0 ), Vector2( 80, 0 ) ]
@@ -73,7 +73,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.133333 ),
+"times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -150,5 +150,5 @@ limiter = NodePath("../Limiter")
 [node name="Limiter" type="Node" parent="."]
 script = ExtResource( 7 )
 
-[connection signal="player_shot" from="Player" to="PlayerAnimationPlayer" method="_on_Player_player_shot"]
+[connection signal="shoot_input" from="Player" to="PlayerAnimationPlayer" method="_on_Player_shoot_input"]
 [connection signal="animation_finished" from="PlayerAnimationPlayer" to="Player/PlayerGun" method="_on_PlayerAnimationPlayer_animation_finished"]
