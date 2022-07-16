@@ -1,7 +1,9 @@
 extends KinematicBody2D
 
+class_name Enemy
+
 export (int) var speed = 50
-export (PackedScene) var bullet_scn
+export (int) var health = 3
 onready var dice_core := $DiceCore
 
 var current_roll := 0
@@ -66,4 +68,10 @@ func _on_Timer_timeout() -> void:
 	current_roll = dice_core.get_number()
 	print(current_roll)
 
-
+func _on_Area2D_body_entered(body:KinematicBody2D)->void:
+	print("health " + str(health))
+	health -= 1
+	if health <= 0:
+		queue_free()
+	body.queue_free()
+	

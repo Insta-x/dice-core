@@ -15,10 +15,9 @@ func shoot() -> void:
 	var bullet : Bullet = bullet_scn.instance()
 	bullet.roll = dice_core.get_number()
 	GlobalSignals.emit_signal("player_dice_roll", dice_core.get_number(false))
-	# global_position harus setelah add_child ga tau knp
 	bullet.global_rotation = global_rotation
-	owner.get_parent().add_child(bullet)
 	bullet.global_position = global_position + emit_offset.rotated(global_rotation)
+	owner.get_parent().add_child(bullet)
 	
 	can_shoot = false
 	GlobalSignals.emit_signal("player_shot")
