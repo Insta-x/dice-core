@@ -10,8 +10,11 @@ export (NodePath) onready var limiter = get_node(limiter) as Limiter
 var current_number := init_number
 
 
-func get_number() -> int:
-	return limiter.limit(current_number)
+func get_number(next: bool = true) -> int:
+	var result : int = limiter.limit(current_number)
+	if next:
+		next()
+	return result
 
 
 func next() -> void:

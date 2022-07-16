@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "DiceCore",
 "language": "GDScript",
-"path": "res://Src/Components/DiceCore.gd"
+"path": "res://Src/Components/DiceCore/DiceCore.gd"
 }, {
 "base": "Node2D",
 "class": "Emitter",

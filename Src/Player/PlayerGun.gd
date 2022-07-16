@@ -14,7 +14,6 @@ func shoot() -> void:
 	
 	var bullet : Bullet = bullet_scn.instance()
 	bullet.roll = dice_core.get_number()
-	dice_core.next()
 	# global_position harus setelah add_child ga tau knp
 	bullet.global_rotation = global_rotation
 	owner.get_parent().add_child(bullet)
