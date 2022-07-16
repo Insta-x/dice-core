@@ -13,8 +13,7 @@ func shoot() -> void:
 		return
 	
 	var bullet : Bullet = bullet_scn.instance()
-	bullet.roll = dice_core.current_number
-	dice_core._next()
+	bullet.roll = dice_core.get_number()
 	# global_position harus setelah add_child ga tau knp
 	bullet.global_rotation = global_rotation
 	owner.get_parent().add_child(bullet)
