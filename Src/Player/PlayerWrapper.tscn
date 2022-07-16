@@ -104,6 +104,7 @@ current = true
 dice_core = NodePath("../../DiceCore")
 
 [node name="LimiterPickupArea" parent="Player" instance=ExtResource( 10 )]
+limiter = NodePath("../../Limiter")
 
 [node name="GunSprite" type="Sprite" parent="."]
 position = Vector2( 0, 72 )
