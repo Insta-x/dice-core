@@ -12,7 +12,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		var detected_limiter : Limiter = get_overlapping_areas()[0]
 		limiter.upper_limit = detected_limiter.upper_limit
 		limiter.lower_limit = detected_limiter.lower_limit
-		GlobalSignals.emit_signal("player_limiter_changed", limiter.upper_limit, limiter.lower_limit)
+		GlobalSignals.emit_signal("player_limiter_changed", limiter.lower_limit, limiter.upper_limit)
 		detected_limiter.queue_free()
 		
 		get_tree().set_input_as_handled()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/GUI/shoot-ui.png" type="Texture" id=1]
 [ext_resource path="res://Assets/GUI/reload-bar.png" type="Texture" id=2]
@@ -15,9 +15,33 @@
 size = 24
 font_data = ExtResource( 4 )
 
+[sub_resource type="GDScript" id=6]
+script/source = "extends Label
+
+
+func _ready() -> void:
+	GlobalSignals.connect(\"player_limiter_changed\", self, \"change_limiter\")
+
+
+func change_limiter(lower_limit: int, upper_limit: int) -> void:
+	text = str(lower_limit)
+"
+
 [sub_resource type="DynamicFont" id=5]
 size = 24
 font_data = ExtResource( 4 )
+
+[sub_resource type="GDScript" id=7]
+script/source = "extends Label
+
+
+func _ready() -> void:
+	GlobalSignals.connect(\"player_limiter_changed\", self, \"change_limiter\")
+
+
+func change_limiter(lower_limit: int, upper_limit: int) -> void:
+	text = str(upper_limit)
+"
 
 [sub_resource type="GDScript" id=2]
 script/source = "extends TextureRect
@@ -80,6 +104,7 @@ custom_fonts/font = SubResource( 4 )
 text = "0"
 align = 1
 valign = 1
+script = SubResource( 6 )
 
 [node name="DiceCoreRect" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer"]
 margin_left = 36.0
@@ -107,6 +132,7 @@ custom_fonts/font = SubResource( 5 )
 text = "20"
 align = 1
 valign = 1
+script = SubResource( 7 )
 
 [node name="NumberRect" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer"]
 margin_left = 140.0
