@@ -7,6 +7,7 @@
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource( 2 )
+player = NodePath("../PlayerWrapper/Player")
 
 [node name="PlayerWrapper" parent="." instance=ExtResource( 1 )]
 
