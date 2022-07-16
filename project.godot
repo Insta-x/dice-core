@@ -24,10 +24,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Components/Emitter.gd"
 }, {
+"base": "EditorVCSInterface",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://addons/godot-git-plugin/git_api.gdns"
+}, {
 "base": "Node",
 "class": "Limiter",
 "language": "GDScript",
 "path": "res://Src/Components/Limiter.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "PickupableLimiter",
+"language": "GDScript",
+"path": "res://Src/Objects/PickupableLimiter.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -40,6 +50,7 @@ _global_script_class_icons={
 "Emitter": "",
 "GitAPI": "",
 "Limiter": "",
+"PickupableLimiter": "",
 "Player": ""
 }
 
@@ -60,7 +71,7 @@ window/size/height=720
 
 [gdnative]
 
-singletons=[  ]
+singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
 
 [importer_defaults]
 
