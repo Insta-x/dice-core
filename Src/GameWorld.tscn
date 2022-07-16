@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Src/Player/PlayerWrapper.tscn" type="PackedScene" id=1]
+
+[node name="GameWorld" type="Node2D"]
+
+[node name="PlayerWrapper" parent="." instance=ExtResource( 1 )]
