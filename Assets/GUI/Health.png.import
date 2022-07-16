@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dice-core-shape2.png-a51fe6777e2de836417b37e5bf4e6399.stex"
+path="res://.import/Health.png-e7cc030484d91d1d886ec19aa47dc4d4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/dice-core-shape2.png"
-dest_files=[ "res://.import/dice-core-shape2.png-a51fe6777e2de836417b37e5bf4e6399.stex" ]
+source_file="res://Assets/GUI/Health.png"
+dest_files=[ "res://.import/Health.png-e7cc030484d91d1d886ec19aa47dc4d4.stex" ]
 
 [params]
 
