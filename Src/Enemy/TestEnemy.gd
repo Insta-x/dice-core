@@ -2,6 +2,10 @@ extends KinematicBody2D
 
 class_name Enemy
 
+
+const pickup_dice_core_scn := preload("res://Src/Objects/PickupableDiceCore.tscn")
+const pickup_limiter_scn := preload("res://Src/Objects/PickupableLimiter.tscn")
+
 var additional_weak_damage := 2
 
 export (bool) var immune_to_more = false
@@ -28,15 +32,15 @@ onready var delay : Timer
 var is_batu = false
 
 
-func spawn(player : KinematicBody2D)-> void:
+func spawn(player: KinematicBody2D, dice_core: DiceCoreResource, lower_limit: int, upper_limit: int) -> void:
 	data.player = player
+	dice_wrapper.set_new_dice_core(dice_core)
+	dice_wrapper.set_new_limit(lower_limit, upper_limit)
+
 
 func _ready() -> void:
 	rolldone()
 	dice_wrapper.connect("dice_core_changed", enemy_gui, "_on_DiceWrapper_dice_core_changed")
-	dice_wrapper.emit_signal("number_changed", current_roll)
-	dice_wrapper.emit_signal("dice_core_changed", $DiceWrapper/DiceCore.dice_core_resource)
-	dice_wrapper.emit_signal("limiter_changed", $DiceWrapper/Limiter.lower_limit, $DiceWrapper/Limiter.upper_limit)
 	
 	data.canshoot = false
 	data.init = true
@@ -188,7 +192,19 @@ func _on_Area2D_body_entered(body: Bullet) -> void:
 
 func dead() -> void:
 	set_physics_process(false)
-	GlobalSignals.emit_signal("text_popup", str(score), global_position)
+	GlobalSignals.emit_signal("text_popup", str(score), global_position, Color(1, 0.84, 0))
 	ScoreTracker.score += score
 	yield(get_tree().create_timer(1), "timeout")
+	
+	var drop_dice : PickupableDiceCore = pickup_dice_core_scn.instance()
+	drop_dice.dice_core_resource = $DiceWrapper/DiceCore.dice_core_resource
+	drop_dice.global_position = global_position - Vector2(40, 0)
+	get_parent().call_deferred("add_child", drop_dice)
+	
+	var drop_limiter : PickupableLimiter = pickup_limiter_scn.instance()
+	drop_limiter.lower_limit = $DiceWrapper/Limiter.lower_limit
+	drop_limiter.upper_limit = $DiceWrapper/Limiter.upper_limit
+	drop_limiter.global_position = global_position + Vector2(40, 0)
+	get_parent().call_deferred("add_child", drop_limiter)
+	
 	queue_free()

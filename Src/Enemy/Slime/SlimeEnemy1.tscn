@@ -25,7 +25,7 @@ material = ExtResource( 10 )
 texture = ExtResource( 9 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 24, 0, 0, -24, -24, 0, 0, 24 )
+polygon = PoolVector2Array( 64, 0, -24, -40, -64, 0, -24, 40 )
 
 [node name="EnemyGUI" parent="." instance=ExtResource( 1 )]
 

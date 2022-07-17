@@ -155,6 +155,7 @@ valign = 1
 script = SubResource( 6 )
 
 [node name="DiceCoreRect" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+self_modulate = Color( 0, 0.788235, 1, 1 )
 margin_left = 36.0
 margin_right = 100.0
 margin_bottom = 64.0
