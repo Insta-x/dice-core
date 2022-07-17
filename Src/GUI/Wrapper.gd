@@ -4,6 +4,10 @@ extends Node2D
 func _on_behaviour_changed(behaviour_name: String) -> void:
 	print(behaviour_name)
 	$EnemyGUI/VBoxContainer/BehaviourLabel.text = behaviour_name
+	if (behaviour_name == "self destruct"):
+		$EnemyGUI/VBoxContainer/BehaviourLabel.set("custom_colors/font_color", Color(1,0,0))
+	else:
+		$EnemyGUI/VBoxContainer/BehaviourLabel.set("custom_colors/font_color", Color(0,0,0))
 
 
 func _on_health_changed(value: int) -> void:
