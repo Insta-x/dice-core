@@ -8,6 +8,8 @@ signal player_dice_changed
 signal player_limiter_changed
 signal player_number_changed
 signal player_died
+signal batu_died
+signal enemy_died
 
 signal text_popup
 

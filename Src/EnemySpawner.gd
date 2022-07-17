@@ -37,10 +37,24 @@ func spawn() -> void:
 	spawn_anim.global_position = get_child(pos).global_position
 	get_parent().call_deferred("add_child", enemy)
 	get_parent().call_deferred("add_child", spawn_anim)
+	GlobalGame.enemy_count += 1
 
 
 func _ready() -> void:
-	pass
-#	for i in range(10):
-#		yield(get_tree().create_timer(0.5), "timeout")
-#		spawn()
+	GlobalSignals.connect("batu_died",self,"game_start")
+	GlobalSignals.connect("enemy_died",self,"decrease_enemy_count")
+
+
+func game_start():
+	print("aaaaaaaaaaaaa")
+	for i in range(3):
+		yield(get_tree().create_timer(0.5), "timeout")
+		spawn()
+	
+	while (true):
+		yield(get_tree().create_timer(5), "timeout")
+		if (GlobalGame.enemy_count <= 6):
+			spawn()
+
+func decrease_enemy_count():
+	GlobalGame.enemy_count -= 1
