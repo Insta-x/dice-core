@@ -29,7 +29,10 @@ texture = ExtResource( 9 )
 polygon = PoolVector2Array( 24, 0, 0, -24, -24, 0, 0, 24 )
 
 [node name="EnemyGUI" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, -60 )
+
+[node name="EnemyGUI" parent="EnemyGUI" index="0"]
+margin_top = -80.0
+margin_bottom = -80.0
 
 [node name="DiceTimerProgress" parent="EnemyGUI/EnemyGUI/VBoxContainer" index="0"]
 visible = false

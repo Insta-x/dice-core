@@ -117,7 +117,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Dice Core"
-run/main_scene="res://Src/Game.tscn"
+run/main_scene="res://Src/Menu/Quote.tscn"
 config/icon="res://icon.png"
 
 [autoload]

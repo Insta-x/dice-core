@@ -29,9 +29,10 @@ position = Vector2( 576, 320 )
 position = Vector2( 576, -320 )
 
 [node name="PlayerWrapper" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 384 )
+position = Vector2( 0, 256 )
 
 [node name="Batu" parent="." instance=ExtResource( 3 )]
+rotation = 1.5708
 
 [node name="Wall" type="StaticBody2D" parent="."]
 collision_mask = 6

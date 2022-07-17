@@ -4,13 +4,15 @@
 [ext_resource path="res://Src/GUI/TextPopup.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 20
+size = 40
 outline_color = Color( 1, 0.498039, 0, 1 )
 use_mipmaps = true
 font_data = ExtResource( 1 )
 
 [node name="TextPopup" type="Label"]
-margin_right = 126.0
+margin_left = -63.0
+margin_top = -20.0
+margin_right = 63.0
 margin_bottom = 20.0
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
