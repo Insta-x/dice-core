@@ -31,6 +31,8 @@ position = Vector2( 576, -320 )
 [node name="PlayerWrapper" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 384 )
 
+[node name="Batu" parent="." instance=ExtResource( 3 )]
+
 [node name="Wall" type="StaticBody2D" parent="."]
 collision_mask = 6
 __meta__ = {
@@ -67,5 +69,3 @@ default_color = Color( 1, 0.968627, 0.152941, 1 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Batu" parent="." instance=ExtResource( 3 )]

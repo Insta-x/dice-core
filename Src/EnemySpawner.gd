@@ -11,6 +11,8 @@ const enemy_scenes := [
 	preload("res://Src/Enemy/Tank/TankEnemy5.tscn")
 ]
 
+const spawn_anim_sprite := preload("res://Src/Enemy/SpawnAnimation.tscn")
+
 export (NodePath) onready var player = get_node(player) as Player
 
 func spawn() -> void:
@@ -20,13 +22,16 @@ func spawn() -> void:
 		pos += 1
 	
 	var enemy : Enemy = enemy_scenes[select].instance()
+	var spawn_anim : AnimatedSprite = spawn_anim_sprite.instance()
 	enemy.spawn(player)
 	enemy.global_position = get_child(pos).global_position
+	spawn_anim.global_position = enemy.global_position
 	get_parent().call_deferred("add_child", enemy)
+	get_parent().call_deferred("add_child", spawn_anim)
 
 
 func _ready() -> void:
 	pass
-#	for i in range(6):
-#		yield(get_tree().create_timer(0.5), "timeout")
-#		spawn()
+	for i in range(6):
+		yield(get_tree().create_timer(0.5), "timeout")
+		spawn()
