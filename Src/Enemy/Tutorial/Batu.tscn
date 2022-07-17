@@ -17,6 +17,7 @@ collision_layer = 12
 script = ExtResource( 8 )
 immune_to_same = true
 immune_to_even = false
+health = 1
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color( 1, 0, 0, 1 )
@@ -38,8 +39,6 @@ dice_core_resource = ExtResource( 5 )
 script = ExtResource( 6 )
 
 [node name="DiceTimer" type="Timer" parent="."]
-one_shot = true
-autostart = true
 
 [node name="Emitter" type="Node2D" parent="."]
 script = ExtResource( 4 )
