@@ -28,6 +28,7 @@ func _on_HazardDetector_area_entered(area: Area2D) -> void:
 	OS.delay_msec(500)
 	game_over()
 	hide()
+	$PlayerDIedSFX.play()
 	GlobalSignals.emit_signal("player_died")
 
 
