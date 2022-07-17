@@ -14,6 +14,7 @@ export (int) var health = 3
 signal health_changed
 signal behaviour_changed
 
+onready var enemy_gui := $EnemyGUI
 onready var dice_wrapper := $DiceWrapper
 
 var current_roll := 0
@@ -33,7 +34,11 @@ func spawn(player : KinematicBody2D)-> void:
 	delay.connect("timeout", self, "rolldone")
 
 func _ready() -> void:
-	current_roll = dice_wrapper.get_number(false)
+	emit_signal("health_changed", health)
+	rolldone()
+	dice_wrapper.emit_signal("number_changed", current_roll)
+	dice_wrapper.emit_signal("dice_core_changed", $DiceWrapper/DiceCore.dice_core_resource)
+	dice_wrapper.emit_signal("limiter_changed", $DiceWrapper/Limiter.lower_limit, $DiceWrapper/Limiter.upper_limit)
 
 
 func reroll() -> void:

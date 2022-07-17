@@ -28,6 +28,6 @@ func spawn() -> void:
 
 func _ready() -> void:
 	pass
-#	for i in range(6):
-#		yield(get_tree().create_timer(0.5), "timeout")
-#		spawn()
+	for i in range(6):
+		yield(get_tree().create_timer(0.5), "timeout")
+		spawn()

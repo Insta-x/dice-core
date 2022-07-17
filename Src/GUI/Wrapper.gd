@@ -14,6 +14,10 @@ func _on_DiceWrapper_dice_rolled(number: int) -> void:
 	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/RollLabel.roll(number)
 
 
+func _on_DiceWrapper_dice_core_changed(resource: DiceCoreResource) -> void:
+	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore.texture = resource.dice_icon
+
+
 func _on_DiceWrapper_limiter_changed(lower_limit: int, upper_limit: int) -> void:
 	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/LowerLimit/Label.text = str(lower_limit)
 	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/UpperLimit/Label.text = str(upper_limit)
