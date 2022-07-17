@@ -27,9 +27,16 @@ func _physics_process(delta: float) -> void:
 		2:
 			move_random()
 		3:
+			$AnimationPlayer.play("Shoot")
 			shoot()
 		4:
 			avoid_player()
 		_: 
 			do_nothing()
 	data.init = false
+
+func _on_AnimationPlayer_animation_finished(anim_name: String):
+	if (anim_name == "Shoot"):
+		shoot()
+		$AnimationPlayer.play("Shoot-2")
+	
