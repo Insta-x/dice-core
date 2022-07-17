@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 			do_nothing()
 	data.init = false
 	
-	enemy_gui.get_node("EnemyGUI/VBoxContainer/DiceTimerProgress").value = $DiceTimer.time_left * 50
+	enemy_gui.get_node("EnemyGUI/VBoxContainer/DiceTimerProgress").value = (3 - $DiceTimer.time_left) * 50
 
 
 func goto(pos : Vector2, mundur := false) -> Vector2:
