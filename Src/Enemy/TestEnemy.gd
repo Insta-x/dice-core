@@ -25,7 +25,7 @@ var current_roll := 0
 var data := {}
 
 onready var delay : Timer
-
+var is_batu = false
 
 func spawn(player : KinematicBody2D)-> void:
 	data.player = player
@@ -176,6 +176,12 @@ func _on_Area2D_body_entered(body: Bullet) -> void:
 	if body.roll == current_roll:
 		self.health -= additional_weak_damage
 	emit_signal("health_changed", health)
+
+	if health <= 0:
+		yield(get_tree().create_timer(1), "timeout")
+		if (is_batu):
+			GlobalSignals.emit_signal("batu_died")
+		queue_free()
 
 
 func dead() -> void:

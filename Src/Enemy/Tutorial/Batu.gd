@@ -1,5 +1,7 @@
 extends Enemy
 
+func _ready():
+	is_batu = true
 
 func rolldone() -> void:
 	.rolldone()
@@ -17,3 +19,4 @@ func _physics_process(delta:float)->void:
 
 func modifhit() -> void:
 	.reroll()
+	
