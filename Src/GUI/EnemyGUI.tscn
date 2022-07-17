@@ -39,6 +39,7 @@ custom_constants/separation = 4
 [node name="DiceTimerProgress" type="TextureProgress" parent="EnemyGUI/VBoxContainer"]
 margin_right = 200.0
 margin_bottom = 20.0
+max_value = 150.0
 texture_under = ExtResource( 8 )
 texture_progress = ExtResource( 6 )
 
