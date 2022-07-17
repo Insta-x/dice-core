@@ -15,6 +15,7 @@
 [ext_resource path="res://Src/Components/DiceCore/SimpleDiceCore.tres" type="Resource" id=13]
 
 [sub_resource type="CapsuleShape2D" id=1]
+height = 40.0
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -42,6 +43,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Player/GunAnimationPoint:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Shoot"
@@ -54,10 +67,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.216667, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.216667, 0.5, 0.666668, 0.833333, 1.53334, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 72 ), Vector2( 90, 0 ), Vector2( 70, 0 ), Vector2( 80, 0 ) ]
+"values": [ Vector2( 0, 72 ), Vector2( 90, 0 ), Vector2( 70, 0 ), Vector2( 80, 0 ), Vector2( 100, 0 ), Vector2( 100, 30 ), Vector2( 100, 30 ), Vector2( 0, 72 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("GunSprite:follow")
@@ -66,10 +79,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 1, 0 ]
 }
 tracks/2/type = "method"
 tracks/2/path = NodePath("Player/PlayerGun")
@@ -85,6 +98,18 @@ tracks/2/keys = {
 "method": "shoot"
 } ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Player/GunAnimationPoint:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.666668, 0.833333, 0.933333, 1.03333, 1.13333, 1.23333, 1.33333, 1.43333, 1.53333, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -100.0, -80.0, -100.0, -80.0, -100.0, -80.0, -100.0, -80.0, 0.0 ]
+}
 
 [node name="PlayerWrapper" type="Node2D"]
 script = ExtResource( 11 )
@@ -97,12 +122,18 @@ position = Vector2( 0, 72 )
 [node name="PlayerGun" type="Node2D" parent="Player"]
 position = Vector2( 90, 0 )
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
 bullet_scn = ExtResource( 6 )
 emit_offset = Vector2( 32, 0 )
 dice_wrapper = NodePath("../../DiceWrapper")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="DiceCorePickupArea" parent="Player" instance=ExtResource( 9 )]
 dice_wrapper = NodePath("../../DiceWrapper")
@@ -111,10 +142,10 @@ dice_wrapper = NodePath("../../DiceWrapper")
 dice_wrapper = NodePath("../../DiceWrapper")
 
 [node name="GunSprite" type="Sprite" parent="."]
-position = Vector2( 3, 81 )
+position = Vector2( 0, 72 )
 texture = ExtResource( 3 )
 centered = false
-offset = Vector2( 0, -32 )
+offset = Vector2( 0, -16 )
 script = ExtResource( 2 )
 rigid_path = NodePath("../GunRigidBody2D")
 animation_position_path = NodePath("../Player/GunAnimationPoint")
@@ -125,7 +156,7 @@ mass = 0.5
 gravity_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GunRigidBody2D"]
-position = Vector2( 20, 0 )
+position = Vector2( 30, 0 )
 rotation = 1.5708
 shape = SubResource( 1 )
 __meta__ = {
