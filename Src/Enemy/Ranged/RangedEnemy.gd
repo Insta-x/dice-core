@@ -35,8 +35,22 @@ func _physics_process(delta: float) -> void:
 			do_nothing()
 	data.init = false
 
+func set_health(value: int) -> void:
+	$Sprite.material.set_shader_param("flash_modifier",1)
+	$Sprite2.material.set_shader_param("flash_modifier",1)
+	$Sprite3.material.set_shader_param("flash_modifier",1)
+	$ShaderTimer.start()
+	.set_health(value)
+
+
 func _on_AnimationPlayer_animation_finished(anim_name: String):
 	if (anim_name == "Shoot"):
 		shoot()
 		$AnimationPlayer.play("Shoot-2")
 	
+
+
+func _on_ShaderTimer_timeout():
+	$Sprite.material.set_shader_param("flash_modifier",0)
+	$Sprite2.material.set_shader_param("flash_modifier",0)
+	$Sprite3.material.set_shader_param("flash_modifier",0)

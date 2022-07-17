@@ -20,3 +20,11 @@ func _physics_process(delta:float)->void:
 func modifhit() -> void:
 	.reroll()
 	
+func set_health(value: int) -> void:
+	$Sprite.material.set_shader_param("flash_modifier",1)
+	$ShaderTimer.start()
+	.set_health(value)
+
+
+func _on_ShaderTimer_timeout():
+	$Sprite.material.set_shader_param("flash_modifier",0)

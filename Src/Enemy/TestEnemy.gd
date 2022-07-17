@@ -12,7 +12,7 @@ export (bool) var immune_to_odd = false
 export (bool) var weak_to_same = true
 
 export (int) var speed = 50
-export (int) var health = 3 setget set_health
+export (int) var max_health = 3
 export (int) var score := 1
 
 signal health_changed
@@ -23,15 +23,15 @@ onready var dice_wrapper := $DiceWrapper
 
 var current_roll := 0
 var data := {}
-
+var health = max_health setget set_health
 onready var delay : Timer
 var is_batu = false
+
 
 func spawn(player : KinematicBody2D)-> void:
 	data.player = player
 
 func _ready() -> void:
-	emit_signal("health_changed", health)
 	rolldone()
 	dice_wrapper.connect("dice_core_changed", enemy_gui, "_on_DiceWrapper_dice_core_changed")
 	dice_wrapper.emit_signal("number_changed", current_roll)
@@ -45,6 +45,7 @@ func _ready() -> void:
 	delay.wait_time = 0.25
 	delay.one_shot = true
 	delay.connect("timeout", self, "rolldone")
+	self.health = max_health
 
 func reroll() -> void:
 	dice_wrapper.get_number(true)
@@ -154,7 +155,6 @@ func modifhit() -> void:
 func set_health(value: int) -> void:
 	health = clamp(value, 0, 5)
 	emit_signal("health_changed", value)
-	
 	if health <= 0:
 		dead()
 
