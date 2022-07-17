@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Src/GUI/EnemyGUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Enemy/TestEnemy.gd" type="Script" id=2]
@@ -49,6 +49,7 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
+[connection signal="health_changed" from="." to="EnemyGUI" method="_on_health_changed"]
 [connection signal="dice_rolled" from="DiceWrapper" to="EnemyGUI" method="_on_DiceWrapper_dice_rolled"]
 [connection signal="limiter_changed" from="DiceWrapper" to="EnemyGUI" method="_on_DiceWrapper_limiter_changed"]
 [connection signal="number_changed" from="DiceWrapper" to="EnemyGUI" method="_on_DiceWrapper_number_changed"]
