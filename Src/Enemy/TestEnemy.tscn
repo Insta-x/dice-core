@@ -7,8 +7,9 @@
 [ext_resource path="res://Src/Components/Emitter.gd" type="Script" id=5]
 [ext_resource path="res://Src/Objects/EnemyBullet.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/Components/DiceWrapper.gd" type="Script" id=7]
-[ext_resource path="res://Src/Components/DiceCore/MultiplierDiceCore.gd" type="Script" id=8]
+[ext_resource path="res://Src/Components/DiceCore/Multiplier/Multiply3DiceCore.tres" type="Script" id=8]
 [ext_resource path="res://Assets/GUI/dice-core-shape-player1.png" type="Texture" id=9]
+
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 8 )
