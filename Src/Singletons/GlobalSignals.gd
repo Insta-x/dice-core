@@ -9,4 +9,6 @@ signal player_limiter_changed
 signal player_number_changed
 signal player_died
 
+signal text_popup
+
 signal time_over
