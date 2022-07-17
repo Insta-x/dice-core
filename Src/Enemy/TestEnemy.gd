@@ -66,7 +66,7 @@ func _physics_process(delta: float) -> void:
 			do_nothing()
 	data.init = false
 	
-	enemy_gui.get_node("EnemyGUI/VBoxContainer/DiceTimerProgress").value = $DiceTimer.time_left * 50
+	enemy_gui.get_node("EnemyGUI/VBoxContainer/DiceTimerProgress").value = (3 - $DiceTimer.time_left) * 50
 
 
 func goto(pos : Vector2, mundur := false) -> Vector2:
@@ -160,10 +160,12 @@ func set_health(value: int) -> void:
 
 
 func _on_Area2D_body_entered(body: Bullet) -> void:
+	body.queue_free()
+	
 	if body is LimitBullet:
 		dice_wrapper.set_new_limit(body.lower_limit, body.upper_limit)
+		return
 	
-	body.queue_free()
 	
 	modifhit()
   
