@@ -20,16 +20,16 @@ func rolldone() -> void:
 
 func _physics_process(delta: float) -> void:
 	match current_roll:
-		0, 6:
+		0, 10,20:
 			self_destruct()
-		1:
+		1,5,9,13,17:
 			move_near_player()
-		2:
+		2,6,14,18:
 			move_random()
-		3:
+		3,7,11,15,19:
 			$AnimationPlayer.play("Shoot")
 			shoot()
-		4:
+		4,8,12,16:
 			avoid_player()
 		_: 
 			do_nothing()

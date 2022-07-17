@@ -60,6 +60,17 @@ shape = SubResource( 1 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PoolVector2Array( 10, 23, 64, 0, 11, -23 )
 
+[node name="HazardToPlayer" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardToPlayer"]
+position = Vector2( -22, -1 )
+shape = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HazardToPlayer"]
+polygon = PoolVector2Array( 10, 23, 64, 0, 11, -23 )
+
 [node name="ShaderTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
@@ -71,6 +82,7 @@ one_shot = true
 [connection signal="number_changed" from="DiceWrapper" to="EnemyGUI" method="_on_DiceWrapper_number_changed"]
 [connection signal="timeout" from="DiceTimer" to="." method="reroll"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="HazardToPlayer" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="ShaderTimer" to="." method="_on_ShaderTimer_timeout"]
 
 [editable path="EnemyGUI"]
