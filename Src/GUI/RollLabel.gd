@@ -5,6 +5,11 @@ var roll_number := 0
 var true_number := 0
 
 
+func change_number(number: int) -> void:
+	true_number = number
+	text = str(true_number)
+
+
 func roll(number: int) -> void:
 	roll_number = randi() % 20 + 1
 	$AnimationPlayer.play("Roll")

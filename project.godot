@@ -19,6 +19,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Components/DiceCore/DiceCore.gd"
 }, {
+"base": "Resource",
+"class": "DiceCoreResource",
+"language": "GDScript",
+"path": "res://Src/Components/DiceCore/DiceCoreResource.gd"
+}, {
+"base": "Node",
+"class": "DiceWrapper",
+"language": "GDScript",
+"path": "res://Src/Components/DiceWrapper.gd"
+}, {
 "base": "Node2D",
 "class": "Emitter",
 "language": "GDScript",
@@ -29,10 +39,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Enemy/TestEnemy.gd"
 }, {
+"base": "EditorVCSInterface",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://addons/godot-git-plugin/git_api.gdns"
+}, {
 "base": "Node",
 "class": "Limiter",
 "language": "GDScript",
 "path": "res://Src/Components/Limiter.gd"
+}, {
+"base": "DiceCoreResource",
+"class": "MultiplierDiceCoreResource",
+"language": "GDScript",
+"path": "res://Src/Components/DiceCore/MultiplierDiceCore.gd"
+}, {
+"base": "Area2D",
+"class": "PickupableLimiter",
+"language": "GDScript",
+"path": "res://Src/Objects/PickupableLimiter.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -42,9 +67,13 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Bullet": "",
 "DiceCore": "",
+"DiceCoreResource": "",
+"DiceWrapper": "",
 "Emitter": "",
 "Enemy": "",
 "Limiter": "",
+"MultiplierDiceCoreResource": "",
+"PickupableLimiter": "",
 "Player": ""
 }
 
@@ -65,7 +94,7 @@ window/size/height=720
 
 [gdnative]
 
-singletons=[  ]
+singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
 
 [importer_defaults]
 

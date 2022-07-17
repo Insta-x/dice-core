@@ -4,23 +4,14 @@ class_name DiceCore
 
 
 export (int) var init_number := 1
-export (Texture) var dice_icon
-export (NodePath) onready var limiter = get_node(limiter) as Limiter
+export (Resource) var dice_core_resource = dice_core_resource as DiceCoreResource
+
+signal dice_rolled(number)
 
 var current_number := init_number
 
 
-func get_number(next: bool = true) -> int:
-	var result : int = limiter.limit(current_number)
-	if next:
-		next()
-	return result
+func next(modulo: int) -> void:
+	current_number = dice_core_resource._formula(current_number) % modulo
+	emit_signal("dice_rolled", current_number)
 
-
-func next() -> void:
-	current_number = _formula(current_number) % limiter.modulo
-
-
-# Override for different DiceCore
-func _formula(number: int) -> int:
-	return number + 1
