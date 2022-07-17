@@ -46,7 +46,6 @@ func _ready() -> void:
 
 
 func game_start():
-	print("aaaaaaaaaaaaa")
 	for i in range(3):
 		yield(get_tree().create_timer(0.5), "timeout")
 		spawn()
@@ -58,3 +57,4 @@ func game_start():
 
 func decrease_enemy_count():
 	GlobalGame.enemy_count -= 1
+

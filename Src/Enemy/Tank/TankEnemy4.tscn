@@ -7,7 +7,7 @@
 [ext_resource path="res://Src/Components/Emitter.gd" type="Script" id=5]
 [ext_resource path="res://Src/Objects/EnemyBullet.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/Components/DiceWrapper.gd" type="Script" id=7]
-[ext_resource path="res://Src/Components/DiceCore/SimpleDiceCore.tres" type="Resource" id=8]
+[ext_resource path="res://Src/Components/DiceCore/Multiplier/Multiply3DiceCore.tres" type="Resource" id=8]
 [ext_resource path="res://Assets/Art/enemy-tank.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=10]
 
@@ -31,7 +31,10 @@ texture = ExtResource( 9 )
 polygon = PoolVector2Array( 24, 0, 0, -24, -24, 0, 0, 24 )
 
 [node name="EnemyGUI" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, -120 )
+
+[node name="EnemyGUI" parent="EnemyGUI" index="0"]
+margin_top = -120.0
+margin_bottom = -120.0
 
 [node name="DiceWrapper" type="Node" parent="."]
 script = ExtResource( 7 )
@@ -75,3 +78,5 @@ valign = 1
 [connection signal="number_changed" from="DiceWrapper" to="EnemyGUI" method="_on_DiceWrapper_number_changed"]
 [connection signal="timeout" from="DiceTimer" to="." method="reroll"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+[editable path="EnemyGUI"]

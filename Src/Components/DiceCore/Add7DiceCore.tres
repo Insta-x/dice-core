@@ -1,9 +1,0 @@
-[gd_resource type="Resource" load_steps=3 format=2]
-
-[ext_resource path="res://Src/Components/DiceCore/AdderDiceCore.gd" type="Script" id=1]
-[ext_resource path="res://Assets/GUI/dice-core-shape-player2.png" type="Texture" id=2]
-
-[resource]
-script = ExtResource( 1 )
-dice_icon = ExtResource( 2 )
-add_by = 7

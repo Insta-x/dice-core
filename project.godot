@@ -10,9 +10,14 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "DiceCoreResource",
+"class": "AddMulterDiceCoreResource",
+"language": "GDScript",
+"path": "res://Src/Components/DiceCore/AddMulter/AddMulterDiceCore.gd"
+}, {
+"base": "DiceCoreResource",
 "class": "AdderDiceCoreResource",
 "language": "GDScript",
-"path": "res://Src/Components/DiceCore/AdderDiceCore.gd"
+"path": "res://Src/Components/DiceCore/Adder/AdderDiceCore.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Bullet",
@@ -44,11 +49,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Enemy/TestEnemy.gd"
 }, {
-"base": "",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://addons/godot-git-plugin/git_api.gdns"
-}, {
 "base": "Bullet",
 "class": "LimitBullet",
 "language": "GDScript",
@@ -60,9 +60,14 @@ _global_script_classes=[ {
 "path": "res://Src/Components/Limiter.gd"
 }, {
 "base": "DiceCoreResource",
+"class": "MultAdderDiceCoreResource",
+"language": "GDScript",
+"path": "res://Src/Components/DiceCore/MultAdder/MultAddDiceCore.gd"
+}, {
+"base": "DiceCoreResource",
 "class": "MultiplierDiceCoreResource",
 "language": "GDScript",
-"path": "res://Src/Components/DiceCore/MultiplierDiceCore.gd"
+"path": "res://Src/Components/DiceCore/Multiplier/MultiplierDiceCore.gd"
 }, {
 "base": "Area2D",
 "class": "PickupableDiceCore",
@@ -80,6 +85,7 @@ _global_script_classes=[ {
 "path": "res://Src/Player/Player.gd"
 } ]
 _global_script_class_icons={
+"AddMulterDiceCoreResource": "",
 "AdderDiceCoreResource": "",
 "Bullet": "",
 "DiceCore": "",
@@ -87,9 +93,9 @@ _global_script_class_icons={
 "DiceWrapper": "",
 "Emitter": "",
 "Enemy": "",
-"GitAPI": "",
 "LimitBullet": "",
 "Limiter": "",
+"MultAdderDiceCoreResource": "",
 "MultiplierDiceCoreResource": "",
 "PickupableDiceCore": "",
 "PickupableLimiter": "",
@@ -115,7 +121,7 @@ window/size/height=720
 
 [gdnative]
 
-singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+singletons=[  ]
 
 [importer_defaults]
 

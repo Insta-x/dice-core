@@ -4,12 +4,18 @@
 [ext_resource path="res://Src/Objects/EnemyBullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Components/DiceCore/DiceCore.gd" type="Script" id=3]
 [ext_resource path="res://Src/Components/Emitter.gd" type="Script" id=4]
-[ext_resource path="res://Src/Components/DiceCore/SimpleDiceCore.tres" type="Resource" id=5]
+[ext_resource path="res://Src/Components/DiceCore/Multiplier/MultiplierDiceCore.gd" type="Script" id=5]
 [ext_resource path="res://Src/Components/Limiter.gd" type="Script" id=6]
 [ext_resource path="res://Src/Components/DiceWrapper.gd" type="Script" id=7]
 [ext_resource path="res://Src/Enemy/Tank/TankEnemy.gd" type="Script" id=8]
 [ext_resource path="res://Assets/Art/enemy-tank.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Assets/GUI/dice-core-shape-player1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=11]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 5 )
+dice_icon = ExtResource( 10 )
+multiply_by = 3
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 30.0
@@ -18,7 +24,7 @@ radius = 30.0
 size = 64
 outline_size = 2
 outline_color = Color( 1, 0.988235, 1, 1 )
-font_data = ExtResource( 10 )
+font_data = ExtResource( 11 )
 
 [node name="TankEnemy" type="KinematicBody2D"]
 script = ExtResource( 8 )
@@ -33,14 +39,17 @@ texture = ExtResource( 9 )
 polygon = PoolVector2Array( 24, 0, 0, -24, -24, 0, 0, 24 )
 
 [node name="EnemyGUI" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, -120 )
+
+[node name="EnemyGUI" parent="EnemyGUI" index="0"]
+margin_top = -120.0
+margin_bottom = -120.0
 
 [node name="DiceWrapper" type="Node" parent="."]
 script = ExtResource( 7 )
 
 [node name="DiceCore" type="Node" parent="DiceWrapper"]
 script = ExtResource( 3 )
-dice_core_resource = ExtResource( 5 )
+dice_core_resource = SubResource( 2 )
 
 [node name="Limiter" type="Node" parent="DiceWrapper"]
 script = ExtResource( 6 )
@@ -77,3 +86,5 @@ valign = 1
 [connection signal="number_changed" from="DiceWrapper" to="EnemyGUI" method="_on_DiceWrapper_number_changed"]
 [connection signal="timeout" from="DiceTimer" to="." method="reroll"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+[editable path="EnemyGUI"]

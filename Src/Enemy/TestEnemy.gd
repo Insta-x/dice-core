@@ -12,7 +12,8 @@ export (bool) var immune_to_odd = false
 export (bool) var weak_to_same = true
 
 export (int) var speed = 50
-export (int) var health = 3
+export (int) var health = 3 setget set_health
+export (int) var score := 1
 
 signal health_changed
 signal behaviour_changed
@@ -32,6 +33,7 @@ func spawn(player : KinematicBody2D)-> void:
 func _ready() -> void:
 	emit_signal("health_changed", health)
 	rolldone()
+	dice_wrapper.connect("dice_core_changed", enemy_gui, "_on_DiceWrapper_dice_core_changed")
 	dice_wrapper.emit_signal("number_changed", current_roll)
 	dice_wrapper.emit_signal("dice_core_changed", $DiceWrapper/DiceCore.dice_core_resource)
 	dice_wrapper.emit_signal("limiter_changed", $DiceWrapper/Limiter.lower_limit, $DiceWrapper/Limiter.upper_limit)
@@ -74,10 +76,7 @@ func goto(pos : Vector2, mundur := false) -> Vector2:
 
 
 func self_destruct() -> void:
-	health = 0
-	emit_signal("health_changed", health)
-	yield(get_tree().create_timer(1), "timeout")
-	queue_free()
+	self.health = 0
 
 
 func move_to_player() -> void:
@@ -98,16 +97,20 @@ func shoot() -> void:
 	if data.init:
 		$Emitter.emit()
 
+
 func block_attack() -> void:
 	pass
+
 
 func move_random() -> void:
 	if data.init:
 		data.randdir = Vector2.RIGHT.rotated(randf() * 2 * PI)
 	goto(global_position + data.randdir)
 
+
 func do_nothing() -> void:
 	pass
+
 
 func avoid_player():
 	goto(data.player.global_position, true)
@@ -143,9 +146,19 @@ func check_immune(x : int) -> bool:
 	
 	return result
 
+
 func modifhit() -> void:
 	pass
+
+
+func set_health(value: int) -> void:
+	health = clamp(value, 0, 5)
+	emit_signal("health_changed", value)
 	
+	if health <= 0:
+		dead()
+
+
 func _on_Area2D_body_entered(body: Bullet) -> void:
 	if body is LimitBullet:
 		dice_wrapper.set_new_limit(body.lower_limit, body.upper_limit)
@@ -159,14 +172,21 @@ func _on_Area2D_body_entered(body: Bullet) -> void:
 	
 #	print("health " + str(health))
 
-	health -= 1
+	self.health -= 1
 	if body.roll == current_roll:
-		health -= additional_weak_damage
+		self.health -= additional_weak_damage
 	emit_signal("health_changed", health)
-	
+
 	if health <= 0:
 		yield(get_tree().create_timer(1), "timeout")
 		if (is_batu):
 			GlobalSignals.emit_signal("batu_died")
 		queue_free()
 
+
+func dead() -> void:
+	set_physics_process(false)
+	GlobalSignals.emit_signal("text_popup", str(score), global_position)
+	ScoreTracker.score += score
+	yield(get_tree().create_timer(1), "timeout")
+	queue_free()
