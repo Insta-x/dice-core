@@ -2,7 +2,7 @@ extends Node2D
 
 
 const enemy_scenes := [
-	preload("res://Src/Enemy/Tank/TankEnemy4.tscn")
+	preload("res://Src/Enemy/Ranged/RangedEnemy1.tscn")
 ]
 
 export (NodePath) onready var player = get_node(player) as Player

@@ -43,7 +43,7 @@ func goto(pos : Vector2, mundur := false) -> Vector2:
 	look_at(pos)
 	var d = pos - self.global_position
 	if mundur: d = -d
-	return move_and_slide(d.normalized() * speed)
+	return move_and_slide(d.normalized() * speed * 2)
 
 
 func self_destruct() -> void:
@@ -52,8 +52,17 @@ func self_destruct() -> void:
 func move_to_player() -> void:
 	goto(data.player.global_position)
 
+func move_near_player() -> void:
+	if data.init:
+		if randi() % 2 == 0: data.strafdir = 0.1
+		else: data.strafdir = -0.1
+	var d = (data.player.global_position - global_position).normalized() * 300
+	goto(data.player.global_position - d.rotated(data.strafdir))
+	look_at(data.player.global_position)
+	
+
 func shoot() -> void:
-	look_at(data.player)
+	look_at(data.player.global_position)
 	if data.init:
 		$Emitter.emit()
 
