@@ -173,12 +173,12 @@ dice_wrapper = NodePath("../../DiceWrapper")
 [node name="LimiterPickupArea" parent="Player" instance=ExtResource( 10 )]
 dice_wrapper = NodePath("../../DiceWrapper")
 
-[node name="HazardDetector" type="Area2D" parent="Player"]
+[node name="PlayerHazardDetector" type="Area2D" parent="Player"]
 collision_layer = 0
 collision_mask = 8
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/HazardDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerHazardDetector"]
 shape = SubResource( 4 )
 
 [node name="Health" type="Node" parent="."]
@@ -249,7 +249,7 @@ stream = ExtResource( 17 )
 stream = ExtResource( 16 )
 
 [connection signal="shoot_input" from="Player" to="PlayerAnimationPlayer" method="_on_Player_shoot_input"]
-[connection signal="area_entered" from="Player/HazardDetector" to="." method="_on_HazardDetector_area_entered"]
+[connection signal="area_entered" from="Player/PlayerHazardDetector" to="." method="_on_HazardDetector_area_entered"]
 [connection signal="animation_finished" from="PlayerAnimationPlayer" to="Player/PlayerGun" method="_on_PlayerAnimationPlayer_animation_finished"]
 [connection signal="dice_core_changed" from="DiceWrapper" to="." method="_on_DiceWrapper_dice_core_changed"]
 [connection signal="dice_rolled" from="DiceWrapper" to="." method="_on_DiceWrapper_dice_rolled"]
