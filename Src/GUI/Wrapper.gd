@@ -1,8 +1,14 @@
 extends Node2D
 
+
+func _on_behaviour_changed(behaviour_name: String) -> void:
+	$EnemyGUI/VBoxContainer/BehaviourLabel.text = behaviour_name
+
+
 func _on_health_changed(value: int) -> void:
 	$EnemyGUI/HBoxContainer/Health/Label.text = str(value)
-	
+
+
 func _on_DiceWrapper_dice_rolled(number: int) -> void:
 	$EnemyGUI/HBoxContainer/HBoxContainer/DiceCore/RollLabel.roll(number)
 

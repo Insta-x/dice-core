@@ -1,5 +1,10 @@
 extends Enemy
 
+
+func reroll() -> void:
+	.reroll()
+
+
 func _physics_process(delta:float)->void:
 	match current_roll:
 		_: 

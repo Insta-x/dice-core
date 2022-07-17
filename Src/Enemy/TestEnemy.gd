@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 class_name Enemy
 
-signal health_changed
 
 export (bool) var immune_to_more = false
 export (bool) var immune_to_less = false
@@ -12,10 +11,15 @@ export (bool) var immune_to_odd = false
 
 export (int) var speed = 50
 export (int) var health = 3
+
+signal health_changed
+signal behaviour_changed
+
 onready var dice_wrapper := $DiceWrapper
 
 var current_roll := 0
 var data := {}
+
 
 func spawn(player : KinematicBody2D)-> void:
 	data.player = player
@@ -26,9 +30,11 @@ func spawn(player : KinematicBody2D)-> void:
 func _ready() -> void:
 	current_roll = dice_wrapper.get_number(false)
 
+
 func reroll() -> void:
 	current_roll = dice_wrapper.get_number()
 	data.init = true
+
 
 func _physics_process(delta: float) -> void:
 	match current_roll:
@@ -49,8 +55,10 @@ func goto(pos : Vector2, mundur := false) -> Vector2:
 func self_destruct() -> void:
 	queue_free()
 
+
 func move_to_player() -> void:
 	goto(data.player.global_position)
+
 
 func move_near_player() -> void:
 	if data.init:
@@ -59,31 +67,36 @@ func move_near_player() -> void:
 	var d = (data.player.global_position - global_position).normalized() * 300
 	goto(data.player.global_position - d.rotated(data.strafdir))
 	look_at(data.player.global_position)
-	
+
 
 func shoot() -> void:
 	look_at(data.player.global_position)
 	if data.init:
 		$Emitter.emit()
 
+
 func block_attack() -> void:
 	pass
+
 
 func move_random() -> void:
 	if data.init:
 		data.randdir = Vector2.RIGHT.rotated(randf() * 2 * PI)
 	goto(global_position + data.randdir)
 
+
 func do_nothing() -> void:
 	pass
 
+
 func avoid_player():
 	goto(data.player.global_position, true)
-	
+
 
 func _on_Timer_timeout() -> void:
 	current_roll = dice_wrapper.get_number()
 	print(current_roll)
+
 
 func check_immune(x : int) -> bool:
 	return ((immune_to_more and x > current_roll)
@@ -92,7 +105,7 @@ func check_immune(x : int) -> bool:
 		or (immune_to_even and x % 2 == 0)
 		or (immune_to_odd and x % 2 == 1)
 	)
-	
+
 
 func _on_Area2D_body_entered(body:Bullet)->void:
 	body.queue_free()
@@ -103,4 +116,4 @@ func _on_Area2D_body_entered(body:Bullet)->void:
 	emit_signal("health_changed", health)
 	if health <= 0:
 		queue_free()
-	
+

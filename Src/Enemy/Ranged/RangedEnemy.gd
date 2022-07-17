@@ -1,6 +1,11 @@
 extends Enemy
 
-func _physics_process(delta:float)->void:
+
+func reroll() -> void:
+	.reroll()
+
+
+func _physics_process(delta: float) -> void:
 	match current_roll:
 		0:
 			self_destruct()
