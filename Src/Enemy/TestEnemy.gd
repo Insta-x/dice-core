@@ -120,6 +120,8 @@ func check_immune(x : int) -> bool:
 
 func _on_Area2D_body_entered(body:Bullet)->void:
 	body.queue_free()
+	if body.lowlimiter != -1:
+		dice_wrapper.set_new_limit(body.lowlimiter, body.uplimiter)
 	if check_immune(body.roll):
 		return
 	print("health " + str(health))

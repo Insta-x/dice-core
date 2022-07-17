@@ -44,11 +44,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Enemy/TestEnemy.gd"
 }, {
-"base": "EditorVCSInterface",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://addons/godot-git-plugin/git_api.gdns"
-}, {
 "base": "Node",
 "class": "Limiter",
 "language": "GDScript",
@@ -82,7 +77,6 @@ _global_script_class_icons={
 "DiceWrapper": "",
 "Emitter": "",
 "Enemy": "",
-"GitAPI": "",
 "Limiter": "",
 "MultiplierDiceCoreResource": "",
 "PickupableDiceCore": "",
@@ -108,7 +102,7 @@ window/size/height=720
 
 [gdnative]
 
-singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+singletons=[  ]
 
 [importer_defaults]
 
