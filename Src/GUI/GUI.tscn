@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=2]
-
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/GUI/shoot-ui.png" type="Texture" id=1]
 [ext_resource path="res://Assets/GUI/reload-bar.png" type="Texture" id=2]
 [ext_resource path="res://Src/GUI/ReloadProgress.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Src/GUI/ScoreLabel.gd" type="Script" id=5]
 [ext_resource path="res://Assets/GUI/dice-core-shape-player1.png" type="Texture" id=6]
 [ext_resource path="res://Src/GUI/TimeLabel.gd" type="Script" id=7]
 [ext_resource path="res://Src/GUI/RollLabel.tscn" type="PackedScene" id=8]
@@ -60,12 +60,18 @@ func change_limiter(lower_limit: int, upper_limit: int) -> void:
 	text = str(upper_limit)
 "
 
-[sub_resource type="DynamicFont" id=1]
-size = 40
-font_data = ExtResource( 4 )
-
 [sub_resource type="DynamicFont" id=9]
 size = 32
+outline_size = 1
+outline_color = Color( 0, 1, 0.596078, 1 )
+use_mipmaps = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 32
+outline_size = 1
+outline_color = Color( 1, 0.756863, 0, 1 )
+use_mipmaps = true
 font_data = ExtResource( 4 )
 
 [node name="GUI" type="Control"]
@@ -181,3 +187,17 @@ text = "180"
 align = 2
 valign = 1
 script = ExtResource( 7 )
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_top = 40.0
+margin_right = 20.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.945098, 1, 0, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "0"
+align = 1
+valign = 1
+script = ExtResource( 5 )

@@ -175,6 +175,8 @@ func _on_Area2D_body_entered(body: Bullet) -> void:
 
 
 func dead() -> void:
+	set_physics_process(false)
+	GlobalSignals.emit_signal("text_popup", str(score), global_position)
 	ScoreTracker.score += score
 	yield(get_tree().create_timer(1), "timeout")
 	queue_free()
