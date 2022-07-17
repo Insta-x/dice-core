@@ -13,3 +13,7 @@ func _physics_process(delta:float)->void:
 		_: 
 			do_nothing()
 	data.init = false
+
+
+func modifhit() -> void:
+	.reroll()

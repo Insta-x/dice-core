@@ -38,7 +38,7 @@ dice_core_resource = ExtResource( 5 )
 script = ExtResource( 6 )
 
 [node name="DiceTimer" type="Timer" parent="."]
-wait_time = 3.0
+one_shot = true
 autostart = true
 
 [node name="Emitter" type="Node2D" parent="."]
@@ -52,6 +52,7 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
+[connection signal="health_changed" from="." to="EnemyGUI" method="_on_health_changed"]
 [connection signal="dice_rolled" from="DiceWrapper" to="EnemyGUI" method="_on_DiceWrapper_dice_rolled"]
 [connection signal="limiter_changed" from="DiceWrapper" to="EnemyGUI" method="_on_DiceWrapper_limiter_changed"]
 [connection signal="number_changed" from="DiceWrapper" to="EnemyGUI" method="_on_DiceWrapper_number_changed"]

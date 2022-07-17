@@ -7,7 +7,6 @@ const enemy_scenes := [
 
 export (NodePath) onready var player = get_node(player) as Player
 
-
 func spawn() -> void:
 	var select : int = randi() % len(enemy_scenes)
 	var enemy : Enemy = enemy_scenes[select].instance()
