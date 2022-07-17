@@ -109,22 +109,39 @@ func _on_Timer_timeout() -> void:
 
 
 func check_immune(x : int) -> bool:
-	return ((immune_to_more and x > current_roll)
-		or (immune_to_less and x < current_roll)
-		or (immune_to_same and x == current_roll)
-		or (immune_to_even and x % 2 == 0)
-		or (immune_to_odd and x % 2 == 1)
-	)
+	var result := false
+	
+	if immune_to_more and x > current_roll:
+		GlobalSignals.emit_signal("text_popup", "immune to higher", global_position)
+		result = true
+	
+	if immune_to_less and x < current_roll:
+		GlobalSignals.emit_signal("text_popup", "immune to lower", global_position)
+		result = true
+	
+	if immune_to_same and x == current_roll:
+		GlobalSignals.emit_signal("text_popup", "immune to equal", global_position)
+		result = true
+	
+	if immune_to_even and x % 2 == 0:
+		GlobalSignals.emit_signal("text_popup", "immune to even", global_position)
+		result = true
+	
+	if immune_to_odd and x % 2 == 1:
+		GlobalSignals.emit_signal("text_popup", "immune to odd", global_position)
+		result = true
+	
+	return result
 
 
 func _on_Area2D_body_entered(body: Bullet) -> void:
 	if body is LimitBullet:
 		dice_wrapper.set_new_limit(body.lower_limit, body.upper_limit)
 	
+	body.queue_free()
+	
 	if check_immune(body.roll):
 		return
-	
-	body.queue_free()
 	
 #	print("health " + str(health))
 
