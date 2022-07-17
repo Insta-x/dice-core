@@ -5,6 +5,7 @@ class_name DiceWrapper
 
 signal dice_rolled(number)
 signal limiter_changed(lower_limit, upper_limit)
+signal number_changed(number)
 
 onready var dice_core : DiceCore = $DiceCore
 onready var limiter : Limiter = $Limiter
@@ -22,3 +23,4 @@ func set_new_limit(lower_limit: int, upper_limit: int) -> void:
 	limiter.lower_limit = lower_limit
 	limiter.upper_limit = upper_limit
 	emit_signal("limiter_changed", lower_limit, upper_limit)
+	emit_signal("number_changed", get_number(false))

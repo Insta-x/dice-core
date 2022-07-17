@@ -166,3 +166,4 @@ script = ExtResource( 7 )
 [connection signal="animation_finished" from="PlayerAnimationPlayer" to="Player/PlayerGun" method="_on_PlayerAnimationPlayer_animation_finished"]
 [connection signal="dice_rolled" from="DiceWrapper" to="." method="_on_DiceWrapper_dice_rolled"]
 [connection signal="limiter_changed" from="DiceWrapper" to="." method="_on_DiceWrapper_limiter_changed"]
+[connection signal="number_changed" from="DiceWrapper" to="." method="_on_DiceWrapper_number_changed"]

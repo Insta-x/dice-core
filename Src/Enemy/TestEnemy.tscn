@@ -39,4 +39,5 @@ bullet_scn = ExtResource( 6 )
 
 [connection signal="dice_rolled" from="DiceWrapper" to="EnemyGUI" method="_on_DiceWrapper_dice_rolled"]
 [connection signal="limiter_changed" from="DiceWrapper" to="EnemyGUI" method="_on_DiceWrapper_limiter_changed"]
+[connection signal="number_changed" from="DiceWrapper" to="EnemyGUI" method="_on_DiceWrapper_number_changed"]
 [connection signal="timeout" from="DiceTimer" to="." method="reroll"]
