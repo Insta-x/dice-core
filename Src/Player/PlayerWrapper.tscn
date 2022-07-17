@@ -23,7 +23,7 @@
 [ext_resource path="res://Assets/Audio/SFX/pick-up.ogg" type="AudioStream" id=21]
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 30.0
+radius = 40.0
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 40.0
