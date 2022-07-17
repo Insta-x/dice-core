@@ -35,3 +35,19 @@ lower_limit = 5
 [node name="PickupableDiceCore" parent="." instance=ExtResource( 4 )]
 position = Vector2( -192, 64 )
 dice_core_resource = ExtResource( 5 )
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -1
+points = PoolVector2Array( -1152, 704, 0, 1152, 1152, 704, 1152, -704, 0, -1088, -1152, -768, -1152, 704 )
+default_color = Color( 0, 1, 1, 1 )
+
+[node name="Line2D2" type="Line2D" parent="."]
+z_index = -1
+points = PoolVector2Array( -1216, 768, 0, 1216, 1216, 768, 1216, -768, 0, -1152, -1216, -832, -1216, 768 )
+default_color = Color( 0, 1, 1, 1 )
+
+[node name="Line2D4" type="Line2D" parent="."]
+position = Vector2( -1152, -256 )
+z_index = -1
+points = PoolVector2Array( 1728, 576, 1152, 768, 1152, 1408, 1152, 768, 576, 576, 0, 960, 576, 576, 576, -64, 0, -512, 576, -64, 1152, -256, 1152, -832, 1152, -256, 1728, -64, 2304, -448, 1728, -64, 1728, 576, 2304, 960 )
+default_color = Color( 1, 0.968627, 0.152941, 1 )
