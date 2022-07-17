@@ -5,16 +5,18 @@
 [ext_resource path="res://Assets/GUI/dice-core-shape1.png" type="Texture" id=3]
 [ext_resource path="res://Src/GUI/RollLabel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Src/GUI/EnemyGUI.gd" type="Script" id=6]
+[ext_resource path="res://Src/GUI/Wrapper.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
 font_data = ExtResource( 5 )
 
-[node name="EnemyGUI" type="Control"]
-script = ExtResource( 6 )
+[node name="GUIwrapper" type="Node2D"]
+script = ExtResource( 7 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="EnemyGUI" type="Control" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EnemyGUI"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -26,14 +28,14 @@ margin_bottom = 8.0
 custom_constants/separation = 20
 alignment = 1
 
-[node name="Health" type="TextureRect" parent="HBoxContainer"]
+[node name="Health" type="TextureRect" parent="EnemyGUI/HBoxContainer"]
 margin_left = 5.0
 margin_right = 37.0
 margin_bottom = 32.0
 size_flags_vertical = 0
 texture = ExtResource( 1 )
 
-[node name="Label" type="Label" parent="HBoxContainer/Health"]
+[node name="Label" type="Label" parent="EnemyGUI/HBoxContainer/Health"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -51,18 +53,18 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="EnemyGUI/HBoxContainer"]
 margin_left = 57.0
 margin_right = 161.0
 margin_bottom = 40.0
 
-[node name="LowerLimit" type="TextureRect" parent="HBoxContainer/HBoxContainer"]
+[node name="LowerLimit" type="TextureRect" parent="EnemyGUI/HBoxContainer/HBoxContainer"]
 margin_right = 32.0
 margin_bottom = 32.0
 size_flags_vertical = 0
 texture = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer/LowerLimit"]
+[node name="Label" type="Label" parent="EnemyGUI/HBoxContainer/HBoxContainer/LowerLimit"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -80,14 +82,14 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="DiceCore" type="TextureRect" parent="HBoxContainer/HBoxContainer"]
+[node name="DiceCore" type="TextureRect" parent="EnemyGUI/HBoxContainer/HBoxContainer"]
 margin_left = 36.0
 margin_right = 68.0
 margin_bottom = 32.0
 size_flags_vertical = 0
 texture = ExtResource( 3 )
 
-[node name="RollLabel" parent="HBoxContainer/HBoxContainer/DiceCore" instance=ExtResource( 4 )]
+[node name="RollLabel" parent="EnemyGUI/HBoxContainer/HBoxContainer/DiceCore" instance=ExtResource( 4 )]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -102,14 +104,14 @@ text = "10"
 align = 1
 valign = 1
 
-[node name="UpperLimit" type="TextureRect" parent="HBoxContainer/HBoxContainer"]
+[node name="UpperLimit" type="TextureRect" parent="EnemyGUI/HBoxContainer/HBoxContainer"]
 margin_left = 72.0
 margin_right = 104.0
 margin_bottom = 32.0
 size_flags_vertical = 0
 texture = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer/UpperLimit"]
+[node name="Label" type="Label" parent="EnemyGUI/HBoxContainer/HBoxContainer/UpperLimit"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
