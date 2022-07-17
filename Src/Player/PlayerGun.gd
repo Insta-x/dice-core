@@ -3,7 +3,7 @@ extends Node2D
 
 export (PackedScene) var bullet_scn
 export (Vector2) var emit_offset
-export (NodePath) onready var dice_core = get_node(dice_core) as DiceCore
+export (NodePath) onready var dice_wrapper = get_node(dice_wrapper) as DiceWrapper
 
 var can_shoot := true
 
@@ -13,7 +13,7 @@ func shoot() -> void:
 		return
 	
 	var bullet : Bullet = bullet_scn.instance()
-	bullet.roll = dice_core.get_number()
+	bullet.roll = dice_wrapper.get_number()
 	# global_position harus setelah add_child ga tau knp
 	bullet.global_rotation = global_rotation
 	owner.get_parent().add_child(bullet)

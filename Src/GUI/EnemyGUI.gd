@@ -1,6 +1,10 @@
 extends Control
 
 
+func _on_health_changed(value: int) -> void:
+	$HBoxContainer/Health/Label.text = str(value)
+
+
 func _on_DiceCore_dice_rolled(number: int) -> void:
 	$HBoxContainer/HBoxContainer/DiceCore/RollLabel.roll(number)
 

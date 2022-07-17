@@ -21,7 +21,6 @@ polygon = PoolVector2Array( 24, 0, 0, -24, -24, 0, 0, 24 )
 
 [node name="DiceCore" type="Node" parent="."]
 script = ExtResource( 4 )
-limiter = NodePath("../Limiter")
 
 [node name="Limiter" type="Node" parent="."]
 script = ExtResource( 3 )

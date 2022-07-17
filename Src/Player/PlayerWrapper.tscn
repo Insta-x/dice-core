@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Player/GunSprite.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Src/Player/DiceCorePickupArea.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Src/Player/LimiterPickupArea.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Src/Player/PlayerWrapper.gd" type="Script" id=11]
+[ext_resource path="res://Src/Components/DiceWrapper.gd" type="Script" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -97,17 +98,16 @@ position = Vector2( 90, 0 )
 script = ExtResource( 5 )
 bullet_scn = ExtResource( 6 )
 emit_offset = Vector2( 32, 0 )
-dice_core = NodePath("../../DiceCore")
+dice_wrapper = NodePath("../../DiceWrapper")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
 [node name="DiceCorePickupArea" parent="Player" instance=ExtResource( 9 )]
-dice_core = NodePath("../../DiceCore")
+dice_core = NodePath("../../DiceWrapper/DiceCore")
 
 [node name="LimiterPickupArea" parent="Player" instance=ExtResource( 10 )]
-dice_core = NodePath("../../DiceCore")
-limiter = NodePath("../../Limiter")
+dice_wrapper = NodePath("../../DiceWrapper")
 
 [node name="GunSprite" type="Sprite" parent="."]
 position = Vector2( 3, 81 )
@@ -153,13 +153,16 @@ anims/RESET = SubResource( 3 )
 anims/Shoot = SubResource( 2 )
 script = ExtResource( 4 )
 
-[node name="DiceCore" type="Node" parent="."]
-script = ExtResource( 8 )
-limiter = NodePath("../Limiter")
+[node name="DiceWrapper" type="Node" parent="."]
+script = ExtResource( 12 )
 
-[node name="Limiter" type="Node" parent="."]
+[node name="DiceCore" type="Node" parent="DiceWrapper"]
+script = ExtResource( 8 )
+
+[node name="Limiter" type="Node" parent="DiceWrapper"]
 script = ExtResource( 7 )
 
 [connection signal="shoot_input" from="Player" to="PlayerAnimationPlayer" method="_on_Player_shoot_input"]
 [connection signal="animation_finished" from="PlayerAnimationPlayer" to="Player/PlayerGun" method="_on_PlayerAnimationPlayer_animation_finished"]
-[connection signal="dice_rolled" from="DiceCore" to="." method="_on_DiceCore_dice_rolled"]
+[connection signal="dice_rolled" from="DiceWrapper" to="." method="_on_DiceWrapper_dice_rolled"]
+[connection signal="limiter_changed" from="DiceWrapper" to="." method="_on_DiceWrapper_limiter_changed"]
