@@ -7,7 +7,7 @@ export (int) var init_number := 1
 export (Texture) var dice_icon
 export (NodePath) onready var limiter = get_node(limiter) as Limiter
 
-signal dice_rolled
+signal dice_rolled(number)
 
 var current_number := init_number
 
