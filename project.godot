@@ -34,7 +34,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Components/Limiter.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "Area2D",
 "class": "PickupableLimiter",
 "language": "GDScript",
 "path": "res://Src/Objects/PickupableLimiter.gd"
