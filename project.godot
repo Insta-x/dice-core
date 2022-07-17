@@ -99,6 +99,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GlobalSignals="*res://Src/Singletons/GlobalSignals.gd"
+ScoreTracker="*res://Src/Singletons/ScoreTracker.gd"
 
 [display]
 
