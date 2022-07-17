@@ -20,21 +20,32 @@ onready var dice_wrapper := $DiceWrapper
 var current_roll := 0
 var data := {}
 
+onready var delay : Timer
+
 
 func spawn(player : KinematicBody2D)-> void:
 	data.player = player
 	data.canshoot = false
 	data.init = true
-
+	delay = Timer.new()
+	add_child(delay)
+	delay.wait_time = 0.25
+	delay.one_shot = true
+	delay.connect("timeout", self, "rolldone")
 
 func _ready() -> void:
 	current_roll = dice_wrapper.get_number(false)
 
 
 func reroll() -> void:
-	current_roll = dice_wrapper.get_number()
-	data.init = true
+	dice_wrapper.get_number(true)
+	delay.start()
 
+
+func rolldone() -> void:
+	current_roll = dice_wrapper.get_number(false)
+	data.init = true
+	
 
 func _physics_process(delta: float) -> void:
 	match current_roll:
