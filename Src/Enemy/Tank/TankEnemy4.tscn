@@ -24,7 +24,10 @@ texture = ExtResource( 9 )
 polygon = PoolVector2Array( 24, 0, 0, -24, -24, 0, 0, 24 )
 
 [node name="EnemyGUI" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, -120 )
+
+[node name="EnemyGUI" parent="EnemyGUI" index="0"]
+margin_top = -120.0
+margin_bottom = -120.0
 
 [node name="DiceWrapper" type="Node" parent="."]
 script = ExtResource( 7 )
@@ -58,3 +61,5 @@ shape = SubResource( 1 )
 [connection signal="number_changed" from="DiceWrapper" to="EnemyGUI" method="_on_DiceWrapper_number_changed"]
 [connection signal="timeout" from="DiceTimer" to="." method="reroll"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+[editable path="EnemyGUI"]
