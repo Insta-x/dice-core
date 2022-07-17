@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Assets/GUI/shoot-ui.png" type="Texture" id=1]
 [ext_resource path="res://Assets/GUI/reload-bar.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Src/GUI/TimeLabel.gd" type="Script" id=7]
 [ext_resource path="res://Src/GUI/RollLabel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/GUI/limiter-frame.png" type="Texture" id=9]
+[ext_resource path="res://Assets/GUI/limiter-bg.png" type="Texture" id=10]
+[ext_resource path="res://Src/GUI/LimitProgress.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=4]
 size = 24
@@ -61,6 +63,36 @@ func change_limiter(lower_limit: int, upper_limit: int) -> void:
 	text = str(upper_limit)
 "
 
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 4 )
+
+[sub_resource type="GDScript" id=13]
+script/source = "extends Label
+
+
+func _ready() -> void:
+	GlobalSignals.connect(\"player_lower_limit_gun_changed\", self, \"_on_changed\")
+
+
+func _on_changed(value: int) -> void:
+	text = str(value)
+"
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 4 )
+
+[sub_resource type="GDScript" id=14]
+script/source = "extends Label
+
+
+func _ready() -> void:
+	GlobalSignals.connect(\"player_upper_limit_gun_changed\", self, \"_on_changed\")
+
+
+func _on_changed(value: int) -> void:
+	text = str(value)
+"
+
 [sub_resource type="DynamicFont" id=9]
 size = 32
 outline_size = 1
@@ -96,8 +128,8 @@ custom_constants/separation = 90
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 455.0
-margin_right = 591.0
+margin_left = 378.0
+margin_right = 514.0
 margin_bottom = 64.0
 alignment = 2
 
@@ -167,8 +199,8 @@ valign = 1
 script = SubResource( 7 )
 
 [node name="ReloadProgress" type="TextureProgress" parent="MarginContainer/HBoxContainer"]
-margin_left = 681.0
-margin_right = 745.0
+margin_left = 604.0
+margin_right = 668.0
 margin_bottom = 64.0
 texture_under = ExtResource( 1 )
 texture_progress = ExtResource( 2 )
@@ -176,6 +208,39 @@ fill_mode = 3
 script = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="MarginContainer/HBoxContainer/ReloadProgress"]
+
+[node name="LimitProgress" type="TextureProgress" parent="MarginContainer/HBoxContainer"]
+margin_left = 758.0
+margin_right = 822.0
+margin_bottom = 64.0
+texture_under = ExtResource( 10 )
+texture_progress = ExtResource( 2 )
+fill_mode = 3
+script = ExtResource( 11 )
+
+[node name="LowerLabel" type="Label" parent="MarginContainer/HBoxContainer/LimitProgress"]
+margin_left = 4.0
+margin_top = 20.0
+margin_right = 28.0
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 11 )
+text = "0"
+align = 1
+valign = 1
+script = SubResource( 13 )
+
+[node name="UpperLabel" type="Label" parent="MarginContainer/HBoxContainer/LimitProgress"]
+margin_left = 36.0
+margin_top = 20.0
+margin_right = 60.0
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 12 )
+text = "6"
+align = 1
+valign = 1
+script = SubResource( 14 )
+
+[node name="Tween" type="Tween" parent="MarginContainer/HBoxContainer/LimitProgress"]
 
 [node name="TimeLabel" type="Label" parent="."]
 anchor_right = 1.0
