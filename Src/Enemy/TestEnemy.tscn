@@ -35,4 +35,6 @@ script = ExtResource( 5 )
 bullet_scn = ExtResource( 6 )
 
 [connection signal="dice_rolled" from="DiceCore" to="EnemyGUI" method="_on_DiceCore_dice_rolled"]
+[connection signal="lower_limit_changed" from="Limiter" to="EnemyGUI" method="_on_Limiter_lower_limit_changed"]
+[connection signal="upper_limit_changed" from="Limiter" to="EnemyGUI" method="_on_Limiter_upper_limit_changed"]
 [connection signal="timeout" from="DiceTimer" to="." method="reroll"]

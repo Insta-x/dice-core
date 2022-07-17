@@ -7,8 +7,8 @@ class_name Limiter
 export (int) var upper_limit := 6 setget set_upper_limit
 export (int) var lower_limit := 0 setget set_lower_limit
 
-signal lower_limit_changed(new_limit)
 signal upper_limit_changed(new_limit)
+signal lower_limit_changed(new_limit)
 
 var modulo := upper_limit - lower_limit + 1
 
