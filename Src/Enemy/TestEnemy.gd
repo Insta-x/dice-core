@@ -25,7 +25,7 @@ var current_roll := 0
 var data := {}
 
 onready var delay : Timer
-
+var is_batu = false
 
 func spawn(player : KinematicBody2D)-> void:
 	data.player = player
@@ -33,6 +33,7 @@ func spawn(player : KinematicBody2D)-> void:
 func _ready() -> void:
 	emit_signal("health_changed", health)
 	rolldone()
+	dice_wrapper.connect("dice_core_changed", enemy_gui, "_on_DiceWrapper_dice_core_changed")
 	dice_wrapper.emit_signal("number_changed", current_roll)
 	dice_wrapper.emit_signal("dice_core_changed", $DiceWrapper/DiceCore.dice_core_resource)
 	dice_wrapper.emit_signal("limiter_changed", $DiceWrapper/Limiter.lower_limit, $DiceWrapper/Limiter.upper_limit)
@@ -44,7 +45,6 @@ func _ready() -> void:
 	delay.wait_time = 0.25
 	delay.one_shot = true
 	delay.connect("timeout", self, "rolldone")
-
 
 func reroll() -> void:
 	dice_wrapper.get_number(true)
@@ -178,6 +178,12 @@ func _on_Area2D_body_entered(body: Bullet) -> void:
 	if body.roll == current_roll:
 		self.health -= additional_weak_damage
 	emit_signal("health_changed", health)
+
+	if health <= 0:
+		yield(get_tree().create_timer(1), "timeout")
+		if (is_batu):
+			GlobalSignals.emit_signal("batu_died")
+		queue_free()
 
 
 func dead() -> void:

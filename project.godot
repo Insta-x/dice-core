@@ -103,7 +103,6 @@ _global_script_class_icons={
 "DiceWrapper": "",
 "Emitter": "",
 "Enemy": "",
-"GitAPI": "",
 "LimitBullet": "",
 "Limiter": "",
 "MultAdderDiceCoreResource": "",
@@ -124,6 +123,7 @@ config/icon="res://icon.png"
 
 GlobalSignals="*res://Src/Singletons/GlobalSignals.gd"
 ScoreTracker="*res://Src/Singletons/ScoreTracker.gd"
+GlobalGame="*res://Src/Singletons/GlobalGame.gd"
 
 [display]
 
@@ -132,7 +132,7 @@ window/size/height=720
 
 [gdnative]
 
-singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+singletons=[  ]
 
 [importer_defaults]
 

@@ -7,10 +7,14 @@ func rolldone() -> void:
 		0:
 			emit_signal("behaviour_changed", "self destruct")
 		1:
+			$AnimatedSprite.playing = true
 			emit_signal("behaviour_changed", "move to player")
 		2:
+			$AnimatedSprite.playing = true
 			emit_signal("behaviour_changed", "move random")
 		_:
+			$AnimatedSprite.frame = 0
+			$AnimatedSprite.playing = false
 			emit_signal("behaviour_changed", "do nothing")
 
 
