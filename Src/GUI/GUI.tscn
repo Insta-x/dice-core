@@ -38,6 +38,7 @@ func _ready() -> void:
 
 func change_dice_core(resource: DiceCoreResource) -> void:
 	texture = resource.dice_icon
+	self_modulate = resource.color
 "
 
 [sub_resource type="DynamicFont" id=3]

@@ -15,7 +15,8 @@ func _on_DiceWrapper_dice_rolled(number: int) -> void:
 
 
 func _on_DiceWrapper_dice_core_changed(resource: DiceCoreResource) -> void:
-	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore.texture = resource.dice_icon
+	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore.texture = resource.small_dice_icon
+	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore.self_modulate = resource.color
 
 
 func _on_DiceWrapper_limiter_changed(lower_limit: int, upper_limit: int) -> void:

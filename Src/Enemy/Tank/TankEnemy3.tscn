@@ -7,7 +7,7 @@
 [ext_resource path="res://Src/Components/Emitter.gd" type="Script" id=5]
 [ext_resource path="res://Src/Objects/EnemyBullet.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/Components/DiceWrapper.gd" type="Script" id=7]
-[ext_resource path="res://Src/Components/DiceCore/SimpleDiceCore.tres" type="Resource" id=8]
+[ext_resource path="res://Src/Components/DiceCore/Multiplier/Multiply3DiceCore.tres" type="Resource" id=8]
 [ext_resource path="res://Assets/Art/enemy-tank.png" type="Texture" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
