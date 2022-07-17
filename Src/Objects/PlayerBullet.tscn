@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="PlayerBullet" type="KinematicBody2D"]
-collision_layer = 4
+collision_layer = 16
 script = ExtResource( 2 )
 movespeed = 500.0
 

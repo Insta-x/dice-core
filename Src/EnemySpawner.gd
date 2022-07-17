@@ -9,4 +9,10 @@ export (NodePath) onready var player = get_node(player) as Player
 
 
 func spawn() -> void:
-	pass
+	var select : int = randi() % len(enemy_scenes)
+	var enemy : Enemy = enemy_scenes[select].instance()
+	enemy.spawn(player)
+	get_parent().call_deferred("add_child", enemy)
+
+func _ready() -> void:
+	spawn()

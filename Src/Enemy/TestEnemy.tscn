@@ -9,6 +9,9 @@
 [ext_resource path="res://Src/Components/DiceWrapper.gd" type="Script" id=7]
 [ext_resource path="res://Src/Components/DiceCore/SimpleDiceCore.tres" type="Resource" id=8]
 
+[sub_resource type="CircleShape2D" id=1]
+radius = 30.0
+
 [node name="TestEnemy" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
@@ -39,7 +42,15 @@ autostart = true
 script = ExtResource( 5 )
 bullet_scn = ExtResource( 6 )
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
 [connection signal="dice_rolled" from="DiceWrapper" to="EnemyGUI" method="_on_DiceWrapper_dice_rolled"]
 [connection signal="limiter_changed" from="DiceWrapper" to="EnemyGUI" method="_on_DiceWrapper_limiter_changed"]
 [connection signal="number_changed" from="DiceWrapper" to="EnemyGUI" method="_on_DiceWrapper_number_changed"]
 [connection signal="timeout" from="DiceTimer" to="." method="reroll"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
