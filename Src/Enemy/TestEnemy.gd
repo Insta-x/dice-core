@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 class_name Enemy
 
-
 export (bool) var immune_to_more = false
 export (bool) var immune_to_less = false
 export (bool) var immune_to_same = false

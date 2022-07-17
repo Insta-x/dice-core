@@ -1,8 +1,8 @@
 extends Enemy
 
 
-func reroll() -> void:
-	.reroll()
+func rolldone() -> void:
+	.rolldone()
 	match current_roll:
 		0:
 			emit_signal("behaviour_changed", "self destruct")
