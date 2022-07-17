@@ -47,6 +47,7 @@ func _ready() -> void:
 func reroll() -> void:
 	dice_wrapper.get_number(true)
 	delay.start()
+	
 
 
 func rolldone() -> void:
@@ -61,6 +62,8 @@ func _physics_process(delta: float) -> void:
 		1, 2, 3, 4, 5, 6:
 			do_nothing()
 	data.init = false
+	
+	enemy_gui.get_node("EnemyGUI/VBoxContainer/DiceTimerProgress").value = $DiceTimer.time_left * 50
 
 
 func goto(pos : Vector2, mundur := false) -> Vector2:

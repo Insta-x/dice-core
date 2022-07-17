@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Src/GUI/EnemyGUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Enemy/Tank/TankEnemy.gd" type="Script" id=2]
@@ -9,9 +9,16 @@
 [ext_resource path="res://Src/Components/DiceWrapper.gd" type="Script" id=7]
 [ext_resource path="res://Src/Components/DiceCore/SimpleDiceCore.tres" type="Resource" id=8]
 [ext_resource path="res://Assets/Art/enemy-tank.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 30.0
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+outline_size = 2
+outline_color = Color( 1, 0.988235, 1, 1 )
+font_data = ExtResource( 10 )
 
 [node name="TankEnemy" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -52,6 +59,16 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -19.0
+margin_top = -31.0
+margin_right = 21.0
+margin_bottom = 34.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "-"
+valign = 1
 
 [connection signal="behaviour_changed" from="." to="EnemyGUI" method="_on_behaviour_changed"]
 [connection signal="health_changed" from="." to="EnemyGUI" method="_on_health_changed"]
