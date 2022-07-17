@@ -2,7 +2,6 @@ extends Control
 
 
 onready var screen_fader =  $ScreenFader
-onready var animation_player = $AnimationPlayer
 onready var continue_label = $ColorRect/CenterContainer/VBoxContainer/ContinueLabel
 
 func _ready():
