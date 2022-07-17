@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "DiceCoreResource",
+"class": "AdderDiceCoreResource",
+"language": "GDScript",
+"path": "res://Src/Components/DiceCore/AdderDiceCore.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Bullet",
 "language": "GDScript",
@@ -50,6 +55,11 @@ _global_script_classes=[ {
 "path": "res://Src/Components/DiceCore/MultiplierDiceCore.gd"
 }, {
 "base": "Area2D",
+"class": "PickupableDiceCore",
+"language": "GDScript",
+"path": "res://Src/Objects/PickupableDiceCore.gd"
+}, {
+"base": "Area2D",
 "class": "PickupableLimiter",
 "language": "GDScript",
 "path": "res://Src/Objects/PickupableLimiter.gd"
@@ -60,6 +70,7 @@ _global_script_classes=[ {
 "path": "res://Src/Player/Player.gd"
 } ]
 _global_script_class_icons={
+"AdderDiceCoreResource": "",
 "Bullet": "",
 "DiceCore": "",
 "DiceCoreResource": "",
@@ -68,6 +79,7 @@ _global_script_class_icons={
 "GitAPI": "",
 "Limiter": "",
 "MultiplierDiceCoreResource": "",
+"PickupableDiceCore": "",
 "PickupableLimiter": "",
 "Player": ""
 }
