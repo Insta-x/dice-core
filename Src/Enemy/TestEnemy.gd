@@ -45,6 +45,7 @@ func _ready() -> void:
 	delay.one_shot = true
 	delay.connect("timeout", self, "rolldone")
 
+
 func reroll() -> void:
 	dice_wrapper.get_number(true)
 	delay.start()
