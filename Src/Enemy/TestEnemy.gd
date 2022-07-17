@@ -28,15 +28,15 @@ onready var delay : Timer
 var is_batu = false
 
 
-func spawn(player : KinematicBody2D)-> void:
+func spawn(player: KinematicBody2D, dice_core: DiceCoreResource, lower_limit: int, upper_limit: int) -> void:
 	data.player = player
+	dice_wrapper.set_new_dice_core(dice_core)
+	dice_wrapper.set_new_limit(lower_limit, upper_limit)
+
 
 func _ready() -> void:
 	rolldone()
 	dice_wrapper.connect("dice_core_changed", enemy_gui, "_on_DiceWrapper_dice_core_changed")
-	dice_wrapper.emit_signal("number_changed", current_roll)
-	dice_wrapper.emit_signal("dice_core_changed", $DiceWrapper/DiceCore.dice_core_resource)
-	dice_wrapper.emit_signal("limiter_changed", $DiceWrapper/Limiter.lower_limit, $DiceWrapper/Limiter.upper_limit)
 	
 	data.canshoot = false
 	data.init = true
