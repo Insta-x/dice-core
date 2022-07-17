@@ -20,7 +20,7 @@
 [ext_resource path="res://Src/Player/PlayerCamera2D.gd" type="Script" id=18]
 [ext_resource path="res://Src/Player/PlayerLimitGun.gd" type="Script" id=19]
 [ext_resource path="res://Src/Objects/LimitBullet.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Assets/Audio/SFX/pick-up.ogg" type="AudioStream" id=21]
+[ext_resource path="res://Assets/Audio/SFX/pick-up.wav" type="AudioStream" id=21]
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 40.0
