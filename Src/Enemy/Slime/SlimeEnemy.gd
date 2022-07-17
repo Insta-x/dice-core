@@ -7,14 +7,10 @@ func rolldone() -> void:
 		0:
 			emit_signal("behaviour_changed", "self destruct")
 		1:
-			$AnimatedSprite.playing = true
 			emit_signal("behaviour_changed", "move to player")
 		2:
-			$AnimatedSprite.playing = true
 			emit_signal("behaviour_changed", "move random")
 		_:
-			$AnimatedSprite.frame = 0
-			$AnimatedSprite.playing = false
 			emit_signal("behaviour_changed", "do nothing")
 
 
@@ -29,3 +25,13 @@ func _physics_process(delta:float)->void:
 		_: 
 			do_nothing()
 	data.init = false
+
+func set_health(value: int) -> void:
+	$Sprite.material.set_shader_param("flash_modifier",1)
+	$ShaderTimer.start()
+	.set_health(value)
+
+
+func _on_ShaderTimer_timeout():
+	$Sprite.material.set_shader_param("flash_modifier",0)
+	pass # Replace with function body.
