@@ -17,6 +17,8 @@ radius = 40.0
 [node name="SlimeEnemy" type="KinematicBody2D"]
 collision_layer = 12
 script = ExtResource( 8 )
+immune_to_even = false
+speed = 100
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 10 )

@@ -33,10 +33,11 @@ animations = [ {
 collision_layer = 16
 collision_mask = 0
 script = ExtResource( 1 )
-movespeed = 500.0
+movespeed = 900.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

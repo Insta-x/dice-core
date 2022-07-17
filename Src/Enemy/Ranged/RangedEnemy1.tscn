@@ -133,6 +133,7 @@ radius = 52.0
 [node name="RangedEnemy" type="KinematicBody2D"]
 collision_layer = 4
 script = ExtResource( 8 )
+immune_to_even = false
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 5 )
