@@ -32,6 +32,7 @@ script/source = "extends TextureRect
 
 func _ready() -> void:
 	GlobalSignals.connect(\"player_dice_roll\", $RollLabel, \"roll\")
+	GlobalSignals.connect(\"player_number_changed\", $RollLabel, \"change_number\")
 "
 
 [sub_resource type="DynamicFont" id=3]
