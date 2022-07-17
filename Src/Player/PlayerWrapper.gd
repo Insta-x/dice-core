@@ -9,6 +9,7 @@ func _ready() -> void:
 
 
 func _on_DiceWrapper_dice_rolled(number: int) -> void:
+	$DiceRollSFX.play()
 	GlobalSignals.emit_signal("player_dice_rolled", number)
 
 

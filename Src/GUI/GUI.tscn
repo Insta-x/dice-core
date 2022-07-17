@@ -1,15 +1,14 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=14 format=2]
+
 
 [ext_resource path="res://Assets/GUI/shoot-ui.png" type="Texture" id=1]
 [ext_resource path="res://Assets/GUI/reload-bar.png" type="Texture" id=2]
 [ext_resource path="res://Src/GUI/ReloadProgress.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Src/GUI/HealthRect.gd" type="Script" id=5]
 [ext_resource path="res://Assets/GUI/dice-core-shape-player1.png" type="Texture" id=6]
 [ext_resource path="res://Src/GUI/TimeLabel.gd" type="Script" id=7]
 [ext_resource path="res://Src/GUI/RollLabel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/GUI/limiter-frame.png" type="Texture" id=9]
-[ext_resource path="res://Assets/GUI/heart-player.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=4]
 size = 24
@@ -90,8 +89,8 @@ custom_constants/separation = 90
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 378.0
-margin_right = 514.0
+margin_left = 455.0
+margin_right = 591.0
 margin_bottom = 64.0
 alignment = 2
 
@@ -160,30 +159,9 @@ align = 1
 valign = 1
 script = SubResource( 7 )
 
-[node name="HealthRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-margin_left = 604.0
-margin_right = 668.0
-margin_bottom = 64.0
-texture = ExtResource( 10 )
-script = ExtResource( 5 )
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/HealthRect"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
-custom_fonts/font = SubResource( 1 )
-text = "3"
-align = 1
-valign = 1
-
 [node name="ReloadProgress" type="TextureProgress" parent="MarginContainer/HBoxContainer"]
-margin_left = 758.0
-margin_right = 822.0
+margin_left = 681.0
+margin_right = 745.0
 margin_bottom = 64.0
 texture_under = ExtResource( 1 )
 texture_progress = ExtResource( 2 )
