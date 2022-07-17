@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export (int) var speed = 50
 export (PackedScene) var bullet_scn
-onready var dice_core := $DiceCore
+onready var dice_wrapper := $DiceWrapper
 
 var current_roll := 0
 var data := {}
@@ -14,10 +14,10 @@ func spawn(player : KinematicBody2D)-> void:
 
 
 func _ready() -> void:
-	current_roll = dice_core.get_number(false)
+	current_roll = dice_wrapper.get_number(false)
 
 func reroll() -> void:
-	current_roll = dice_core.get_number()
+	current_roll = dice_wrapper.get_number()
 	data.init = true
 
 func _physics_process(delta: float) -> void:
@@ -63,7 +63,7 @@ func avoid_player():
 	
 
 func _on_Timer_timeout() -> void:
-	current_roll = dice_core.get_number()
+	current_roll = dice_wrapper.get_number()
 	print(current_roll)
 
 
