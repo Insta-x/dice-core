@@ -65,6 +65,9 @@ func goto(pos : Vector2, mundur := false) -> Vector2:
 
 
 func self_destruct() -> void:
+	health = 0
+	emit_signal("health_changed", health)
+	yield(get_tree().create_timer(1), "timeout")
 	queue_free()
 
 
@@ -135,5 +138,6 @@ func _on_Area2D_body_entered(body: Bullet) -> void:
 	emit_signal("health_changed", health)
 	
 	if health <= 0:
+		yield(get_tree().create_timer(1), "timeout")
 		queue_free()
 
