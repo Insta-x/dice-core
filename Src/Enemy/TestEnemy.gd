@@ -2,11 +2,14 @@ extends KinematicBody2D
 
 class_name Enemy
 
+var additional_weak_damage := 2
+
 export (bool) var immune_to_more = false
 export (bool) var immune_to_less = false
 export (bool) var immune_to_same = false
 export (bool) var immune_to_even = true
 export (bool) var immune_to_odd = false
+export (bool) var weak_to_same = true
 
 export (int) var speed = 50
 export (int) var health = 3
@@ -34,7 +37,6 @@ func spawn(player : KinematicBody2D)-> void:
 
 func _ready() -> void:
 	current_roll = dice_wrapper.get_number(false)
-
 
 func reroll() -> void:
 	dice_wrapper.get_number(true)
@@ -84,20 +86,16 @@ func shoot() -> void:
 	if data.init:
 		$Emitter.emit()
 
-
 func block_attack() -> void:
 	pass
-
 
 func move_random() -> void:
 	if data.init:
 		data.randdir = Vector2.RIGHT.rotated(randf() * 2 * PI)
 	goto(global_position + data.randdir)
 
-
 func do_nothing() -> void:
 	pass
-
 
 func avoid_player():
 	goto(data.player.global_position, true)
@@ -133,19 +131,25 @@ func check_immune(x : int) -> bool:
 	
 	return result
 
-
+func modifhit() -> void:
+	pass
+	
 func _on_Area2D_body_entered(body: Bullet) -> void:
 	if body is LimitBullet:
 		dice_wrapper.set_new_limit(body.lower_limit, body.upper_limit)
 	
 	body.queue_free()
-	
+  
 	if check_immune(body.roll):
 		return
+	
+	modifhit()
 	
 #	print("health " + str(health))
 
 	health -= 1
+	if body.roll == current_roll:
+		health -= additional_weak_damage
 	emit_signal("health_changed", health)
 	
 	if health <= 0:
