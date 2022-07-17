@@ -20,4 +20,8 @@ func _on_DiceWrapper_number_changed(number: int) -> void:
 	GlobalSignals.emit_signal("player_number_changed", number)
 
 
-
+func _on_HazardDetector_area_entered(area: Area2D) -> void:
+	OS.delay_msec(500)
+	hide()
+	$Player.set_physics_process(false)
+	GlobalSignals.emit_signal("player_died")
