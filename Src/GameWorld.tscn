@@ -16,6 +16,7 @@ player = NodePath("../PlayerWrapper/Player")
 position = Vector2( 0, 384 )
 
 [node name="Wall" type="StaticBody2D" parent="."]
+collision_mask = 6
 __meta__ = {
 "_edit_lock_": true
 }
