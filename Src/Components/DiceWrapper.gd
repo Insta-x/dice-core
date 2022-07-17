@@ -4,6 +4,7 @@ class_name DiceWrapper
 
 
 signal dice_rolled(number)
+signal dice_core_changed(resource)
 signal limiter_changed(lower_limit, upper_limit)
 signal number_changed(number)
 
@@ -17,6 +18,11 @@ func get_number(next: bool = true) -> int:
 		dice_core.next(limiter.modulo)
 		emit_signal("dice_rolled", get_number(false))
 	return result
+
+
+func set_new_dice_core(dice_core_resource: DiceCoreResource) -> void:
+	dice_core.dice_core_resource = dice_core_resource
+	emit_signal("dice_core_changed", dice_core_resource)
 
 
 func set_new_limit(lower_limit: int, upper_limit: int) -> void:
