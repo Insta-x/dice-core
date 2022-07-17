@@ -15,7 +15,7 @@
 [ext_resource path="res://Src/Components/DiceCore/SimpleDiceCore.tres" type="Resource" id=13]
 [ext_resource path="res://Src/Player/Health.gd" type="Script" id=14]
 [ext_resource path="res://Assets/Audio/SFX/gun-shot.wav" type="AudioStream" id=15]
-[ext_resource path="res://Assets/Audio/SFX/reload-roll.wav" type="AudioStream" id=16]
+[ext_resource path="res://Assets/Audio/SFX/dice-roll.wav" type="AudioStream" id=16]
 [ext_resource path="res://Assets/Audio/SFX/player-death.wav" type="AudioStream" id=17]
 
 [sub_resource type="CircleShape2D" id=4]
@@ -69,18 +69,6 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("PlayerReloadSFX:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -149,18 +137,6 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
 "times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("PlayerReloadSFX:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0.816 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
@@ -262,14 +238,15 @@ dice_core_resource = ExtResource( 13 )
 [node name="Limiter" type="Node" parent="DiceWrapper"]
 script = ExtResource( 7 )
 
-[node name="PlayerReloadSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 16 )
-
 [node name="PlayerShootSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
+volume_db = -10.0
 
 [node name="PlayerDIedSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
+
+[node name="DiceRollSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
 
 [connection signal="shoot_input" from="Player" to="PlayerAnimationPlayer" method="_on_Player_shoot_input"]
 [connection signal="area_entered" from="Player/HazardDetector" to="." method="_on_HazardDetector_area_entered"]

@@ -5,6 +5,7 @@ onready var dice_wrapper := $DiceWrapper
 
 
 func _on_DiceWrapper_dice_rolled(number: int) -> void:
+	$DiceRollSFX.play()
 	GlobalSignals.emit_signal("player_dice_rolled", number)
 
 
