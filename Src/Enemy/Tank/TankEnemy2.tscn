@@ -26,6 +26,7 @@ texture = ExtResource( 9 )
 polygon = PoolVector2Array( 24, 0, 0, -24, -24, 0, 0, 24 )
 
 [node name="EnemyGUI" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -120 )
 
 [node name="DiceWrapper" type="Node" parent="."]
 script = ExtResource( 7 )
