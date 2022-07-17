@@ -48,8 +48,9 @@ animations = [ {
 } ]
 
 [node name="AnimatedSprite" type="AnimatedSprite"]
+self_modulate = Color( 0, 0.858824, 1, 1 )
 frames = SubResource( 10 )
-frame = 6
+frame = 5
 playing = true
 script = ExtResource( 2 )
 
