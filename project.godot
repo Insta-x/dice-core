@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
 }, {
+"base": "Bullet",
+"class": "LimitBullet",
+"language": "GDScript",
+"path": "res://Src/Objects/LimitBullet.gd"
+}, {
 "base": "Node",
 "class": "Limiter",
 "language": "GDScript",
@@ -83,6 +88,7 @@ _global_script_class_icons={
 "Emitter": "",
 "Enemy": "",
 "GitAPI": "",
+"LimitBullet": "",
 "Limiter": "",
 "MultiplierDiceCoreResource": "",
 "PickupableDiceCore": "",
