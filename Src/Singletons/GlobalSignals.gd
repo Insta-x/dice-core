@@ -2,6 +2,10 @@ extends Node
 
 
 signal player_shot
+signal player_limit_shot
+signal player_upper_limit_gun_changed
+signal player_lower_limit_gun_changed
+
 signal player_health_changed
 signal player_dice_rolled
 signal player_dice_changed
