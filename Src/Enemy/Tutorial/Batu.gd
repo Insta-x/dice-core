@@ -12,7 +12,7 @@ func rolldone() -> void:
 
 func _physics_process(delta:float)->void:
 	match current_roll:
-		_: 
+		_:
 			do_nothing()
 	data.init = false
 

@@ -4,15 +4,15 @@ extends Enemy
 func rolldone() -> void:
 	.rolldone()
 	match current_roll:
-		0, 6:
+		0, 10, 20:
 			emit_signal("behaviour_changed", "self destruct")
-		1:
+		1,5,9,13,17:
 			emit_signal("behaviour_changed", "move near player")
-		2:
+		2,6,14,18:
 			emit_signal("behaviour_changed", "move random")
-		3:
+		3,7,11,15,19:
 			emit_signal("behaviour_changed", "shoot")
-		4:
+		4,8,12,16:
 			emit_signal("behaviour_changed", "avoid player")
 		_:
 			emit_signal("behaviour_changed", "do nothing")
@@ -20,7 +20,7 @@ func rolldone() -> void:
 
 func _physics_process(delta: float) -> void:
 	match current_roll:
-		0, 10,20:
+		0, 10, 20:
 			self_destruct()
 		1,5,9,13,17:
 			move_near_player()

@@ -4,11 +4,11 @@ extends Enemy
 func rolldone() -> void:
 	.rolldone()
 	match current_roll:
-		0:
+		0,10,20:
 			emit_signal("behaviour_changed", "self destruct")
-		1:
+		2,5,8,12,15,18:
 			emit_signal("behaviour_changed", "move to player")
-		2:
+		1,4,7,10,11,13,16,19:
 			emit_signal("behaviour_changed", "move random")
 		_:
 			emit_signal("behaviour_changed", "do nothing")
