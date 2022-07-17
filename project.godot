@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "DiceCoreResource",
+"class": "AdderDiceCoreResource",
+"language": "GDScript",
+"path": "res://Src/Components/DiceCore/AdderDiceCore.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Bullet",
 "language": "GDScript",
@@ -39,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Enemy/TestEnemy.gd"
 }, {
+"base": "EditorVCSInterface",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://addons/godot-git-plugin/git_api.gdns"
+}, {
 "base": "Node",
 "class": "Limiter",
 "language": "GDScript",
@@ -48,6 +58,11 @@ _global_script_classes=[ {
 "class": "MultiplierDiceCoreResource",
 "language": "GDScript",
 "path": "res://Src/Components/DiceCore/MultiplierDiceCore.gd"
+}, {
+"base": "Area2D",
+"class": "PickupableDiceCore",
+"language": "GDScript",
+"path": "res://Src/Objects/PickupableDiceCore.gd"
 }, {
 "base": "Area2D",
 "class": "PickupableLimiter",
@@ -60,14 +75,17 @@ _global_script_classes=[ {
 "path": "res://Src/Player/Player.gd"
 } ]
 _global_script_class_icons={
+"AdderDiceCoreResource": "",
 "Bullet": "",
 "DiceCore": "",
 "DiceCoreResource": "",
 "DiceWrapper": "",
 "Emitter": "",
 "Enemy": "",
+"GitAPI": "",
 "Limiter": "",
 "MultiplierDiceCoreResource": "",
+"PickupableDiceCore": "",
 "PickupableLimiter": "",
 "Player": ""
 }
@@ -81,6 +99,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GlobalSignals="*res://Src/Singletons/GlobalSignals.gd"
+ScoreTracker="*res://Src/Singletons/ScoreTracker.gd"
 
 [display]
 
@@ -89,7 +108,7 @@ window/size/height=720
 
 [gdnative]
 
-singletons=[  ]
+singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
 
 [importer_defaults]
 
@@ -140,6 +159,21 @@ move_right={
 shoot={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+pick_limiter={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+pick_dice_core={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

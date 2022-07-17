@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Src/Player/PlayerWrapper.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/EnemySpawner.gd" type="Script" id=2]
 [ext_resource path="res://Src/Objects/PickupableLimiter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/Objects/PickupableDiceCore.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/Components/DiceCore/Add7DiceCore.tres" type="Resource" id=5]
 
 [node name="GameWorld" type="Node2D"]
 
@@ -14,6 +16,7 @@ player = NodePath("../PlayerWrapper/Player")
 position = Vector2( 0, 384 )
 
 [node name="Wall" type="StaticBody2D" parent="."]
+collision_mask = 6
 __meta__ = {
 "_edit_lock_": true
 }
@@ -25,5 +28,10 @@ __meta__ = {
 }
 
 [node name="PickupableLimiter" parent="." instance=ExtResource( 3 )]
+position = Vector2( 192, 64 )
 upper_limit = 10
 lower_limit = 5
+
+[node name="PickupableDiceCore" parent="." instance=ExtResource( 4 )]
+position = Vector2( -192, 64 )
+dice_core_resource = ExtResource( 5 )
