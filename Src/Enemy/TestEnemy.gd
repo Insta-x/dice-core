@@ -28,13 +28,6 @@ onready var delay : Timer
 
 func spawn(player : KinematicBody2D)-> void:
 	data.player = player
-	data.canshoot = false
-	data.init = true
-	delay = Timer.new()
-	add_child(delay)
-	delay.wait_time = 0.25
-	delay.one_shot = true
-	delay.connect("timeout", self, "rolldone")
 
 func _ready() -> void:
 	emit_signal("health_changed", health)
@@ -42,6 +35,14 @@ func _ready() -> void:
 	dice_wrapper.emit_signal("number_changed", current_roll)
 	dice_wrapper.emit_signal("dice_core_changed", $DiceWrapper/DiceCore.dice_core_resource)
 	dice_wrapper.emit_signal("limiter_changed", $DiceWrapper/Limiter.lower_limit, $DiceWrapper/Limiter.upper_limit)
+	
+	data.canshoot = false
+	data.init = true
+	delay = Timer.new()
+	add_child(delay)
+	delay.wait_time = 0.25
+	delay.one_shot = true
+	delay.connect("timeout", self, "rolldone")
 
 func reroll() -> void:
 	dice_wrapper.get_number(true)
@@ -73,6 +74,9 @@ func goto(pos : Vector2, mundur := false) -> Vector2:
 
 
 func self_destruct() -> void:
+	health = 0
+	emit_signal("health_changed", health)
+	yield(get_tree().create_timer(1), "timeout")
 	queue_free()
 
 
@@ -147,11 +151,11 @@ func _on_Area2D_body_entered(body: Bullet) -> void:
 		dice_wrapper.set_new_limit(body.lower_limit, body.upper_limit)
 	
 	body.queue_free()
+	
+	modifhit()
   
 	if check_immune(body.roll):
 		return
-	
-	modifhit()
 	
 #	print("health " + str(health))
 
@@ -161,5 +165,6 @@ func _on_Area2D_body_entered(body: Bullet) -> void:
 	emit_signal("health_changed", health)
 	
 	if health <= 0:
+		yield(get_tree().create_timer(1), "timeout")
 		queue_free()
 

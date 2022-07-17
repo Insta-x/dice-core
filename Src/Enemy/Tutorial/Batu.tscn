@@ -18,6 +18,7 @@ collision_layer = 12
 script = ExtResource( 8 )
 immune_to_same = true
 immune_to_even = false
+health = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 9 )
@@ -26,6 +27,7 @@ texture = ExtResource( 9 )
 polygon = PoolVector2Array( 24, 0, 0, -24, -24, 0, 0, 24 )
 
 [node name="EnemyGUI" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -80 )
 
 [node name="DiceWrapper" type="Node" parent="."]
 script = ExtResource( 7 )
@@ -38,8 +40,6 @@ dice_core_resource = ExtResource( 5 )
 script = ExtResource( 6 )
 
 [node name="DiceTimer" type="Timer" parent="."]
-one_shot = true
-autostart = true
 
 [node name="Emitter" type="Node2D" parent="."]
 script = ExtResource( 4 )
