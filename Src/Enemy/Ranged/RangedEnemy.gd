@@ -3,6 +3,19 @@ extends Enemy
 
 func reroll() -> void:
 	.reroll()
+	match current_roll:
+		0:
+			emit_signal("behaviour_changed", "self destruct")
+		1:
+			emit_signal("behaviour_changed", "move near player")
+		2:
+			emit_signal("behaviour_changed", "move random")
+		3:
+			emit_signal("behaviour_changed", "shoot")
+		4:
+			emit_signal("behaviour_changed", "avoid player")
+		_:
+			emit_signal("behaviour_changed", "do nothing")
 
 
 func _physics_process(delta: float) -> void:
