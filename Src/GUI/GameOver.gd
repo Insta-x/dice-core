@@ -2,7 +2,8 @@ extends NinePatchRect
 
 
 func _ready() -> void:
-	GlobalSignals.connect("player_died", self, "_on_player_died")
+	GlobalSignals.connect("player_died", self, "_on_game_over")
+	GlobalSignals.connect("time_over", self, "_on_game_over")
 
 
 func _input(event: InputEvent) -> void:
@@ -12,6 +13,6 @@ func _input(event: InputEvent) -> void:
 		get_tree().set_input_as_handled()
 
 
-func _on_player_died() -> void:
+func _on_game_over() -> void:
 	show()
 	$VBoxContainer/ScoreLabel.text = str(ScoreTracker.score)

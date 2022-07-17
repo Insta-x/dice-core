@@ -4,6 +4,10 @@ extends Node2D
 onready var dice_wrapper := $DiceWrapper
 
 
+func _ready() -> void:
+	GlobalSignals.connect("time_over", self, "game_over")
+
+
 func _on_DiceWrapper_dice_rolled(number: int) -> void:
 	GlobalSignals.emit_signal("player_dice_rolled", number)
 
@@ -22,6 +26,11 @@ func _on_DiceWrapper_number_changed(number: int) -> void:
 
 func _on_HazardDetector_area_entered(area: Area2D) -> void:
 	OS.delay_msec(500)
+	game_over()
 	hide()
-	$Player.set_physics_process(false)
 	GlobalSignals.emit_signal("player_died")
+
+
+func game_over() -> void:
+	$Player.set_physics_process(false)
+	$Player/PlayerHazardDetector/CollisionShape2D.set_deferred("disabled", true)
