@@ -30,10 +30,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -91.0
-margin_top = -30.5
-margin_right = 91.0
-margin_bottom = 30.5
+margin_left = -100.0
+margin_top = -42.5
+margin_right = 100.0
+margin_bottom = 42.5
 custom_constants/separation = 4
 
 [node name="DiceTimerProgress" type="TextureProgress" parent="EnemyGUI/VBoxContainer"]

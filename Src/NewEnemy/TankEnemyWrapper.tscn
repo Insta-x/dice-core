@@ -22,11 +22,7 @@ font_data = ExtResource( 9 )
 script = ExtResource( 6 )
 body = NodePath("TankEnemy")
 
-[node name="EnemyGUI" parent="GUIwrapper" index="0"]
-margin_top = -120.0
-margin_bottom = -120.0
-
-[node name="TankEnemy" parent="." index="1" instance=ExtResource( 2 )]
+[node name="TankEnemy" parent="." index="0" instance=ExtResource( 2 )]
 collision_layer = 4
 collision_mask = 0
 
@@ -34,6 +30,9 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TankEnemy/EnemyHazardDetector" index="0"]
 shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ImmuneLabel" type="Label" parent="TankEnemy" index="3"]
 anchor_left = 0.5
@@ -51,6 +50,13 @@ custom_fonts/font = SubResource( 2 )
 text = "="
 align = 1
 valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EnemyGUI" parent="GUIwrapper" index="0"]
+margin_top = -120.0
+margin_bottom = -120.0
 
 [node name="EnemyHealth" parent="." index="2"]
 body = NodePath("../TankEnemy")

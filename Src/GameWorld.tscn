@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Src/Player/PlayerWrapper.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/EnemySpawner.gd" type="Script" id=2]
-[ext_resource path="res://Src/Enemy/Tutorial/Batu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/NewEnemy/TutorialEnemyWrapper.tscn" type="PackedScene" id=3]
 
 [node name="GameWorld" type="Node2D"]
 
@@ -31,7 +31,7 @@ position = Vector2( 576, -320 )
 [node name="PlayerWrapper" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 256 )
 
-[node name="Batu" parent="." instance=ExtResource( 3 )]
+[node name="TutorialEnemyWrapper" parent="." instance=ExtResource( 3 )]
 rotation = 1.5708
 
 [node name="Wall" type="StaticBody2D" parent="."]

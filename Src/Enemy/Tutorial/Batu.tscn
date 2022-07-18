@@ -42,24 +42,14 @@ visible = false
 
 [node name="BehaviourLabel" parent="EnemyGUI/EnemyGUI/VBoxContainer" index="1"]
 margin_top = 0.0
-margin_right = 182.0
 margin_bottom = 25.0
 
 [node name="HBoxContainer" parent="EnemyGUI/EnemyGUI/VBoxContainer" index="2"]
 margin_top = 29.0
-margin_right = 182.0
 margin_bottom = 61.0
-
-[node name="Health" parent="EnemyGUI/EnemyGUI/VBoxContainer/HBoxContainer" index="0"]
-margin_left = 13.0
-margin_right = 45.0
 
 [node name="Label" parent="EnemyGUI/EnemyGUI/VBoxContainer/HBoxContainer/Health" index="0"]
 text = "1"
-
-[node name="HBoxContainer" parent="EnemyGUI/EnemyGUI/VBoxContainer/HBoxContainer" index="1"]
-margin_left = 65.0
-margin_right = 169.0
 
 [node name="Label" parent="EnemyGUI/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/LowerLimit" index="0"]
 text = "0"
