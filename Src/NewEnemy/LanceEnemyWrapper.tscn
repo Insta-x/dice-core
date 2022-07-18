@@ -32,16 +32,19 @@ body = NodePath("../LanceEnemy")
 script = ExtResource( 5 )
 behaviour_name = "move to player"
 valid_roll = PoolIntArray( 1, 4, 7, 9, 10, 11, 13, 16, 19 )
+agent = NodePath("../../LanceEnemy")
 
 [node name="MoveRandom" type="Node" parent="DiceBehaviourMachine" index="2"]
 script = ExtResource( 6 )
 behaviour_name = "move random"
 valid_roll = PoolIntArray( 2, 5, 8, 12, 15, 18 )
+agent = NodePath("../../LanceEnemy")
 
 [node name="SelfDestruct" type="Node" parent="DiceBehaviourMachine" index="3"]
 script = ExtResource( 4 )
 behaviour_name = "self destruct"
 valid_roll = PoolIntArray( 0, 10, 20 )
+health = NodePath("../../EnemyHealth")
 
 [connection signal="limit_bullet_detected" from="LanceEnemy/EnemyHazardDetector" to="DiceWrapper" method="set_new_limit"]
 [connection signal="player_bullet_detected" from="LanceEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
