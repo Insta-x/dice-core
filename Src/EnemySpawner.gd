@@ -70,7 +70,7 @@ func game_start():
 		spawn()
 	
 	while (true):
-		yield(get_tree().create_timer(5), "timeout")
+		yield(get_tree().create_timer(3), "timeout")
 		if (GlobalGame.enemy_count <= 6):
 			spawn()
 
