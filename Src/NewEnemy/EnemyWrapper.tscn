@@ -17,11 +17,8 @@ script = ExtResource( 1 )
 [node name="DiceTimerProgress" parent="GUIwrapper/EnemyGUI/VBoxContainer" index="0"]
 timer = NodePath("../../../../DiceTimer")
 
-[node name="BodyPosition" type="Position2D" parent="."]
-
 [node name="EnemyHealth" type="Node" parent="."]
 script = ExtResource( 7 )
-body_position = NodePath("../BodyPosition")
 dice_wrapper = NodePath("../DiceWrapper")
 
 [node name="DiceBehaviourMachine" type="Node" parent="."]

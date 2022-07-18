@@ -3,7 +3,7 @@ extends Node
 class_name EnemyHealth
 
 
-export (NodePath) onready var body = get_node(body) as Enemy
+export (NodePath) onready var body = get_node(body) as NewEnemy
 export (NodePath) onready var dice_wrapper = get_node(dice_wrapper) as DiceWrapper
 
 export (int) var max_health = 3
