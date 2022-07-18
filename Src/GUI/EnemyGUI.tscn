@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/GUI/heart.png" type="Texture" id=1]
 [ext_resource path="res://Assets/GUI/limiter-frame.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/GUI/enemy-behaviour-timer-fill.png" type="Texture" id=6]
 [ext_resource path="res://Src/GUI/Wrapper.gd" type="Script" id=7]
 [ext_resource path="res://Assets/GUI/enemy-behaviour-timer-bg.png" type="Texture" id=8]
+[ext_resource path="res://Src/GUI/DiceTimerProgress.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
@@ -41,6 +42,7 @@ margin_bottom = 20.0
 max_value = 150.0
 texture_under = ExtResource( 8 )
 texture_progress = ExtResource( 6 )
+script = ExtResource( 9 )
 
 [node name="BehaviourLabel" type="Label" parent="EnemyGUI/VBoxContainer"]
 margin_top = 24.0
