@@ -3,7 +3,7 @@ extends Node
 class_name DiceBehaviour
 
 
-export (String) var action_name
+export (String) var behaviour_name
 export (PoolIntArray) var valid_roll
 
 
