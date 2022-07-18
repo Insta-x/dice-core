@@ -21,7 +21,6 @@ func new_behaviour(roll: int) -> void:
 			break
 	
 	self.current_behaviour = get_child(0)
-	
 
 
 func set_current_behaviour(new_behaviour: DiceBehaviour) -> void:

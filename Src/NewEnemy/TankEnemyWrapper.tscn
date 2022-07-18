@@ -35,14 +35,20 @@ max_health = 5
 [node name="MoveToPlayer" type="Node" parent="DiceBehaviourMachine" index="1"]
 script = ExtResource( 8 )
 behaviour_name = "move to player"
+valid_roll = PoolIntArray( 2, 5, 8, 12, 15, 18 )
+agent = NodePath("../../TankEnemy")
 
 [node name="MoveRandom" type="Node" parent="DiceBehaviourMachine" index="2"]
 script = ExtResource( 5 )
 behaviour_name = "move random"
+valid_roll = PoolIntArray( 1, 4, 7, 10, 11, 13, 16, 19 )
+agent = NodePath("../../TankEnemy")
 
 [node name="SelfDestruct" type="Node" parent="DiceBehaviourMachine" index="3"]
 script = ExtResource( 7 )
 behaviour_name = "self destruct"
+valid_roll = PoolIntArray( 0, 10, 20 )
+health = NodePath("../../TankEnemy")
 
 [node name="DiceCore" parent="DiceWrapper" index="0"]
 dice_core_resource = ExtResource( 4 )
