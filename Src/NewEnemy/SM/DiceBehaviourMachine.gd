@@ -9,6 +9,10 @@ signal behaviour_changed
 onready var current_behaviour : DiceBehaviour = get_child(0)
 
 
+func _ready() -> void:
+	emit_signal("behaviour_changed", current_behaviour.behaviour_name)
+
+
 func new_behaviour(roll: int) -> void:
 	for child in get_children():
 		child = child as DiceBehaviour
