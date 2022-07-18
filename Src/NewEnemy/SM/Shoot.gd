@@ -1,4 +1,4 @@
-extends Node
+extends DiceBehaviour
 
 
 export (NodePath) onready var agent = get_node(agent) as NewEnemy
