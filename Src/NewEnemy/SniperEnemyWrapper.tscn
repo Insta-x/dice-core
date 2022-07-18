@@ -86,6 +86,9 @@ __meta__ = {
 }
 bullet_scn = ExtResource( 7 )
 
+[node name="GUIwrapper" parent="." index="1"]
+body = NodePath("../SniperEnemy")
+
 [node name="EnemyGUI" parent="GUIwrapper" index="0"]
 margin_top = -110.0
 margin_bottom = -110.0

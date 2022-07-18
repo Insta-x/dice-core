@@ -18,7 +18,7 @@ func new_behaviour(roll: int) -> void:
 		
 		if roll in child.valid_roll:
 			self.current_behaviour = child
-			break
+			return
 	
 	self.current_behaviour = get_child(0)
 

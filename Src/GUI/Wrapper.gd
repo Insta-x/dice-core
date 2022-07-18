@@ -1,6 +1,9 @@
 extends Node2D
 
 
+export (NodePath) onready var body = get_node(body) as NewEnemy
+
+
 func _on_behaviour_changed(behaviour_name: String) -> void:
 	$EnemyGUI/VBoxContainer/BehaviourLabel.text = behaviour_name
 	if (behaviour_name == "self destruct"):
@@ -33,4 +36,6 @@ func _on_DiceWrapper_number_changed(number: int) -> void:
 
 func _physics_process(delta: float) -> void:
 	global_rotation = 0
+	if body:
+		global_position = body.global_position
 

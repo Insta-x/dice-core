@@ -54,6 +54,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="GUIwrapper" parent="." index="1"]
+body = NodePath("../TankEnemy")
+
 [node name="EnemyGUI" parent="GUIwrapper" index="0"]
 margin_top = -120.0
 margin_bottom = -120.0

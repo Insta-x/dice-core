@@ -33,6 +33,9 @@ __meta__ = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LanceEnemy/HazardToPlayer" index="0"]
 polygon = PoolVector2Array( 64, 0, 8, -24, 8, 24 )
 
+[node name="GUIwrapper" parent="." index="1"]
+body = NodePath("../LanceEnemy")
+
 [node name="EnemyGUI" parent="GUIwrapper" index="0"]
 margin_top = -90.0
 margin_bottom = -90.0
