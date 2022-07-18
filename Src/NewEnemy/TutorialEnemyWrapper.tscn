@@ -33,8 +33,21 @@ margin_bottom = 25.0
 margin_top = 29.0
 margin_bottom = 61.0
 
+[node name="Label" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/LowerLimit" index="0"]
+text = "0"
+
+[node name="DiceCore" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer" index="1"]
+self_modulate = Color( 0, 0.788235, 1, 1 )
+
+[node name="RollLabel" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore" index="0"]
+text = "1"
+
+[node name="Label" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/UpperLimit" index="0"]
+text = "6"
+
 [node name="EnemyHealth" parent="." index="2"]
 body = NodePath("../TutorialEnemy")
+max_health = 1
 immune_to_same = true
 
 [node name="DiceCore" parent="DiceWrapper" index="0"]

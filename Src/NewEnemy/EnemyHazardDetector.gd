@@ -10,3 +10,5 @@ func _on_EnemyHazardDetector_body_entered(body: Bullet) -> void:
 		emit_signal("limit_bullet_detected", body.lower_limit, body.upper_limit)
 	else:
 		emit_signal("player_bullet_detected", body.roll)
+	
+	body.queue_free()
