@@ -1,8 +1,10 @@
 extends Node2D
 
 
+export (NodePath) onready var body = get_node(body) as NewEnemy
+
+
 func _on_behaviour_changed(behaviour_name: String) -> void:
-	print(behaviour_name)
 	$EnemyGUI/VBoxContainer/BehaviourLabel.text = behaviour_name
 	if (behaviour_name == "self destruct"):
 		$EnemyGUI/VBoxContainer/BehaviourLabel.set("custom_colors/font_color", Color(1,0,0))
@@ -32,5 +34,8 @@ func _on_DiceWrapper_number_changed(number: int) -> void:
 	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/RollLabel.change_number(number)
 
 
-func _physics_process(delta:float)->void:
+func _physics_process(delta: float) -> void:
 	global_rotation = 0
+	if body:
+		global_position = body.global_position
+
