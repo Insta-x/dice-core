@@ -1,5 +1,2 @@
-extends Bullet
+extends RollBullet
 
-
-func _ready() -> void:
-	pass
