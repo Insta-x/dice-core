@@ -34,7 +34,7 @@ func spawn() -> void:
 	var upper_limit := lower_limit + (randi() % (21 - lower_limit - 4) + 4)
 	var pos : int = randi() % get_children().size()
 	if player.global_position.distance_squared_to(get_child(pos).global_position) < 100000:
-		pos += 1
+		pos = (pos + 1) % get_children().size()
 	
 	var enemy : EnemyWrapper
 	enemy = enemy_scenes[select].instance()
