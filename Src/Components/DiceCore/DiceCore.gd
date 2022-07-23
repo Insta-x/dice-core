@@ -9,11 +9,11 @@ export (Resource) var dice_core_resource = dice_core_resource as DiceCoreResourc
 
 signal dice_rolled(number)
 
-var current_number := init_number setget set_current_number
+onready var current_number := init_number setget set_current_number
 
 
 func next(modulo: int) -> void:
-	current_number = dice_core_resource._formula(current_number) % modulo
+	self.current_number = dice_core_resource._formula(current_number) % modulo
 	emit_signal("dice_rolled", current_number)
 
 
@@ -25,6 +25,7 @@ func set_current_number(value: int) -> void:
 		match err_code:
 			1:
 				GlobalSignals.emit_signal("player_error_seed_zero")
+				print("Error seed zero")
 			_:
 				pass
 
@@ -36,5 +37,6 @@ func _on_DiceWrapper_limiter_changed(lower_limit: int, upper_limit: int) -> void
 		match err_code:
 			1:
 				GlobalSignals.emit_signal("player_warning_limiter")
+				print("Warning limiter incompatible")
 			_:
 				pass
