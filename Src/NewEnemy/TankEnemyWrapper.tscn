@@ -81,7 +81,7 @@ agent = NodePath("../../TankEnemy")
 script = ExtResource( 7 )
 behaviour_name = "self destruct"
 valid_roll = PoolIntArray( 0, 10, 20 )
-health = NodePath("../../TankEnemy")
+health = NodePath("../../EnemyHealth")
 
 [node name="DiceCore" parent="DiceWrapper" index="0"]
 dice_core_resource = ExtResource( 4 )
