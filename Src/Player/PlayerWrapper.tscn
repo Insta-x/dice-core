@@ -247,7 +247,6 @@ script = ExtResource( 12 )
 [node name="DiceCore" type="Node" parent="DiceWrapper"]
 script = ExtResource( 8 )
 is_player = true
-init_number = 0
 dice_core_resource = ExtResource( 13 )
 
 [node name="Limiter" type="Node" parent="DiceWrapper"]
