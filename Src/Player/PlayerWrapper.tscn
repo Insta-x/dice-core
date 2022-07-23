@@ -270,4 +270,5 @@ stream = ExtResource( 21 )
 [connection signal="dice_core_changed" from="DiceWrapper" to="." method="_on_DiceWrapper_dice_core_changed"]
 [connection signal="dice_rolled" from="DiceWrapper" to="." method="_on_DiceWrapper_dice_rolled"]
 [connection signal="limiter_changed" from="DiceWrapper" to="." method="_on_DiceWrapper_limiter_changed"]
+[connection signal="limiter_changed" from="DiceWrapper" to="DiceWrapper/DiceCore" method="_on_DiceWrapper_limiter_changed"]
 [connection signal="number_changed" from="DiceWrapper" to="." method="_on_DiceWrapper_number_changed"]
