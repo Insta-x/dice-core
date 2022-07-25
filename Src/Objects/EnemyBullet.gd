@@ -1,5 +1,5 @@
-extends Bullet
+extends RollBullet
 
 
 func _ready() -> void:
-	pass
+	$Node2D/Label.text = str(roll)

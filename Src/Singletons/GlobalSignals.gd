@@ -9,9 +9,12 @@ signal player_lower_limit_gun_changed
 signal player_health_changed
 signal player_dice_rolled
 signal player_dice_changed
+signal player_error_seed_zero
 signal player_limiter_changed
+signal player_warning_limiter
 signal player_number_changed
 signal player_died
+
 signal batu_died
 signal enemy_died
 
