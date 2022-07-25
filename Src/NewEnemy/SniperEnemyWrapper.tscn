@@ -1,0 +1,140 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Src/NewEnemy/EnemyWrapper.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Src/NewEnemy/SniperEnemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Src/NewEnemy/SM/AvoidPlayer.gd" type="Script" id=3]
+[ext_resource path="res://Src/NewEnemy/SM/SelfDestruct.gd" type="Script" id=4]
+[ext_resource path="res://Src/NewEnemy/SM/MoveNearPlayer.gd" type="Script" id=5]
+[ext_resource path="res://Src/Components/DiceCore/Multiplier/Multiply3DiceCore.tres" type="Resource" id=6]
+[ext_resource path="res://Src/Objects/EnemyBullet.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Src/NewEnemy/SniperGun.gd" type="Script" id=8]
+[ext_resource path="res://Src/NewEnemy/SM/MoveRandom.gd" type="Script" id=9]
+[ext_resource path="res://Src/NewEnemy/SM/Shoot.gd" type="Script" id=10]
+[ext_resource path="res://Src/NewEnemy/EnemyHazardDetector.tscn" type="PackedScene" id=11]
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 50.0
+
+[sub_resource type="Animation" id=4]
+resource_name = "Shoot"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("NewEnemy/Sprite2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("NewEnemy/Sprite3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("NewEnemy/Sprite2:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("NewEnemy/Sprite3:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[node name="SniperEnemyWrapper" instance=ExtResource( 1 )]
+body = NodePath("SniperEnemy")
+
+[node name="SniperEnemy" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="EnemyHazardDetector" parent="SniperEnemy" index="0" instance=ExtResource( 11 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SniperEnemy/EnemyHazardDetector" index="0"]
+shape = SubResource( 5 )
+
+[node name="SniperGun" type="Node2D" parent="SniperEnemy" index="5"]
+rotation = -2.98023e-08
+script = ExtResource( 8 )
+__meta__ = {
+"_editor_description_": ""
+}
+bullet_scn = ExtResource( 7 )
+dice_wrapper = NodePath("../../DiceWrapper")
+
+[node name="GUIwrapper" parent="." index="1"]
+body = NodePath("../SniperEnemy")
+
+[node name="EnemyGUI" parent="GUIwrapper" index="0"]
+margin_top = -110.0
+margin_bottom = -110.0
+
+[node name="EnemyHealth" parent="." index="2"]
+body = NodePath("../SniperEnemy")
+
+[node name="MoveNearPlayer" type="Node" parent="DiceBehaviourMachine" index="1"]
+script = ExtResource( 5 )
+behaviour_name = "move near player"
+valid_roll = PoolIntArray( 1, 5, 9, 13, 17 )
+agent = NodePath("../../SniperEnemy")
+
+[node name="MoveRandom" type="Node" parent="DiceBehaviourMachine" index="2"]
+script = ExtResource( 9 )
+behaviour_name = "move random"
+valid_roll = PoolIntArray( 2, 6, 14, 18 )
+agent = NodePath("../../SniperEnemy")
+
+[node name="Shoot" type="Node" parent="DiceBehaviourMachine" index="3"]
+script = ExtResource( 10 )
+behaviour_name = "shoot"
+valid_roll = PoolIntArray( 3, 7, 11, 15, 19 )
+agent = NodePath("../../SniperEnemy")
+gun = NodePath("../../SniperEnemy/SniperGun")
+
+[node name="AvoidPlayer" type="Node" parent="DiceBehaviourMachine" index="4"]
+script = ExtResource( 3 )
+behaviour_name = "avoid player"
+valid_roll = PoolIntArray( 4, 8, 12, 16 )
+agent = NodePath("../../SniperEnemy")
+
+[node name="SelfDestruct" type="Node" parent="DiceBehaviourMachine" index="5"]
+script = ExtResource( 4 )
+behaviour_name = "self destruct"
+valid_roll = PoolIntArray( 0, 10, 20 )
+health = NodePath("../../EnemyHealth")
+
+[node name="DiceCore" parent="DiceWrapper" index="0"]
+dice_core_resource = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+root_node = NodePath("")
+anims/Shoot = SubResource( 4 )
+
+[connection signal="limit_bullet_detected" from="SniperEnemy/EnemyHazardDetector" to="DiceWrapper" method="set_new_limit"]
+[connection signal="player_bullet_detected" from="SniperEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
+
+[editable path="GUIwrapper"]

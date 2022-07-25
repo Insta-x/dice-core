@@ -25,6 +25,16 @@ _global_script_classes=[ {
 "path": "res://Src/Objects/Bullet.gd"
 }, {
 "base": "Node",
+"class": "DiceBehaviour",
+"language": "GDScript",
+"path": "res://Src/NewEnemy/SM/DiceBehaviour.gd"
+}, {
+"base": "Node",
+"class": "DiceBehaviourMachine",
+"language": "GDScript",
+"path": "res://Src/NewEnemy/SM/DiceBehaviourMachine.gd"
+}, {
+"base": "Node",
 "class": "DiceCore",
 "language": "GDScript",
 "path": "res://Src/Components/DiceCore/DiceCore.gd"
@@ -49,7 +59,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Enemy/TestEnemy.gd"
 }, {
-"base": "EditorVCSInterface",
+"base": "Node",
+"class": "EnemyHealth",
+"language": "GDScript",
+"path": "res://Src/NewEnemy/EnemyHealth.gd"
+}, {
+"base": "Node2D",
+"class": "EnemyWrapper",
+"language": "GDScript",
+"path": "res://Src/NewEnemy/EnemyWrapper.gd"
+}, {
+"base": "",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
@@ -74,6 +94,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Components/DiceCore/Multiplier/MultiplierDiceCore.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "NewEnemy",
+"language": "GDScript",
+"path": "res://Src/NewEnemy/NewEnemy.gd"
+}, {
 "base": "Area2D",
 "class": "PickupableDiceCore",
 "language": "GDScript",
@@ -93,25 +118,36 @@ _global_script_classes=[ {
 "class": "PlayerLimitGun",
 "language": "GDScript",
 "path": "res://Src/Player/PlayerLimitGun.gd"
+}, {
+"base": "Bullet",
+"class": "RollBullet",
+"language": "GDScript",
+"path": "res://Src/Objects/RollBullet.gd"
 } ]
 _global_script_class_icons={
 "AddMulterDiceCoreResource": "",
 "AdderDiceCoreResource": "",
 "Bullet": "",
+"DiceBehaviour": "",
+"DiceBehaviourMachine": "",
 "DiceCore": "",
 "DiceCoreResource": "",
 "DiceWrapper": "",
 "Emitter": "",
 "Enemy": "",
+"EnemyHealth": "",
+"EnemyWrapper": "",
 "GitAPI": "",
 "LimitBullet": "",
 "Limiter": "",
 "MultAdderDiceCoreResource": "",
 "MultiplierDiceCoreResource": "",
+"NewEnemy": "",
 "PickupableDiceCore": "",
 "PickupableLimiter": "",
 "Player": "",
-"PlayerLimitGun": ""
+"PlayerLimitGun": "",
+"RollBullet": ""
 }
 
 [application]

@@ -1,6 +1,8 @@
 extends Label
 
 
+signal roll_anim_finished
+
 var roll_number := 0
 var true_number := 0
 
@@ -23,3 +25,4 @@ func random_text() -> void:
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	text = str(true_number)
+	emit_signal("roll_anim_finished")

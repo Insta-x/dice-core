@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Src/NewEnemy/EnemyHazardDetector.gd" type="Script" id=1]
+
+[node name="EnemyHazardDetector" type="Area2D"]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+script = ExtResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_EnemyHazardDetector_body_entered"]

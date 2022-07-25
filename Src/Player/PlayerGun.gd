@@ -12,7 +12,7 @@ func shoot() -> void:
 	if not can_shoot:
 		return
 	
-	var bullet : Bullet = bullet_scn.instance()
+	var bullet : RollBullet = bullet_scn.instance()
 	bullet.roll = dice_wrapper.get_number()
 	bullet.global_rotation = global_rotation
 	bullet.global_position = global_position + emit_offset.rotated(global_rotation)
