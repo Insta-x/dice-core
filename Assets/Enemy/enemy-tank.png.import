@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemy-sniper.png-5d883059901a7c05308d1aa001360a0e.stex"
+path="res://.import/enemy-tank.png-e027c169b9fb92471963b0242050a643.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/enemy-sniper.png"
-dest_files=[ "res://.import/enemy-sniper.png-5d883059901a7c05308d1aa001360a0e.stex" ]
+source_file="res://Assets/Enemy/enemy-tank.png"
+dest_files=[ "res://.import/enemy-tank.png-e027c169b9fb92471963b0242050a643.stex" ]
 
 [params]
 

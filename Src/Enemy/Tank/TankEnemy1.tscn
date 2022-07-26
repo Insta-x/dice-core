@@ -8,10 +8,11 @@
 [ext_resource path="res://Src/Components/Limiter.gd" type="Script" id=6]
 [ext_resource path="res://Src/Components/DiceWrapper.gd" type="Script" id=7]
 [ext_resource path="res://Src/Enemy/Tank/TankEnemy.gd" type="Script" id=8]
-[ext_resource path="res://Assets/Art/enemy-tank.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Enemy/enemy-tank.png" type="Texture" id=9]
 [ext_resource path="res://Assets/GUI/dice-core-shape-player1.png" type="Texture" id=10]
 [ext_resource path="res://Src/Enemy/on-hit-shader.tres" type="Material" id=11]
 [ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=12]
+
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 5 )

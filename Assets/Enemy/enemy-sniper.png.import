@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemy-rock.png-6cffb724496dc04222ddc6cf8c16dca5.stex"
+path="res://.import/enemy-sniper.png-52de17648b1dbc0615352f43955f63e7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/enemy-rock.png"
-dest_files=[ "res://.import/enemy-rock.png-6cffb724496dc04222ddc6cf8c16dca5.stex" ]
+source_file="res://Assets/Enemy/enemy-sniper.png"
+dest_files=[ "res://.import/enemy-sniper.png-52de17648b1dbc0615352f43955f63e7.stex" ]
 
 [params]
 
