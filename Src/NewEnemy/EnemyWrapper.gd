@@ -24,6 +24,8 @@ func init(player: Player, dice_core: DiceCoreResource, lower_limit: int, upper_l
 func dead() -> void:
 	set_process(false)
 	set_physics_process(false)
+	dice_behaviour_machine.set_physics_process(false)
+	dice_timer.paused = true
 	GlobalSignals.emit_signal("text_popup", str(score), global_position, Color(1, 0.84, 0))
 	GlobalSignals.emit_signal("enemy_died")
 	ScoreTracker.score += score
