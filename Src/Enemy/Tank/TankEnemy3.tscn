@@ -8,9 +8,10 @@
 [ext_resource path="res://Src/Objects/EnemyBullet.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/Components/DiceWrapper.gd" type="Script" id=7]
 [ext_resource path="res://Src/Components/DiceCore/Multiplier/Multiply3DiceCore.tres" type="Resource" id=8]
-[ext_resource path="res://Assets/Art/enemy-tank.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Enemy/enemy-tank.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Src/Enemy/on-hit-shader.tres" type="Material" id=11]
+
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 40, 40 )

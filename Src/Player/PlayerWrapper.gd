@@ -1,6 +1,8 @@
 extends Node2D
 
 
+export (bool) var invincible := false
+
 onready var dice_wrapper := $DiceWrapper
 
 
@@ -26,6 +28,9 @@ func _on_DiceWrapper_number_changed(number: int) -> void:
 
 
 func _on_HazardDetector_area_entered(area: Area2D) -> void:
+	if invincible:
+		return
+	
 	OS.delay_msec(500)
 	game_over()
 	hide()

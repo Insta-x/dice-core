@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Src/NewEnemy/TankEnemy.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Art/enemy-tank.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Enemy/enemy-tank.png" type="Texture" id=2]
+
 
 [node name="TankEnemy" type="KinematicBody2D"]
 script = ExtResource( 1 )
