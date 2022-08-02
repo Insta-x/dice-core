@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Assets/GUI/shoot-ui.png" type="Texture" id=1]
 [ext_resource path="res://Assets/GUI/reload-bar.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Src/GUI/FlashingError.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Src/GUI/FlashingWarning.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Src/GUI/GUI.gd" type="Script" id=14]
+[ext_resource path="res://Assets/GUI/limiter-frame-small.png" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=4]
 size = 24
@@ -115,35 +116,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 14 )
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="DiceCoreContainer" type="HBoxContainer" parent="."]
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 300.0
 margin_top = -104.0
-custom_constants/margin_right = 40
-custom_constants/margin_left = 40
-custom_constants/margin_bottom = 40
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-margin_left = 40.0
-margin_right = 1240.0
-margin_bottom = 64.0
-custom_constants/separation = 90
+margin_right = 436.0
+margin_bottom = -40.0
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 342.0
-margin_right = 478.0
-margin_bottom = 64.0
-alignment = 2
-
-[node name="LowerLimitRect" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+[node name="LowerLimitRect" type="TextureRect" parent="DiceCoreContainer"]
 margin_right = 32.0
 margin_bottom = 64.0
 texture = ExtResource( 9 )
-stretch_mode = 6
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/LowerLimitRect"]
+[node name="Label" type="Label" parent="DiceCoreContainer/LowerLimitRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -158,15 +146,16 @@ align = 1
 valign = 1
 script = SubResource( 6 )
 
-[node name="DiceCoreRect" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+[node name="DiceCoreRect" type="TextureRect" parent="DiceCoreContainer"]
 self_modulate = Color( 0, 0.788235, 1, 1 )
 margin_left = 36.0
 margin_right = 100.0
 margin_bottom = 64.0
 texture = ExtResource( 6 )
+stretch_mode = 4
 script = SubResource( 8 )
 
-[node name="RollLabel" parent="MarginContainer/HBoxContainer/HBoxContainer/DiceCoreRect" instance=ExtResource( 8 )]
+[node name="RollLabel" parent="DiceCoreContainer/DiceCoreRect" instance=ExtResource( 8 )]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -181,14 +170,14 @@ text = "1"
 align = 1
 valign = 1
 
-[node name="UpperLimitRect" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+[node name="UpperLimitRect" type="TextureRect" parent="DiceCoreContainer"]
 margin_left = 104.0
 margin_right = 136.0
 margin_bottom = 64.0
 texture = ExtResource( 9 )
-stretch_mode = 6
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/UpperLimitRect"]
+[node name="Label" type="Label" parent="DiceCoreContainer/UpperLimitRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -203,40 +192,67 @@ align = 1
 valign = 1
 script = SubResource( 7 )
 
-[node name="ReloadProgress" type="TextureProgress" parent="MarginContainer/HBoxContainer"]
-margin_left = 568.0
-margin_right = 632.0
-margin_bottom = 64.0
+[node name="GunContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -32.0
+margin_top = -132.0
+margin_right = 32.0
+margin_bottom = -40.0
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="GunContainer"]
+margin_right = 64.0
+margin_bottom = 24.0
+texture = ExtResource( 15 )
+stretch_mode = 4
+
+[node name="ReloadProgress" type="TextureProgress" parent="GunContainer"]
+margin_top = 28.0
+margin_right = 64.0
+margin_bottom = 92.0
 texture_under = ExtResource( 1 )
 texture_progress = ExtResource( 2 )
 fill_mode = 3
 script = ExtResource( 3 )
 
-[node name="Tween" type="Tween" parent="MarginContainer/HBoxContainer/ReloadProgress"]
+[node name="Tween" type="Tween" parent="GunContainer/ReloadProgress"]
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 722.0
-margin_right = 858.0
-margin_bottom = 64.0
+[node name="LimiterContainer" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -436.0
+margin_top = -104.0
+margin_right = -300.0
+margin_bottom = -40.0
+alignment = 1
 
-[node name="LowerLimitRect" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
+[node name="LowerLimitRect" type="TextureRect" parent="LimiterContainer"]
 margin_right = 32.0
 margin_bottom = 64.0
 texture = ExtResource( 9 )
 stretch_mode = 6
 
-[node name="LowerLabel" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/LowerLimitRect"]
-margin_left = 4.0
-margin_top = 20.0
-margin_right = 28.0
-margin_bottom = 44.0
+[node name="LowerLabel" type="Label" parent="LimiterContainer/LowerLimitRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.0
+margin_top = -12.0
+margin_right = 12.0
+margin_bottom = 12.0
 custom_fonts/font = SubResource( 11 )
 text = "0"
 align = 1
 valign = 1
 script = SubResource( 13 )
 
-[node name="LimitProgress" type="TextureProgress" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
+[node name="LimitProgress" type="TextureProgress" parent="LimiterContainer"]
 margin_left = 36.0
 margin_right = 100.0
 margin_bottom = 64.0
@@ -245,20 +261,24 @@ texture_progress = ExtResource( 2 )
 fill_mode = 3
 script = ExtResource( 11 )
 
-[node name="Tween" type="Tween" parent="MarginContainer/HBoxContainer/HBoxContainer2/LimitProgress"]
+[node name="Tween" type="Tween" parent="LimiterContainer/LimitProgress"]
 
-[node name="UpperLimitRect" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
+[node name="UpperLimitRect" type="TextureRect" parent="LimiterContainer"]
 margin_left = 104.0
 margin_right = 136.0
 margin_bottom = 64.0
 texture = ExtResource( 9 )
 stretch_mode = 6
 
-[node name="UpperLabel" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer2/UpperLimitRect"]
-margin_left = 4.0
-margin_top = 20.0
-margin_right = 28.0
-margin_bottom = 44.0
+[node name="UpperLabel" type="Label" parent="LimiterContainer/UpperLimitRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.0
+margin_top = -12.0
+margin_right = 12.0
+margin_bottom = 12.0
 custom_fonts/font = SubResource( 12 )
 text = "6"
 align = 1
