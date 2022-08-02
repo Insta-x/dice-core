@@ -14,4 +14,7 @@ func generate_popup(text: String, position: Vector2, color: Color = Color(1, 0, 
 	pop.get_node("TextPopup").text = text
 	pop.global_position = position
 	pop.get_node("TextPopup").set("custom_colors/font_color", color)
+#	var comp_color := Color.white - color
+#	comp_color.a = 1.0
+#	pop.get_node("TextPopup").set("custom_colors/font_outline_modulate", Color.white)
 	add_child(pop)
