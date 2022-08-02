@@ -16,3 +16,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		detected_limiter.queue_free()
 		
 		get_tree().set_input_as_handled()
+
+
+func _on_LimiterPickupArea_area_entered(area: PickupableLimiter) -> void:
+	area.show_prompt()
+
+
+func _on_LimiterPickupArea_area_exited(area: PickupableLimiter) -> void:
+	area.hide_prompt()

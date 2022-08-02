@@ -100,11 +100,16 @@ _global_script_classes=[ {
 "path": "res://Src/NewEnemy/NewEnemy.gd"
 }, {
 "base": "Area2D",
+"class": "Pickupable",
+"language": "GDScript",
+"path": "res://Src/Player/Pickupable.gd"
+}, {
+"base": "Pickupable",
 "class": "PickupableDiceCore",
 "language": "GDScript",
 "path": "res://Src/Objects/PickupableDiceCore.gd"
 }, {
-"base": "Area2D",
+"base": "Pickupable",
 "class": "PickupableLimiter",
 "language": "GDScript",
 "path": "res://Src/Objects/PickupableLimiter.gd"
@@ -143,6 +148,7 @@ _global_script_class_icons={
 "MultAdderDiceCoreResource": "",
 "MultiplierDiceCoreResource": "",
 "NewEnemy": "",
+"Pickupable": "",
 "PickupableDiceCore": "",
 "PickupableLimiter": "",
 "Player": "",
@@ -265,6 +271,8 @@ limit_shoot={
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="HazardToPlayer"
 2d_physics/layer_5="HazardToEnemy"
+2d_physics/layer_6="PickupableDiceCore"
+2d_physics/layer_7="PickupableLimiter"
 
 [physics]
 
