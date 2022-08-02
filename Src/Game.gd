@@ -13,5 +13,5 @@ func generate_popup(text: String, position: Vector2, color: Color = Color(1, 0, 
 	var pop : Node2D = popup_text_scene.instance()
 	pop.get_node("TextPopup").text = text
 	pop.global_position = position
-	pop.get_node("TextPopup").modulate = color
+	pop.get_node("TextPopup").set("custom_colors/font_color", color)
 	add_child(pop)
