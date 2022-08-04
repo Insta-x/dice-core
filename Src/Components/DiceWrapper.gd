@@ -28,3 +28,7 @@ func set_new_dice_core(dice_core_resource: DiceCoreResource) -> void:
 func set_new_limit(new_limit: int) -> void:
 	limiter.limit = new_limit
 	emit_signal("limiter_changed", new_limit)
+
+
+func set_new_indexer(new_start: int) -> void:
+	indexer.start = new_start

@@ -25,9 +25,9 @@ func _on_DiceWrapper_dice_core_changed(resource: DiceCoreResource) -> void:
 	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore.self_modulate = resource.color
 
 
-func _on_DiceWrapper_limiter_changed(lower_limit: int, upper_limit: int) -> void:
-	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/LowerLimit/Label.text = str(lower_limit)
-	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/UpperLimit/Label.text = str(upper_limit)
+#func _on_DiceWrapper_limiter_changed(lower_limit: int, upper_limit: int) -> void:
+#	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/LowerLimit/Label.text = str(lower_limit)
+#	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/UpperLimit/Label.text = str(upper_limit)
 
 
 func _on_DiceWrapper_number_changed(number: int) -> void:
