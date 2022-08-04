@@ -3,18 +3,23 @@ extends Node
 class_name DiceCore
 
 
-export (int) var init_number := 1
+export (int) var init_seed := 1
 export (Resource) var dice_core_resource = dice_core_resource as DiceCoreResource
 
-signal dice_rolled(number)
+signal dice_rolled(next_seed, limited_seed)
 
-onready var current_number := init_number setget set_current_number
-
-
-func next(modulo: int) -> void:
-	self.current_number = dice_core_resource._formula(current_number) % modulo
-	emit_signal("dice_rolled", current_number)
+onready var current_seed := init_seed setget set_current_seed
 
 
-func set_current_number(value: int) -> void:
-	current_number = value
+func roll(modulo: int) -> void:
+	var next_seed := get_next_seed()
+	self.current_seed = next_seed % modulo
+	emit_signal("dice_rolled", next_seed, current_seed)
+
+
+func get_next_seed() -> int:
+	return dice_core_resource._formula(current_seed)
+
+
+func set_current_seed(value: int) -> void:
+	current_seed = value

@@ -17,3 +17,8 @@ func random_roll(true_number: int) -> void:
 
 func show_true_seed() -> void:
 	text = str(true_seed)
+
+
+func _on_dice_rolled(next_seed: int, limited_seed: int) -> void:
+	random_roll(next_seed)
+	true_seed = limited_seed

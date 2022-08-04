@@ -20,16 +20,16 @@
 size = 24
 font_data = ExtResource( 4 )
 
-[sub_resource type="GDScript" id=6]
+[sub_resource type="GDScript" id=21]
 script/source = "extends Label
 
 
 func _ready() -> void:
-	GlobalSignals.connect(\"player_limiter_changed\", self, \"change_limiter\")
+	GlobalSignals.connect(\"player_indexer_changed\", self, \"change_indexer\")
 
 
-func change_limiter(lower_limit: int, upper_limit: int) -> void:
-	text = str(lower_limit)
+func change_indexer(new_index: int) -> void:
+	text = str(new_index)
 "
 
 [sub_resource type="GDScript" id=8]
@@ -38,8 +38,7 @@ script/source = "extends TextureRect
 
 func _ready() -> void:
 	GlobalSignals.connect(\"player_dice_changed\", self, \"change_dice_core\")
-	GlobalSignals.connect(\"player_dice_rolled\", $DiceCoreLabel, \"random_roll\")
-#	GlobalSignals.connect(\"player_number_changed\", $RollLabel, \"change_number\")
+	GlobalSignals.connect(\"player_dice_rolled\", $DiceCoreLabel, \"_on_dice_rolled\")
 
 
 func change_dice_core(resource: DiceCoreResource) -> void:
@@ -63,8 +62,8 @@ func _ready() -> void:
 	GlobalSignals.connect(\"player_limiter_changed\", self, \"change_limiter\")
 
 
-func change_limiter(lower_limit: int, upper_limit: int) -> void:
-	text = str(upper_limit)
+func change_limiter(new_limit: int) -> void:
+	text = str(new_limit)
 "
 
 [sub_resource type="DynamicFont" id=15]
@@ -75,10 +74,10 @@ script/source = "extends Label
 
 
 func _ready() -> void:
-	GlobalSignals.connect(\"player_dice_rolled\", self, \"_on_player_dice_rolled\")
+	GlobalSignals.connect(\"player_number_generated\", self, \"_on_player_number_generated\")
 
 
-func _on_player_dice_rolled(value: int) -> void:
+func _on_player_number_generated(value: int) -> void:
 	hide()
 	text = str(value)
 
@@ -230,6 +229,20 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( -252, 0 ), Vector2( -252, 0 ), Vector2( 20, 0 ) ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath("DiceCoreContainer/DiceCoreRect/DiceCoreLabel")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show_true_seed"
+} ]
+}
 
 [sub_resource type="GDScript" id=20]
 script/source = "extends AnimationPlayer
@@ -272,7 +285,7 @@ custom_fonts/font = SubResource( 4 )
 text = "0"
 align = 1
 valign = 1
-script = SubResource( 6 )
+script = SubResource( 21 )
 
 [node name="DiceCoreRect" type="TextureRect" parent="DiceCoreContainer"]
 self_modulate = Color( 0, 0.788235, 1, 1 )
@@ -310,7 +323,7 @@ margin_top = -16.0
 margin_right = 16.0
 margin_bottom = 16.0
 custom_fonts/font = SubResource( 5 )
-text = "6"
+text = "8"
 align = 1
 valign = 1
 script = SubResource( 7 )
@@ -337,10 +350,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -12.0
-margin_top = -12.0
-margin_right = 12.0002
-margin_bottom = 12.0
+margin_left = 20.0
+margin_right = 44.0002
+margin_bottom = 24.0
 custom_fonts/font = SubResource( 15 )
 text = "1"
 align = 1
