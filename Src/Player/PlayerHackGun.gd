@@ -33,7 +33,7 @@ func shoot() -> void:
 	
 	GlobalSignals.emit_signal("player_hack_shot")
 	
-	yield(get_tree().create_timer(1), "timeout")
+	yield(get_tree().create_timer(2), "timeout")
 	can_shoot = true
 
 

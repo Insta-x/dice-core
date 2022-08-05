@@ -9,5 +9,5 @@ func _ready() -> void:
 
 
 func reset_progress() -> void:
-	tween.interpolate_property(self, "value", max_value, min_value, 1, Tween.TRANS_LINEAR)
+	tween.interpolate_property(self, "value", max_value, min_value, 2, Tween.TRANS_LINEAR)
 	tween.start()
