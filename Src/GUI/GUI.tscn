@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Assets/GUI/shoot-ui.png" type="Texture" id=1]
 [ext_resource path="res://Assets/GUI/reload-bar.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Src/GUI/GUI.gd" type="Script" id=14]
 [ext_resource path="res://Assets/GUI/limiter-frame-small.png" type="Texture" id=15]
 [ext_resource path="res://Src/GUI/GUIAnimationPlayer.gd" type="Script" id=16]
+[ext_resource path="res://Src/GUI/CritReloadPopup.tscn" type="PackedScene" id=17]
 
 [sub_resource type="DynamicFont" id=4]
 size = 24
@@ -424,6 +425,13 @@ margin_left = 247.0
 margin_top = 478.0
 margin_right = 652.0
 margin_bottom = 590.0
+
+[node name="CritReloadPopup" parent="." instance=ExtResource( 17 )]
+visible = false
+margin_left = 568.0
+margin_top = 524.0
+margin_right = 948.0
+margin_bottom = 572.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 17 )
