@@ -3,7 +3,6 @@
 [ext_resource path="res://Assets/Enemy/enemy-rock.png" type="Texture" id=1]
 [ext_resource path="res://Src/NewEnemy/NewEnemy.gd" type="Script" id=2]
 
-
 [node name="TutorialEnemy" type="KinematicBody2D"]
 collision_layer = 4
 collision_mask = 0

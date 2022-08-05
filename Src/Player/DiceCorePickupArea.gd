@@ -16,3 +16,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		detected_dice_core.queue_free()
 		
 		get_tree().set_input_as_handled()
+
+
+func _on_DiceCorePickupArea_area_entered(area: PickupableDiceCore) -> void:
+	area.show_prompt()
+
+
+func _on_DiceCorePickupArea_area_exited(area: PickupableDiceCore) -> void:
+	area.hide_prompt()

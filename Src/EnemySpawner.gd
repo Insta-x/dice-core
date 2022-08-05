@@ -30,8 +30,9 @@ export (NodePath) onready var player = get_node(player) as Player
 func spawn() -> void:
 	var select : int = randi() % 3
 	var dice_sel := randi() % dice_core_res.size()
-	var lower_limit := randi() % 14
-	var upper_limit := lower_limit + (randi() % (21 - lower_limit - 4) + 4)
+	var limit := randi() % 13 + 8
+	var index := randi() % 20 + 1
+	
 	var pos : int = randi() % get_children().size()
 	if player.global_position.distance_squared_to(get_child(pos).global_position) < 100000:
 		pos = (pos + 1) % get_children().size()
@@ -44,8 +45,7 @@ func spawn() -> void:
 	spawn_anim.global_position = get_child(pos).global_position
 	get_parent().call_deferred("add_child", enemy)
 	get_parent().call_deferred("add_child", spawn_anim)
-	enemy.call_deferred("init", player, dice_core_res[dice_sel], lower_limit, upper_limit)
-#	enemy.init(player, dice_core_res[dice_sel], lower_limit, upper_limit)
+	enemy.call_deferred("init", player, dice_core_res[dice_sel], limit, index)
 	GlobalGame.enemy_count += 1
 
 

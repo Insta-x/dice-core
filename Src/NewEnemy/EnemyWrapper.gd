@@ -15,10 +15,11 @@ onready var dice_wrapper := $DiceWrapper
 onready var dice_timer := $DiceTimer
 
 
-func init(player: Player, dice_core: DiceCoreResource, lower_limit: int, upper_limit: int) -> void:
+func init(player: Player, dice_core: DiceCoreResource, new_limit: int, new_start: int) -> void:
 	body.player = player
 	dice_wrapper.set_new_dice_core(dice_core)
-	dice_wrapper.set_new_limit(lower_limit, upper_limit)
+	dice_wrapper.set_new_limit(new_limit)
+	dice_wrapper.set_new_indexer(new_start)
 
 
 func dead() -> void:
@@ -36,11 +37,11 @@ func dead() -> void:
 	drop_dice.global_position = body.global_position - Vector2(40, 0)
 	get_parent().call_deferred("add_child", drop_dice)
 	
-	var drop_limiter : PickupableLimiter = pickup_limiter_scn.instance()
-	drop_limiter.lower_limit = $DiceWrapper/Limiter.lower_limit
-	drop_limiter.upper_limit = $DiceWrapper/Limiter.upper_limit
-	drop_limiter.global_position = body.global_position + Vector2(40, 0)
-	get_parent().call_deferred("add_child", drop_limiter)
+#	var drop_limiter : PickupableLimiter = pickup_limiter_scn.instance()
+#	drop_limiter.lower_limit = $DiceWrapper/Limiter.lower_limit
+#	drop_limiter.upper_limit = $DiceWrapper/Limiter.upper_limit
+#	drop_limiter.global_position = body.global_position + Vector2(40, 0)
+#	get_parent().call_deferred("add_child", drop_limiter)
 	
 	queue_free()
 
