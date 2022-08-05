@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemy-spike.png-57e8a4ca683f2061e15115d77fd0b445.stex"
+path="res://.import/enemy-spike.png-1dcb765c6d764e93bf22c00ef373aaf5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/enemy-spike.png"
-dest_files=[ "res://.import/enemy-spike.png-57e8a4ca683f2061e15115d77fd0b445.stex" ]
+source_file="res://Assets/Enemy/enemy-spike.png"
+dest_files=[ "res://.import/enemy-spike.png-1dcb765c6d764e93bf22c00ef373aaf5.stex" ]
 
 [params]
 

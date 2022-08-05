@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Art/dummy-enemy.png" type="Texture" id=9]
 [ext_resource path="res://Src/Enemy/on-hit-shader.tres" type="Material" id=10]
 
+
 [sub_resource type="CircleShape2D" id=1]
 radius = 60.0
 

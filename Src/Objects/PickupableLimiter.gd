@@ -1,4 +1,4 @@
-extends Area2D
+extends Pickupable
 
 class_name PickupableLimiter
 

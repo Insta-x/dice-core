@@ -1,9 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Art/bullet.png" type="Texture" id=1]
 [ext_resource path="res://Src/Objects/PlayerBullet.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/GUI/bullet-roll.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 3 )
 
 [node name="PlayerBullet" type="KinematicBody2D"]
 collision_layer = 16
@@ -21,5 +27,25 @@ shape = SubResource( 1 )
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Node2D"]
+margin_left = 10.0
+margin_top = -74.0
+margin_right = 74.0
+margin_bottom = -10.0
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Node2D/TextureRect"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -32.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 0, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "0"
+align = 1
+valign = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

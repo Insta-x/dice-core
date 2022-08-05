@@ -7,7 +7,7 @@
 [ext_resource path="res://Src/NewEnemy/SM/MoveNearPlayer.gd" type="Script" id=5]
 [ext_resource path="res://Src/Components/DiceCore/Multiplier/Multiply3DiceCore.tres" type="Resource" id=6]
 [ext_resource path="res://Src/Objects/EnemyBullet.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Src/Components/Emitter.gd" type="Script" id=8]
+[ext_resource path="res://Src/NewEnemy/SniperGun.gd" type="Script" id=8]
 [ext_resource path="res://Src/NewEnemy/SM/MoveRandom.gd" type="Script" id=9]
 [ext_resource path="res://Src/NewEnemy/SM/Shoot.gd" type="Script" id=10]
 [ext_resource path="res://Src/NewEnemy/EnemyHazardDetector.tscn" type="PackedScene" id=11]
@@ -103,13 +103,14 @@ body = NodePath("SniperEnemy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SniperEnemy/EnemyHazardDetector" index="0"]
 shape = SubResource( 5 )
 
-[node name="Emitter" type="Node2D" parent="SniperEnemy" index="5"]
+[node name="SniperGun" type="Node2D" parent="SniperEnemy" index="5"]
 rotation = -2.98023e-08
 script = ExtResource( 8 )
 __meta__ = {
 "_editor_description_": ""
 }
 bullet_scn = ExtResource( 7 )
+dice_wrapper = NodePath("../../DiceWrapper")
 
 [node name="GUIwrapper" parent="." index="1"]
 body = NodePath("../SniperEnemy")
@@ -138,7 +139,7 @@ script = ExtResource( 10 )
 behaviour_name = "shoot"
 valid_roll = PoolIntArray( 3, 7, 11, 15, 19 )
 agent = NodePath("../../SniperEnemy")
-emitter = NodePath("../../SniperEnemy/Emitter")
+gun = NodePath("../../SniperEnemy/SniperGun")
 
 [node name="AvoidPlayer" type="Node" parent="DiceBehaviourMachine" index="4"]
 script = ExtResource( 3 )
@@ -159,7 +160,7 @@ dice_core_resource = ExtResource( 6 )
 anims/RESET = SubResource( 6 )
 anims/Shoot = SubResource( 7 )
 
-[connection signal="limit_bullet_detected" from="SniperEnemy/EnemyHazardDetector" to="DiceWrapper" method="set_new_limit"]
+[connection signal="hack_bullet_detected" from="SniperEnemy/EnemyHazardDetector" to="." method="hacked"]
 [connection signal="player_bullet_detected" from="SniperEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
 
 [editable path="SniperEnemy"]

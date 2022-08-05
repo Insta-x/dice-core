@@ -18,9 +18,9 @@
 [ext_resource path="res://Assets/Audio/SFX/dice-roll.wav" type="AudioStream" id=16]
 [ext_resource path="res://Assets/Audio/SFX/player-death.wav" type="AudioStream" id=17]
 [ext_resource path="res://Src/Player/PlayerCamera2D.gd" type="Script" id=18]
-[ext_resource path="res://Src/Player/PlayerLimitGun.gd" type="Script" id=19]
-[ext_resource path="res://Src/Objects/LimitBullet.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Src/Player/PlayerHackGun.gd" type="Script" id=19]
 [ext_resource path="res://Assets/Audio/SFX/pick-up.wav" type="AudioStream" id=21]
+[ext_resource path="res://Src/Components/Indexer.gd" type="Script" id=22]
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 40.0
@@ -173,12 +173,16 @@ bullet_scn = ExtResource( 6 )
 emit_offset = Vector2( 32, 0 )
 dice_wrapper = NodePath("../../DiceWrapper")
 
-[node name="PlayerLimitGun" type="Node2D" parent="Player"]
+[node name="PlayerHackGun" type="Node2D" parent="Player"]
+position = Vector2( 90, 0 )
 script = ExtResource( 19 )
 __meta__ = {
 "_edit_lock_": true
 }
-bullet_scn = ExtResource( 20 )
+
+[node name="Timer" type="Timer" parent="Player/PlayerHackGun"]
+wait_time = 2.0
+one_shot = true
 
 [node name="DiceCorePickupArea" parent="Player" instance=ExtResource( 9 )]
 dice_wrapper = NodePath("../../DiceWrapper")
@@ -251,6 +255,9 @@ dice_core_resource = ExtResource( 13 )
 [node name="Limiter" type="Node" parent="DiceWrapper"]
 script = ExtResource( 7 )
 
+[node name="Indexer" type="Node" parent="DiceWrapper"]
+script = ExtResource( 22 )
+
 [node name="PlayerShootSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
 volume_db = -10.0
@@ -265,9 +272,12 @@ stream = ExtResource( 16 )
 stream = ExtResource( 21 )
 
 [connection signal="shoot_input" from="Player" to="PlayerAnimationPlayer" method="_on_Player_shoot_input"]
+[connection signal="timeout" from="Player/PlayerHackGun/Timer" to="Player/PlayerHackGun" method="_on_Timer_timeout"]
 [connection signal="area_entered" from="Player/PlayerHazardDetector" to="." method="_on_HazardDetector_area_entered"]
 [connection signal="animation_finished" from="PlayerAnimationPlayer" to="Player/PlayerGun" method="_on_PlayerAnimationPlayer_animation_finished"]
 [connection signal="dice_core_changed" from="DiceWrapper" to="." method="_on_DiceWrapper_dice_core_changed"]
-[connection signal="dice_rolled" from="DiceWrapper" to="." method="_on_DiceWrapper_dice_rolled"]
+[connection signal="dice_core_changed" from="DiceWrapper" to="DiceWrapper/DiceCore" method="_on_DiceWrapper_dice_core_changed"]
 [connection signal="limiter_changed" from="DiceWrapper" to="." method="_on_DiceWrapper_limiter_changed"]
-[connection signal="number_changed" from="DiceWrapper" to="." method="_on_DiceWrapper_number_changed"]
+[connection signal="limiter_changed" from="DiceWrapper" to="DiceWrapper/DiceCore" method="_on_DiceWrapper_limiter_changed"]
+[connection signal="number_generated" from="DiceWrapper" to="." method="_on_DiceWrapper_number_generated"]
+[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="." method="_on_DiceCore_dice_rolled"]

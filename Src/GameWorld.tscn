@@ -28,9 +28,6 @@ position = Vector2( 576, 320 )
 [node name="Position2D6" type="Position2D" parent="EnemySpawner"]
 position = Vector2( 576, -320 )
 
-[node name="PlayerWrapper" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 256 )
-
 [node name="TutorialEnemyWrapper" parent="." instance=ExtResource( 3 )]
 rotation = 1.5708
 
@@ -70,3 +67,7 @@ default_color = Color( 1, 0.968627, 0.152941, 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="PlayerWrapper" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 256 )
+invincible = true

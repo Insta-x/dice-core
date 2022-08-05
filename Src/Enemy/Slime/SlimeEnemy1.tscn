@@ -8,35 +8,9 @@
 [ext_resource path="res://Src/Components/Limiter.gd" type="Script" id=6]
 [ext_resource path="res://Src/Components/DiceWrapper.gd" type="Script" id=7]
 [ext_resource path="res://Src/Enemy/Slime/SlimeEnemy.gd" type="Script" id=8]
-[ext_resource path="res://Assets/Art/enemy-spike.png" type="Texture" id=9]
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 9 )
-region = Rect2( 64, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 9 )
-region = Rect2( 128, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 9 )
-region = Rect2( 192, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 9 )
-region = Rect2( 256, 0, 64, 64 )
-
-[sub_resource type="SpriteFrames" id=7]
-animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
-"loop": true,
-"name": "default",
-"speed": 15.0
-} ]
+[ext_resource path="res://Assets/Enemy/enemy-spike.png" type="Texture" id=9]
+[ext_resource path="res://Src/Enemy/on-hit-shader.tres" type="Material" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 40.0

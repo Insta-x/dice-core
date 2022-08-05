@@ -69,10 +69,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/NewEnemy/EnemyWrapper.gd"
 }, {
-"base": "",
+"base": "EditorVCSInterface",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
+}, {
+"base": "Bullet",
+"class": "HackBullet",
+"language": "GDScript",
+"path": "res://Src/Objects/HackBullet.gd"
+}, {
+"base": "Node",
+"class": "Indexer",
+"language": "GDScript",
+"path": "res://Src/Components/Indexer.gd"
 }, {
 "base": "Bullet",
 "class": "LimitBullet",
@@ -100,11 +110,16 @@ _global_script_classes=[ {
 "path": "res://Src/NewEnemy/NewEnemy.gd"
 }, {
 "base": "Area2D",
+"class": "Pickupable",
+"language": "GDScript",
+"path": "res://Src/Player/Pickupable.gd"
+}, {
+"base": "Pickupable",
 "class": "PickupableDiceCore",
 "language": "GDScript",
 "path": "res://Src/Objects/PickupableDiceCore.gd"
 }, {
-"base": "Area2D",
+"base": "Pickupable",
 "class": "PickupableLimiter",
 "language": "GDScript",
 "path": "res://Src/Objects/PickupableLimiter.gd"
@@ -118,6 +133,11 @@ _global_script_classes=[ {
 "class": "PlayerLimitGun",
 "language": "GDScript",
 "path": "res://Src/Player/PlayerLimitGun.gd"
+}, {
+"base": "Bullet",
+"class": "RollBullet",
+"language": "GDScript",
+"path": "res://Src/Objects/RollBullet.gd"
 } ]
 _global_script_class_icons={
 "AddMulterDiceCoreResource": "",
@@ -133,15 +153,19 @@ _global_script_class_icons={
 "EnemyHealth": "",
 "EnemyWrapper": "",
 "GitAPI": "",
+"HackBullet": "",
+"Indexer": "",
 "LimitBullet": "",
 "Limiter": "",
 "MultAdderDiceCoreResource": "",
 "MultiplierDiceCoreResource": "",
 "NewEnemy": "",
+"Pickupable": "",
 "PickupableDiceCore": "",
 "PickupableLimiter": "",
 "Player": "",
-"PlayerLimitGun": ""
+"PlayerLimitGun": "",
+"RollBullet": ""
 }
 
 [application]
@@ -259,6 +283,8 @@ limit_shoot={
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="HazardToPlayer"
 2d_physics/layer_5="HazardToEnemy"
+2d_physics/layer_6="PickupableDiceCore"
+2d_physics/layer_7="PickupableLimiter"
 
 [physics]
 
