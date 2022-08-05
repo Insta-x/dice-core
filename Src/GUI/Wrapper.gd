@@ -10,6 +10,18 @@ func _physics_process(delta: float) -> void:
 		global_position = body.global_position
 
 
+func hacked() -> void:
+	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Indexer/HackedLabel.show()
+	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Limiter/HackedLabel.show()
+	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Limiter/Label.modulate.a = 0.5
+	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Indexer/Label.modulate.a = 0.5
+	yield(get_tree().create_timer(0.85), "timeout")
+	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Indexer/HackedLabel.hide()
+	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Limiter/HackedLabel.hide()
+	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Limiter/Label.modulate.a = 1
+	$EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Indexer/Label.modulate.a = 1
+
+
 func _on_behaviour_changed(behaviour_name: String) -> void:
 	$EnemyGUI/VBoxContainer/BehaviourLabel.text = behaviour_name
 	if (behaviour_name == "self destruct"):

@@ -134,7 +134,8 @@ dice_core_resource = ExtResource( 6 )
 root_node = NodePath("")
 anims/Shoot = SubResource( 4 )
 
-[connection signal="limit_bullet_detected" from="SniperEnemy/EnemyHazardDetector" to="DiceWrapper" method="set_new_limit"]
+[connection signal="hack_bullet_detected" from="SniperEnemy/EnemyHazardDetector" to="." method="hacked"]
 [connection signal="player_bullet_detected" from="SniperEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
+[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
 
 [editable path="GUIwrapper"]

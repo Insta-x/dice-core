@@ -21,6 +21,15 @@ func get_number(next: bool = true) -> int:
 	return result
 
 
+func hacked(hack_seed: int) -> void:
+	var pre_limit := limiter.limit
+	var pre_index := indexer.start
+	dice_core.current_seed = hack_seed
+	get_number()
+	limiter.limit = pre_limit
+	indexer.start = pre_index
+
+
 func set_new_dice_core(dice_core_resource: DiceCoreResource) -> void:
 	dice_core.dice_core_resource = dice_core_resource
 	emit_signal("dice_core_changed", dice_core_resource)

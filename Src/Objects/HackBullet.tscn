@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Src/Objects/HackBullet.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Art/bullet-change.png" type="Texture" id=2]
+[ext_resource path="res://Assets/GUI/bullet-roll.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="DynamicFont" id=7]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0.882353, 1, 1 )
+font_data = ExtResource( 4 )
+
+[node name="HackBullet" type="KinematicBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource( 1 )
+movespeed = 900.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Node2D"]
+margin_left = 10.0
+margin_top = -74.0
+margin_right = 74.0
+margin_bottom = -10.0
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Node2D/TextureRect"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -32.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 7 )
+text = "0"
+align = 1
+valign = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
