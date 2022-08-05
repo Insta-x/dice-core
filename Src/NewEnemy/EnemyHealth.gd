@@ -50,6 +50,7 @@ func hurt(roll: int) -> void:
 	
 	if weak_to_same and roll == current_roll:
 		self.health -= crit_damage
+		GlobalSignals.emit_signal("critical_hit")
 		return
 	
 	self.health -= 1

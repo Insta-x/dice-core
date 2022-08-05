@@ -2,10 +2,17 @@ extends Node2D
 
 
 const bullet_scn := preload("res://Src/Objects/HackBullet.tscn")
+
 export (Vector2) var emit_offset
+
+onready var timer := $Timer
 
 var can_shoot := true
 var hack_seed := 0 setget set_hack_seed
+
+
+func _ready() -> void:
+	GlobalSignals.connect("critical_hit", self, "_on_critical_hit")
 
 
 func _physics_process(delta: float) -> void:
@@ -33,10 +40,18 @@ func shoot() -> void:
 	
 	GlobalSignals.emit_signal("player_hack_shot")
 	
-	yield(get_tree().create_timer(2), "timeout")
+	timer.start()
+
+
+func _on_critical_hit() -> void:
 	can_shoot = true
+	timer.stop()
 
 
 func set_hack_seed(value: int) -> void:
 	hack_seed = value
 	GlobalSignals.emit_signal("player_hack_seed_changed", hack_seed)
+
+
+func _on_Timer_timeout() -> void:
+	can_shoot = true

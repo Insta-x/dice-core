@@ -8,9 +8,15 @@ export (NodePath) onready var dice_wrapper = get_node(dice_wrapper) as DiceWrapp
 var can_shoot := true
 
 
+func _ready() -> void:
+	GlobalSignals.connect("critical_hit", self, "_on_critical_hit")
+
+
 func shoot() -> void:
 	if not can_shoot:
 		return
+	
+	print("Test")
 	
 	var bullet : RollBullet = bullet_scn.instance()
 	bullet.roll = dice_wrapper.get_number()
@@ -25,3 +31,7 @@ func shoot() -> void:
 func _on_PlayerAnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "Shoot":
 		can_shoot = true
+
+
+func _on_critical_hit() -> void:
+	can_shoot = true

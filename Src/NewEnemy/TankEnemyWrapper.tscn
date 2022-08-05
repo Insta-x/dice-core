@@ -88,6 +88,5 @@ dice_core_resource = ExtResource( 4 )
 
 [connection signal="hack_bullet_detected" from="TankEnemy/EnemyHazardDetector" to="." method="hacked"]
 [connection signal="player_bullet_detected" from="TankEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
-[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
 
 [editable path="GUIwrapper"]
