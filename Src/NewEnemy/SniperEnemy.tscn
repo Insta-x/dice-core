@@ -21,10 +21,11 @@ __meta__ = {
 
 [node name="Sprite2" type="Sprite" parent="."]
 material = ExtResource( 4 )
-position = Vector2( 6, 0 )
+position = Vector2( 0, -30 )
 texture = ExtResource( 3 )
 centered = false
-offset = Vector2( 0, -64 )
+offset = Vector2( 0, -32 )
+flip_v = true
 __meta__ = {
 "_edit_lock_": true,
 "_editor_description_": ""
@@ -32,18 +33,17 @@ __meta__ = {
 
 [node name="Sprite3" type="Sprite" parent="."]
 material = ExtResource( 4 )
-position = Vector2( 6, 10 )
-rotation = -0.174533
+position = Vector2( 0, 30 )
 texture = ExtResource( 3 )
 centered = false
-flip_v = true
 __meta__ = {
 "_edit_lock_": true,
 "_editor_description_": ""
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 24, -48, -24, -48, -48, 0, -24, 48, 24, 48, 48, 0 )
+visible = false
+polygon = PoolVector2Array( 11, -24, -11, -24, -23, 0, -11, 24, 11, 24, 23, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
