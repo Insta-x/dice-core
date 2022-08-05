@@ -38,8 +38,17 @@ margin_bottom = 25.0
 margin_top = 29.0
 margin_bottom = 61.0
 
+[node name="Label" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Indexer" index="0"]
+text = "0"
+
 [node name="DiceCore" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer" index="1"]
 self_modulate = Color( 0, 0.788235, 1, 1 )
+
+[node name="DiceCoreLabel" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore" index="0"]
+text = "1"
+
+[node name="Label" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Limiter" index="0"]
+text = "8"
 
 [node name="EnemyHealth" parent="." index="2"]
 body = NodePath("../TutorialEnemy")
@@ -55,5 +64,6 @@ autostart = false
 [connection signal="hack_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="." method="hacked"]
 [connection signal="player_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
 [connection signal="player_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="DiceWrapper" method="get_number"]
+[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
 
 [editable path="GUIwrapper"]
