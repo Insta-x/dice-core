@@ -17,6 +17,7 @@ signal player_died
 
 signal batu_died
 signal enemy_died
+signal critical_hit
 
 signal text_popup
 
