@@ -10,11 +10,12 @@
 [ext_resource path="res://Src/GUI/DiceCoreLabel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/GUI/limiter-frame.png" type="Texture" id=9]
 [ext_resource path="res://Assets/GUI/limiter-ui.png" type="Texture" id=10]
-[ext_resource path="res://Src/GUI/LimitProgress.gd" type="Script" id=11]
+[ext_resource path="res://Src/GUI/HackProgress.gd" type="Script" id=11]
 [ext_resource path="res://Src/GUI/FlashingError.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Src/GUI/FlashingWarning.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Src/GUI/GUI.gd" type="Script" id=14]
 [ext_resource path="res://Assets/GUI/limiter-frame-small.png" type="Texture" id=15]
+[ext_resource path="res://Src/GUI/GUIAnimationPlayer.gd" type="Script" id=16]
 
 [sub_resource type="DynamicFont" id=4]
 size = 24
@@ -229,14 +230,6 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="GDScript" id=20]
-script/source = "extends AnimationPlayer
-
-
-func _on_DiceCoreLabel_random_finished() -> void:
-	play(\"ResultNumber\")
-"
-
 [node name="GUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -335,10 +328,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -12.0
-margin_top = -12.0
-margin_right = 12.0002
-margin_bottom = 12.0
+margin_left = 20.0
+margin_right = 44.0001
+margin_bottom = 24.0
 custom_fonts/font = SubResource( 15 )
 text = "1"
 align = 1
@@ -436,6 +428,6 @@ margin_bottom = 590.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 17 )
 anims/ResultNumber = SubResource( 16 )
-script = SubResource( 20 )
+script = ExtResource( 16 )
 
 [connection signal="random_finished" from="DiceCoreContainer/DiceCoreRect/DiceCoreLabel" to="AnimationPlayer" method="_on_DiceCoreLabel_random_finished"]
