@@ -45,11 +45,14 @@ script = ExtResource( 9 )
 wait_time = 3.0
 autostart = true
 
-[connection signal="roll_anim_finished" from="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/RollLabel" to="." method="_on_RollLabel_roll_anim_finished"]
 [connection signal="died" from="EnemyHealth" to="." method="dead"]
 [connection signal="health_changed" from="EnemyHealth" to="GUIwrapper" method="_on_health_changed"]
 [connection signal="behaviour_changed" from="DiceBehaviourMachine" to="GUIwrapper" method="_on_behaviour_changed"]
 [connection signal="dice_core_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_dice_core_changed"]
+[connection signal="indexer_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_indexer_changed"]
+[connection signal="limiter_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_limiter_changed"]
+[connection signal="number_generated" from="DiceWrapper" to="DiceBehaviourMachine" method="new_behaviour"]
+[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
 [connection signal="timeout" from="DiceTimer" to="DiceWrapper" method="get_number"]
 
 [editable path="GUIwrapper"]

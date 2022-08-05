@@ -6,6 +6,7 @@ class_name DiceWrapper
 signal number_generated(number)
 signal dice_core_changed(resource)
 signal limiter_changed(new_limit)
+signal indexer_changed(new_indexer)
 
 onready var dice_core : DiceCore = $DiceCore
 onready var limiter : Limiter = $Limiter
@@ -32,3 +33,4 @@ func set_new_limit(new_limit: int) -> void:
 
 func set_new_indexer(new_start: int) -> void:
 	indexer.start = new_start
+	emit_signal("indexer_changed", new_start)
