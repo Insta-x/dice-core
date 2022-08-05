@@ -48,7 +48,7 @@ func shoot() -> void:
 	bullet.lower_limit = lower_limit
 	owner.get_parent().add_child(bullet)
 	
-	GlobalSignals.emit_signal("player_limit_shot")
+	GlobalSignals.emit_signal("player_hack_shot")
 	
 	yield(get_tree().create_timer(1), "timeout")
 	can_shoot = true

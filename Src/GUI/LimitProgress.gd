@@ -5,7 +5,7 @@ onready var tween := $Tween
 
 
 func _ready() -> void:
-	GlobalSignals.connect("player_limit_shot", self, "reset_progress")
+	GlobalSignals.connect("player_hack_shot", self, "reset_progress")
 
 
 func reset_progress() -> void:

@@ -3,5 +3,5 @@ extends Bullet
 class_name HackBullet
 
 
-export (int) var hack_seed := 1
+export (int) var hack_seed := 0
 
