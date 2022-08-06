@@ -38,14 +38,14 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
-polygon = PoolVector2Array( 0, -1088, -1152, -768, -1152, 704, 0, 1152, 1152, 704, 1152, -640, 1216, -640, 1216, 768, 0, 1216, -1216, 768, -1216, -832, 0, -1152, 1216, -768, 1216, -640, 1152, -640, 1152, -704 )
+polygon = PoolVector2Array( 0, -512, -576, -320, -576, 320, 0, 512, 576, 320, 576, -320, 1216, -768, 1216, 768, 0, 1216, -1216, 768, -1216, -832, 0, -1152, 1216, -768, 576, -320 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Line2D" type="Line2D" parent="."]
 z_index = -1
-points = PoolVector2Array( -1152, 704, 0, 1152, 1152, 704, 1152, -704, 0, -1088, -1152, -768, -1152, 704 )
+points = PoolVector2Array( -576, 320, 0, 512, 576, 320, 576, -320, 0, -512, -576, -320, -576, 320 )
 default_color = Color( 0, 1, 1, 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -53,13 +53,14 @@ __meta__ = {
 
 [node name="Line2D2" type="Line2D" parent="."]
 z_index = -1
-points = PoolVector2Array( -1216, 768, 0, 1216, 1216, 768, 1216, -768, 0, -1152, -1216, -832, -1216, 768 )
+points = PoolVector2Array( -640, 384, 0, 576, 640, 384, 640, -384, 0, -576, -640, -384, -640, 384 )
 default_color = Color( 0, 1, 1, 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Line2D4" type="Line2D" parent="."]
+visible = false
 position = Vector2( -1152, -256 )
 z_index = -1
 points = PoolVector2Array( 1728, 576, 1152, 768, 1152, 1408, 1152, 768, 576, 576, 0, 960, 576, 576, 576, -64, 0, -512, 576, -64, 1152, -256, 1152, -832, 1152, -256, 1728, -64, 2304, -448, 1728, -64, 1728, 576, 2304, 960 )
