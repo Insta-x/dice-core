@@ -7,7 +7,7 @@
 [ext_resource path="res://Src/NewEnemy/TutorialEnemyWrapper.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 60.0
+radius = 38.0
 
 [node name="TutorialEnemyWrapper" instance=ExtResource( 1 )]
 script = ExtResource( 5 )

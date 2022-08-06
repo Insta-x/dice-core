@@ -17,7 +17,7 @@ movespeed = 80
 [node name="EnemyHazardDetector" parent="LanceEnemy" index="2" instance=ExtResource( 3 )]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LanceEnemy/EnemyHazardDetector" index="0"]
-polygon = PoolVector2Array( 72, 0, -24, -48, -56, -32, -72, 0, -56, 32, -24, 48 )
+polygon = PoolVector2Array( 40, 0, -8, -16, -32, -16, -40, 0, -32, 16, -8, 16 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -31,7 +31,7 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LanceEnemy/HazardToPlayer" index="0"]
-polygon = PoolVector2Array( 64, 0, 8, -24, 8, 24 )
+polygon = PoolVector2Array( 32, 0, -16, -16, -16, 16 )
 
 [node name="GUIwrapper" parent="." index="1"]
 body = NodePath("../LanceEnemy")

@@ -11,7 +11,7 @@
 [ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40, 40 )
+extents = Vector2( 22, 34 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 64
