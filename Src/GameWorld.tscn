@@ -29,6 +29,7 @@ position = Vector2( 576, 320 )
 position = Vector2( 576, -320 )
 
 [node name="TutorialEnemyWrapper" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -256 )
 rotation = 1.5708
 
 [node name="Wall" type="StaticBody2D" parent="."]
@@ -70,5 +71,4 @@ __meta__ = {
 }
 
 [node name="PlayerWrapper" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 256 )
 invincible = true
