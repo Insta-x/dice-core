@@ -19,6 +19,7 @@ signal health_changed
 signal died
 
 var health = max_health setget set_health
+var is_dead := false
 
 
 func _ready() -> void:
@@ -59,7 +60,8 @@ func hurt(roll: int) -> void:
 
 func set_health(value: int) -> void:
 	health = clamp(value, 0, max_health)
-	emit_signal("health_changed", value)
+	emit_signal("health_changed", health)
 	
-	if health <= 0:
+	if health <= 0 and not is_dead:
 		emit_signal("died")
+		is_dead = true

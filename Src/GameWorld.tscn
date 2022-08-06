@@ -11,22 +11,22 @@ script = ExtResource( 2 )
 player = NodePath("../PlayerWrapper/Player")
 
 [node name="Position2D" type="Position2D" parent="EnemySpawner"]
-position = Vector2( 0, -512 )
+position = Vector2( 0, -320 )
 
 [node name="Position2D2" type="Position2D" parent="EnemySpawner"]
-position = Vector2( -576, -320 )
+position = Vector2( -320, -192 )
 
 [node name="Position2D3" type="Position2D" parent="EnemySpawner"]
-position = Vector2( -576, 320 )
+position = Vector2( -320, 192 )
 
 [node name="Position2D4" type="Position2D" parent="EnemySpawner"]
-position = Vector2( 0, 512 )
+position = Vector2( 0, 320 )
 
 [node name="Position2D5" type="Position2D" parent="EnemySpawner"]
-position = Vector2( 576, 320 )
+position = Vector2( 320, 192 )
 
 [node name="Position2D6" type="Position2D" parent="EnemySpawner"]
-position = Vector2( 576, -320 )
+position = Vector2( 320, -192 )
 
 [node name="TutorialEnemyWrapper" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -256 )

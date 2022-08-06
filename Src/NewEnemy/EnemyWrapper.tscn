@@ -42,7 +42,7 @@ script = ExtResource( 3 )
 script = ExtResource( 9 )
 
 [node name="DiceTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
 autostart = true
 
 [connection signal="died" from="EnemyHealth" to="." method="dead"]

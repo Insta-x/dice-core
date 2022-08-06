@@ -52,7 +52,7 @@ text = "8"
 
 [node name="EnemyHealth" parent="." index="2"]
 body = NodePath("../TutorialEnemy")
-max_health = 300
+max_health = 9
 
 [node name="DiceCore" parent="DiceWrapper" index="0"]
 dice_core_resource = ExtResource( 4 )
