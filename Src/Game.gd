@@ -1,7 +1,7 @@
 extends Node
 
 
-const popup_text_scene := preload("res://Src/GUI/TextPopupWrapper.tscn")
+const popup_text_scene := preload("res://Src/GUI/GameGUI/TextPopupWrapper.tscn")
 
 
 func _ready() -> void:

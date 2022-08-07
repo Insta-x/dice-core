@@ -7,7 +7,7 @@
 [ext_resource path="res://Src/NewEnemy/TutorialEnemyWrapper.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 60.0
+radius = 38.0
 
 [node name="TutorialEnemyWrapper" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
@@ -35,8 +35,8 @@ margin_top = 0.0
 margin_bottom = 25.0
 
 [node name="HBoxContainer" parent="GUIwrapper/EnemyGUI/VBoxContainer" index="2"]
-margin_top = 29.0
-margin_bottom = 61.0
+margin_top = 0.0
+margin_bottom = 32.0
 
 [node name="Label" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Indexer" index="0"]
 text = "0"
@@ -50,18 +50,17 @@ text = "1"
 [node name="Label" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Limiter" index="0"]
 text = "8"
 
-[node name="EnemyHealth" parent="." index="2"]
-body = NodePath("../TutorialEnemy")
-max_health = 300
-
 [node name="DiceCore" parent="DiceWrapper" index="0"]
 dice_core_resource = ExtResource( 4 )
+
+[node name="EnemyHealth" parent="." index="4"]
+body = NodePath("../TutorialEnemy")
 
 [node name="DiceTimer" parent="." index="5"]
 autostart = false
 
 [connection signal="hack_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="." method="hacked"]
+[connection signal="player_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="DiceWrapper" method="get_number" flags=3]
 [connection signal="player_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
-[connection signal="player_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="DiceWrapper" method="get_number"]
 
 [editable path="GUIwrapper"]

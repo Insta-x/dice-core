@@ -4,7 +4,7 @@
 [ext_resource path="res://Src/Components/DiceWrapper.gd" type="Script" id=2]
 [ext_resource path="res://Src/Components/Limiter.gd" type="Script" id=3]
 [ext_resource path="res://Src/Components/DiceCore/DiceCore.gd" type="Script" id=4]
-[ext_resource path="res://Src/GUI/EnemyGUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Src/GUI/EnemyGUI/EnemyGUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/NewEnemy/SM/DiceBehaviourMachine.gd" type="Script" id=6]
 [ext_resource path="res://Src/NewEnemy/EnemyHealth.gd" type="Script" id=7]
 [ext_resource path="res://Src/NewEnemy/SM/DoNothing.gd" type="Script" id=8]
@@ -17,10 +17,6 @@ script = ExtResource( 1 )
 
 [node name="DiceTimerProgress" parent="GUIwrapper/EnemyGUI/VBoxContainer" index="0"]
 timer = NodePath("../../../../DiceTimer")
-
-[node name="EnemyHealth" type="Node" parent="."]
-script = ExtResource( 7 )
-dice_wrapper = NodePath("../DiceWrapper")
 
 [node name="DiceBehaviourMachine" type="Node" parent="."]
 script = ExtResource( 6 )
@@ -41,18 +37,25 @@ script = ExtResource( 3 )
 [node name="Indexer" type="Node" parent="DiceWrapper"]
 script = ExtResource( 9 )
 
+[node name="EnemyHealth" type="Node" parent="."]
+script = ExtResource( 7 )
+dice_wrapper = NodePath("../DiceWrapper")
+
 [node name="DiceTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
 autostart = true
 
-[connection signal="died" from="EnemyHealth" to="." method="dead"]
-[connection signal="health_changed" from="EnemyHealth" to="GUIwrapper" method="_on_health_changed"]
 [connection signal="behaviour_changed" from="DiceBehaviourMachine" to="GUIwrapper" method="_on_behaviour_changed"]
 [connection signal="dice_core_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_dice_core_changed"]
 [connection signal="indexer_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_indexer_changed"]
 [connection signal="limiter_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_limiter_changed"]
 [connection signal="number_generated" from="DiceWrapper" to="DiceBehaviourMachine" method="new_behaviour"]
+[connection signal="number_generated" from="DiceWrapper" to="EnemyHealth" method="_on_DiceWrapper_number_generated"]
 [connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
+[connection signal="dice_seed_init" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/DiceCoreLabel" method="_on_dice_seed_init"]
+[connection signal="died" from="EnemyHealth" to="." method="dead"]
+[connection signal="health_changed" from="EnemyHealth" to="GUIwrapper" method="_on_health_changed"]
+[connection signal="number_changed" from="EnemyHealth" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HealthContainer/ResultNumber/ResultLabel" method="_on_number_changed"]
 [connection signal="timeout" from="DiceTimer" to="DiceWrapper" method="get_number"]
 
 [editable path="GUIwrapper"]

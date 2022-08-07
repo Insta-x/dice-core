@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Src/GUI/TextPopup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Src/GUI/GameGUI/TextPopup.tscn" type="PackedScene" id=1]
 
 [node name="TextPopupWrapper" type="Node2D"]
 

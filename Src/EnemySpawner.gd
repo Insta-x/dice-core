@@ -50,6 +50,7 @@ func spawn() -> void:
 
 
 func _ready() -> void:
+	GlobalGame.enemy_count = 1 # For TutorialEnemy
 	GlobalSignals.connect("batu_died",self,"game_start")
 	GlobalSignals.connect("enemy_died",self,"decrease_enemy_count")
 
@@ -61,8 +62,9 @@ func game_start():
 	
 	while (true):
 		yield(get_tree().create_timer(3), "timeout")
-		if (GlobalGame.enemy_count <= 6):
+		if (GlobalGame.enemy_count < 3):
 			spawn()
+
 
 func decrease_enemy_count():
 	GlobalGame.enemy_count -= 1
