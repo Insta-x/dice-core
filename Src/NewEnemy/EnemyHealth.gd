@@ -18,6 +18,7 @@ export (bool) var weak_to_same = true
 signal health_changed(new_health)
 signal number_changed(new_number)
 signal died
+signal enemy_hurt
 
 var health = max_health setget set_health
 var current_number := 0 setget set_current_number
@@ -49,6 +50,8 @@ func hurt(roll: int) -> void:
 	if immune_to_odd and roll % 2 == 1:
 		GlobalSignals.emit_signal("text_popup", "immune to odd", body.global_position)
 		return
+	
+	emit_signal("enemy_hurt")
 	
 	if weak_to_same and roll == current_number:
 		self.health -= crit_damage

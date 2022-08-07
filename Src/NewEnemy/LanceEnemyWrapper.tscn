@@ -9,6 +9,7 @@
 
 [node name="LanceEnemyWrapper" instance=ExtResource( 1 )]
 body = NodePath("LanceEnemy")
+score = 1
 
 [node name="LanceEnemy" parent="." index="0" instance=ExtResource( 2 )]
 movespeed = 80
@@ -59,5 +60,6 @@ body = NodePath("../LanceEnemy")
 
 [connection signal="hack_bullet_detected" from="LanceEnemy/EnemyHazardDetector" to="." method="hacked"]
 [connection signal="player_bullet_detected" from="LanceEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
+[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
 
 [editable path="GUIwrapper"]

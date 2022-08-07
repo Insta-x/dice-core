@@ -10,7 +10,7 @@
 [ext_resource path="res://Src/Enemy/Tank/TankEnemy.gd" type="Script" id=8]
 [ext_resource path="res://Assets/Enemy/enemy-tank.png" type="Texture" id=9]
 [ext_resource path="res://Assets/GUI/dice-core-shape-player1.png" type="Texture" id=10]
-[ext_resource path="res://Src/Enemy/on-hit-shader.tres" type="Material" id=11]
+[ext_resource path="res://Src/NewEnemy/Effects/on-hit-shader.tres" type="Material" id=11]
 [ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=12]
 
 
