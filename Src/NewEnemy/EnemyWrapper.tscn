@@ -52,6 +52,7 @@ autostart = true
 [connection signal="number_generated" from="DiceWrapper" to="DiceBehaviourMachine" method="new_behaviour"]
 [connection signal="number_generated" from="DiceWrapper" to="EnemyHealth" method="_on_DiceWrapper_number_generated"]
 [connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
+[connection signal="dice_seed_init" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/DiceCoreLabel" method="_on_dice_seed_init"]
 [connection signal="died" from="EnemyHealth" to="." method="dead"]
 [connection signal="health_changed" from="EnemyHealth" to="GUIwrapper" method="_on_health_changed"]
 [connection signal="number_changed" from="EnemyHealth" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HealthContainer/ResultNumber/ResultLabel" method="_on_number_changed"]
