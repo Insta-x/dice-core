@@ -22,7 +22,7 @@ const dice_core_res := [
 	preload("res://Src/Components/DiceCore/Multiplier/Multiply7DiceCore.tres")
 ]
 
-const spawn_anim_sprite := preload("res://Src/Enemy/SpawnAnimation.tscn")
+const spawn_anim_sprite := preload("res://Src/NewEnemy/Effects/SpawnAnimation.tscn")
 
 export (NodePath) onready var player = get_node(player) as Player
 

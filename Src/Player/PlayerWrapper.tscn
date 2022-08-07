@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Player/GunSprite.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Art/weapon.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Art/player-weapon.png" type="Texture" id=3]
 [ext_resource path="res://Src/Player/PlayerAnimationPlayer.gd" type="Script" id=4]
 [ext_resource path="res://Src/Player/PlayerGun.gd" type="Script" id=5]
 [ext_resource path="res://Src/Objects/PlayerBullet.tscn" type="PackedScene" id=6]

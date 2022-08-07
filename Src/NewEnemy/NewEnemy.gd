@@ -2,11 +2,11 @@ extends KinematicBody2D
 
 class_name NewEnemy
 
+onready var spriteWrapper := $SpriteWrapper
 
 export (int) var movespeed = 50
 
 var player : Player
-
 
 func goto(pos : Vector2, mundur := false) -> Vector2:
 	look_at(pos)

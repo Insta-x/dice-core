@@ -8,9 +8,9 @@
 [ext_resource path="res://Src/Components/Limiter.gd" type="Script" id=6]
 [ext_resource path="res://Src/Components/DiceWrapper.gd" type="Script" id=7]
 [ext_resource path="res://Src/Enemy/Slime/SlimeEnemy.gd" type="Script" id=8]
-
 [ext_resource path="res://Assets/Enemy/enemy-spike.png" type="Texture" id=9]
-[ext_resource path="res://Src/Enemy/on-hit-shader.tres" type="Material" id=10]
+[ext_resource path="res://Src/NewEnemy/Effects/on-hit-shader.tres" type="Material" id=10]
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 40.0

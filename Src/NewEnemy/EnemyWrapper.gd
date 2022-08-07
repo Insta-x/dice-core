@@ -5,6 +5,7 @@ class_name EnemyWrapper
 
 const pickup_dice_core_scn := preload("res://Src/Objects/PickupableDiceCore.tscn")
 const pickup_limiter_scn := preload("res://Src/Objects/PickupableLimiter.tscn")
+const death_particle_scn := preload("res://Src/NewEnemy/Effects/DeathParticle.tscn")
 
 export (NodePath) onready var body = get_node(body) as NewEnemy
 export (int) var score := 1
@@ -14,6 +15,8 @@ onready var dice_behaviour_machine := $DiceBehaviourMachine
 onready var dice_wrapper := $DiceWrapper
 onready var dice_timer := $DiceTimer
 
+func _ready():
+	$EnemyHealth.connect("enemy_hurt",body.spriteWrapper,"blink")
 
 func init(player: Player, dice_core: DiceCoreResource, new_limit: int, new_start: int) -> void:
 	body.player = player
@@ -48,6 +51,10 @@ func dead() -> void:
 #	drop_limiter.global_position = body.global_position + Vector2(40, 0)
 #	get_parent().call_deferred("add_child", drop_limiter)
 	
+	var particle_effect := death_particle_scn.instance()
+	particle_effect.global_position = body.global_position
+	get_parent().call_deferred("add_child", particle_effect)
+	print(particle_effect.global_position)
 	queue_free()
 
 

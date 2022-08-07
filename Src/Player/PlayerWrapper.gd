@@ -5,7 +5,6 @@ export (bool) var invincible := false
 
 onready var dice_wrapper := $DiceWrapper
 
-
 func _ready() -> void:
 	GlobalSignals.connect("time_over", self, "game_over")
 
