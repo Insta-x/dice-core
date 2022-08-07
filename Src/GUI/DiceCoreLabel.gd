@@ -1,5 +1,7 @@
 extends Label
 
+class_name DiceCoreLabel
+
 
 signal random_finished
 
@@ -8,10 +10,6 @@ onready var timer := $Timer
 var false_seed := 1
 var true_seed := 1
 var random_counter := 4
-
-
-func _ready() -> void:
-	GlobalSignals.connect("critical_hit", self, "_on_critical_hit")
 
 
 func random_roll() -> void:
@@ -32,11 +30,6 @@ func _on_dice_rolled(next_seed: int, limited_seed: int) -> void:
 	false_seed = next_seed
 	true_seed = limited_seed
 	random_roll()
-
-
-func _on_critical_hit() -> void:
-	timer.stop()
-	show_true_seed()
 
 
 func _on_Timer_timeout() -> void:
