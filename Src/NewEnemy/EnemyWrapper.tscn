@@ -51,6 +51,7 @@ autostart = true
 [connection signal="dice_core_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_dice_core_changed"]
 [connection signal="indexer_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_indexer_changed"]
 [connection signal="limiter_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_limiter_changed"]
+[connection signal="number_generated" from="DiceWrapper" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HealthContainer/ResultNumber/ResultLabel" method="_on_number_generated"]
 [connection signal="number_generated" from="DiceWrapper" to="DiceBehaviourMachine" method="new_behaviour"]
 [connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
 [connection signal="timeout" from="DiceTimer" to="DiceWrapper" method="get_number"]

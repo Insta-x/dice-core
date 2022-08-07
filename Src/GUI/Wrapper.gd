@@ -31,7 +31,7 @@ func _on_behaviour_changed(behaviour_name: String) -> void:
 
 
 func _on_health_changed(value: int) -> void:
-	$EnemyGUI/VBoxContainer/HBoxContainer/Health/Label.text = str(value)
+	$EnemyGUI/VBoxContainer/HBoxContainer/HealthContainer/Health/Label.text = str(value)
 
 
 func _on_DiceWrapper_dice_core_changed(resource: DiceCoreResource) -> void:
