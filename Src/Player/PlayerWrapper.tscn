@@ -23,7 +23,7 @@
 [ext_resource path="res://Src/Components/Indexer.gd" type="Script" id=22]
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 40.0
+radius = 18.0
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 40.0
@@ -196,6 +196,7 @@ collision_mask = 8
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerHazardDetector"]
+position = Vector2( 4, 0 )
 shape = SubResource( 4 )
 
 [node name="Health" type="Node" parent="."]
@@ -212,6 +213,8 @@ animation_position_path = NodePath("../Player/GunAnimationPoint")
 
 [node name="GunRigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2( 0, 72 )
+collision_layer = 0
+collision_mask = 0
 mass = 0.5
 gravity_scale = 0.0
 

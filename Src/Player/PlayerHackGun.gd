@@ -8,7 +8,7 @@ export (Vector2) var emit_offset
 onready var timer := $Timer
 
 var can_shoot := true
-var hack_seed := 0 setget set_hack_seed
+var hack_seed := 1 setget set_hack_seed
 
 
 func _ready() -> void:

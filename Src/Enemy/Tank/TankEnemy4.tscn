@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Src/GUI/EnemyGUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Src/GUI/EnemyGUI/EnemyGUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Enemy/Tank/TankEnemy.gd" type="Script" id=2]
 [ext_resource path="res://Src/Components/Limiter.gd" type="Script" id=3]
 [ext_resource path="res://Src/Components/DiceCore/DiceCore.gd" type="Script" id=4]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Enemy/enemy-tank.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Src/NewEnemy/Effects/on-hit-shader.tres" type="Material" id=11]
+
 
 
 
