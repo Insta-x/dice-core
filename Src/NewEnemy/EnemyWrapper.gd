@@ -25,6 +25,7 @@ func init(player: Player, dice_core: DiceCoreResource, new_limit: int, new_start
 func hacked(hack_seed: int) -> void:
 	dice_wrapper.hacked(hack_seed)
 	enemy_gui.hacked()
+	dice_timer.start()
 
 
 func dead() -> void:

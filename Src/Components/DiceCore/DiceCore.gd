@@ -19,6 +19,7 @@ func _ready() -> void:
 func roll(modulo: int) -> void:
 	var next_seed := get_next_seed()
 	self.current_seed = next_seed % modulo
+	print("ROLL ", next_seed, ' ', current_seed)
 	emit_signal("dice_rolled", next_seed, current_seed)
 
 

@@ -34,6 +34,15 @@ body = NodePath("../TutorialEnemy")
 margin_top = -60.0
 margin_bottom = -60.0
 
+[node name="Label" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Indexer" index="0"]
+text = "0"
+
+[node name="DiceCore" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer" index="1"]
+self_modulate = Color( 1, 0.960784, 0, 1 )
+
+[node name="Label" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Limiter" index="0"]
+text = "8"
+
 [node name="DiceCore" parent="DiceWrapper" index="0"]
 dice_core_resource = ExtResource( 3 )
 
