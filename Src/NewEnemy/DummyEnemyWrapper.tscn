@@ -4,17 +4,10 @@
 [ext_resource path="res://Src/NewEnemy/TutorialEnemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Components/DiceCore/Multiplier/Multiply5DiceCore.tres" type="Resource" id=3]
 [ext_resource path="res://Src/NewEnemy/EnemyHazardDetector.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/NewEnemy/DummyEnemyHealth.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 38.0
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends EnemyHealth
-
-
-func _on_RegenTimer_timeout() -> void:
-	self.health += 1
-"
 
 [node name="DummyEnemyWrapper" instance=ExtResource( 1 )]
 body = NodePath("TutorialEnemy")
@@ -47,9 +40,10 @@ text = "8"
 dice_core_resource = ExtResource( 3 )
 
 [node name="EnemyHealth" parent="." index="4"]
-script = SubResource( 1 )
+script = ExtResource( 5 )
 body = NodePath("../TutorialEnemy")
 max_health = 9
+regen_timer = NodePath("../RegenTimer")
 
 [node name="RegenTimer" type="Timer" parent="." index="6"]
 wait_time = 0.5
@@ -57,9 +51,6 @@ autostart = true
 
 [connection signal="hack_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="." method="hacked"]
 [connection signal="player_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
-[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
-[connection signal="dice_seed_init" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/DiceCoreLabel" method="_on_dice_seed_init"]
-[connection signal="number_changed" from="EnemyHealth" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HealthContainer/ResultNumber/ResultLabel" method="_on_number_changed"]
 [connection signal="timeout" from="RegenTimer" to="EnemyHealth" method="_on_RegenTimer_timeout"]
 
 [editable path="GUIwrapper"]
