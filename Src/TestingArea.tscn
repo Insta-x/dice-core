@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Src/GUI/PlayerGUI/GUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Player/PlayerWrapper.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/NewEnemy/DummyEnemyWrapper.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Font/tutorial-font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/GUI/arrow-mockup.png" type="Texture" id=5]
 
 [node name="TestingArea" type="Node"]
 
@@ -10,9 +12,95 @@
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource( 1 )]
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 144.0
+margin_top = 624.0
+margin_right = 277.0
+margin_bottom = 657.0
+custom_fonts/font = ExtResource( 4 )
+text = "Indexer"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+margin_left = 464.0
+margin_top = 624.0
+margin_right = 597.0
+margin_bottom = 657.0
+custom_fonts/font = ExtResource( 4 )
+text = "Limiter"
+align = 1
+valign = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+margin_left = 248.0
+margin_top = 544.0
+margin_right = 392.0
+margin_bottom = 577.0
+custom_fonts/font = ExtResource( 4 )
+text = "Dice Core"
+align = 1
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+margin_left = 256.0
+margin_top = 640.0
+margin_right = 288.0
+margin_bottom = 649.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+margin_left = 448.0
+margin_top = 640.0
+margin_right = 480.0
+margin_bottom = 649.0
+texture = ExtResource( 5 )
+flip_h = true
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer"]
+margin_left = 336.0
+margin_top = 608.0
+margin_right = 368.0
+margin_bottom = 624.0
+rect_rotation = -135.0
+texture = ExtResource( 5 )
+flip_h = true
+
 [node name="World" type="Node2D" parent="."]
 
 [node name="PlayerWrapper" parent="World" instance=ExtResource( 2 )]
+position = Vector2( 427, 360 )
 
 [node name="DummyEnemyWrapper" parent="World" instance=ExtResource( 3 )]
-position = Vector2( 400, 0 )
+position = Vector2( 853, 360 )
+
+[node name="Wall" type="StaticBody2D" parent="World"]
+collision_mask = 6
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Wall"]
+polygon = PoolVector2Array( 0, 0, 0, 720, 1280, 720, 1280, 0, 24, 0, 24, 24, 1256, 24, 1256, 696, 24, 696, 24, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Line2D" type="Line2D" parent="World"]
+z_index = -1
+points = PoolVector2Array( 8, 8, 8, 712, 1272, 712, 1272, 8, 8, 8, 8, 32 )
+width = 32.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="World"]
+margin_left = 696.0
+margin_top = 200.0
+margin_right = 1008.0
+margin_bottom = 243.0
+custom_fonts/font = ExtResource( 4 )
+text = "Crit hit
+Bullet number = Enemy number"
+align = 1
+valign = 1
