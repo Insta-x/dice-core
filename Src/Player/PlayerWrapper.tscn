@@ -150,7 +150,7 @@ tracks/4/keys = {
 script = ExtResource( 11 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true
+visible = false
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_lock_": true
