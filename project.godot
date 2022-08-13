@@ -74,7 +74,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/NewEnemy/EnemyWrapper.gd"
 }, {
-"base": "",
+"base": "EditorVCSInterface",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
@@ -119,12 +119,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Player/Pickupable.gd"
 }, {
-"base": "Area2D",
+"base": "Pickupable",
 "class": "PickupableDiceCore",
 "language": "GDScript",
 "path": "res://Src/Objects/PickupableDiceCore.gd"
 }, {
-"base": "Area2D",
+"base": "Pickupable",
 "class": "PickupableLimiter",
 "language": "GDScript",
 "path": "res://Src/Objects/PickupableLimiter.gd"

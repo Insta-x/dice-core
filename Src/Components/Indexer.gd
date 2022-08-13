@@ -7,4 +7,4 @@ export (int) var start := 0
 
 
 func index(number: int) -> int:
-	return (number + start + 19) % 20 + 1
+	return (number + start) % 20

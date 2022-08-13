@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Src/GUI/PlayerGUI/GUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Player/PlayerWrapper.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/NewEnemy/DummyEnemyWrapper.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Font/tutorial-font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Assets/GUI/arrow-mockup.png" type="Texture" id=5]
+[ext_resource path="res://Src/GameCamera2D.gd" type="Script" id=6]
 
 [node name="TestingArea" type="Node"]
 
@@ -21,6 +22,9 @@ custom_fonts/font = ExtResource( 4 )
 text = "Indexer"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
 margin_left = 464.0
@@ -31,6 +35,9 @@ custom_fonts/font = ExtResource( 4 )
 text = "Limiter"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Label3" type="Label" parent="CanvasLayer"]
 margin_left = 248.0
@@ -41,6 +48,9 @@ custom_fonts/font = ExtResource( 4 )
 text = "Dice Core"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 margin_left = 256.0
@@ -48,6 +58,9 @@ margin_top = 640.0
 margin_right = 288.0
 margin_bottom = 649.0
 texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
 margin_left = 448.0
@@ -56,6 +69,9 @@ margin_right = 480.0
 margin_bottom = 649.0
 texture = ExtResource( 5 )
 flip_h = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer"]
 margin_left = 336.0
@@ -65,6 +81,9 @@ margin_bottom = 624.0
 rect_rotation = -135.0
 texture = ExtResource( 5 )
 flip_h = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="World" type="Node2D" parent="."]
 
@@ -81,15 +100,14 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Wall"]
-polygon = PoolVector2Array( 0, 0, 0, 720, 1280, 720, 1280, 0, 24, 0, 24, 24, 1256, 24, 1256, 696, 24, 696, 24, 0 )
+polygon = PoolVector2Array( 0, 0, 0, 720, 1280, 720, 1280, 0, 24, 0, 128, 128, 1152, 128, 1152, 576, 128, 576, 128, 128, 24, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Line2D" type="Line2D" parent="World"]
 z_index = -1
-points = PoolVector2Array( 8, 8, 8, 712, 1272, 712, 1272, 8, 8, 8, 8, 32 )
-width = 32.0
+points = PoolVector2Array( 128, 128, 128, 576, 1152, 576, 1152, 128, 128, 128, 128, 192 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -104,3 +122,8 @@ text = "Crit hit
 Bullet number = Enemy number"
 align = 1
 valign = 1
+
+[node name="GameCamera2D" type="Camera2D" parent="."]
+position = Vector2( 640, 360 )
+current = true
+script = ExtResource( 6 )
