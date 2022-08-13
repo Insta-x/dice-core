@@ -27,6 +27,9 @@ body = NodePath("../TutorialEnemy")
 margin_top = -80.0
 margin_bottom = -80.0
 
+[node name="VBoxContainer" parent="GUIwrapper/EnemyGUI" index="0"]
+margin_top = 0.0
+
 [node name="DiceTimerProgress" parent="GUIwrapper/EnemyGUI/VBoxContainer" index="0"]
 visible = false
 
@@ -62,8 +65,5 @@ autostart = false
 [connection signal="hack_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="." method="hacked"]
 [connection signal="player_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="DiceWrapper" method="get_number" flags=3]
 [connection signal="player_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
-[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
-[connection signal="dice_seed_init" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore/DiceCoreLabel" method="_on_dice_seed_init"]
-[connection signal="number_changed" from="EnemyHealth" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HealthContainer/ResultNumber/ResultLabel" method="_on_number_changed"]
 
 [editable path="GUIwrapper"]
