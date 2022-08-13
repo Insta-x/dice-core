@@ -1,14 +1,16 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Src/GUI/EnemyGUI/DiceTimerProgress.gd" type="Script" id=2]
 [ext_resource path="res://Src/GUI/DiceCoreLabel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/GUI/EnemyGUI/Wrapper.gd" type="Script" id=4]
 [ext_resource path="res://Assets/GUI/heart.png" type="Texture" id=5]
-[ext_resource path="res://Assets/GUI/limiter-frame.png" type="Texture" id=6]
+[ext_resource path="res://Assets/GUI/enemy-result-frame.png" type="Texture" id=6]
 [ext_resource path="res://Assets/GUI/dice-core-shape1.png" type="Texture" id=7]
-[ext_resource path="res://Assets/GUI/enemy-behaviour-timer-bg.png" type="Texture" id=8]
-[ext_resource path="res://Assets/GUI/enemy-behaviour-timer-fill.png" type="Texture" id=9]
+[ext_resource path="res://Assets/GUI/timer-terang.png" type="Texture" id=8]
+[ext_resource path="res://Assets/GUI/timer-gelap.png" type="Texture" id=9]
+[ext_resource path="res://Assets/GUI/enemy-limiter.png" type="Texture" id=10]
+[ext_resource path="res://Assets/GUI/enemy-indexer.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
@@ -140,11 +142,11 @@ margin_bottom = 42.5
 custom_constants/separation = 4
 
 [node name="DiceTimerProgress" type="TextureProgress" parent="EnemyGUI/VBoxContainer"]
-margin_right = 212.0
-margin_bottom = 20.0
+margin_right = 216.0
+margin_bottom = 4.0
 max_value = 150.0
-texture_under = ExtResource( 8 )
-texture_progress = ExtResource( 9 )
+texture_under = ExtResource( 9 )
+texture_progress = ExtResource( 8 )
 script = ExtResource( 2 )
 time_offset = -0.9
 
@@ -160,15 +162,15 @@ align = 1
 valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="EnemyGUI/VBoxContainer"]
-margin_top = 24.0
-margin_right = 212.0
-margin_bottom = 56.0
+margin_top = 8.0
+margin_right = 216.0
+margin_bottom = 48.0
 custom_constants/separation = 40
 alignment = 1
 
 [node name="HealthContainer" type="HBoxContainer" parent="EnemyGUI/VBoxContainer/HBoxContainer"]
-margin_right = 68.0
-margin_bottom = 32.0
+margin_right = 72.0
+margin_bottom = 40.0
 
 [node name="Health" type="TextureRect" parent="EnemyGUI/VBoxContainer/HBoxContainer/HealthContainer"]
 margin_right = 32.0
@@ -196,8 +198,8 @@ __meta__ = {
 
 [node name="ResultNumber" type="TextureRect" parent="EnemyGUI/VBoxContainer/HBoxContainer/HealthContainer"]
 margin_left = 36.0
-margin_right = 68.0
-margin_bottom = 32.0
+margin_right = 72.0
+margin_bottom = 40.0
 texture = ExtResource( 6 )
 
 [node name="ResultLabel" type="Label" parent="EnemyGUI/VBoxContainer/HBoxContainer/HealthContainer/ResultNumber"]
@@ -210,25 +212,25 @@ valign = 1
 script = SubResource( 10 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="EnemyGUI/VBoxContainer/HBoxContainer"]
-margin_left = 108.0
-margin_right = 212.0
-margin_bottom = 32.0
+margin_left = 112.0
+margin_right = 216.0
+margin_bottom = 40.0
 
 [node name="Indexer" type="TextureRect" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer"]
 margin_right = 32.0
-margin_bottom = 32.0
+margin_bottom = 40.0
 size_flags_vertical = 0
-texture = ExtResource( 6 )
+texture = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Indexer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -16.0
-margin_top = -16.0
-margin_right = 16.0
-margin_bottom = 16.0
+margin_left = -17.0
+margin_top = -12.5
+margin_right = 15.0
+margin_bottom = 19.5
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "10"
@@ -268,8 +270,9 @@ texture = ExtResource( 7 )
 [node name="DiceCoreLabel" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore" instance=ExtResource( 3 )]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -0.5
 margin_right = 0.0
-margin_bottom = 0.0
+margin_bottom = -0.5
 custom_fonts/font = SubResource( 3 )
 align = 1
 valign = 1
@@ -277,9 +280,9 @@ valign = 1
 [node name="Limiter" type="TextureRect" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer"]
 margin_left = 72.0
 margin_right = 104.0
-margin_bottom = 32.0
+margin_bottom = 40.0
 size_flags_vertical = 0
-texture = ExtResource( 6 )
+texture = ExtResource( 10 )
 
 [node name="Label" type="Label" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Limiter"]
 anchor_left = 0.5
@@ -287,9 +290,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -16.0
-margin_top = -16.0
+margin_top = -12.5
 margin_right = 16.0
-margin_bottom = 16.0
+margin_bottom = 19.5
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "10"
