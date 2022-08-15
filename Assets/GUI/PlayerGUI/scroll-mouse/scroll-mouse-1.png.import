@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/blue-cooldown-box.png-fc0f7a65cbd222ffa9a88c4bedbd5ada.stex"
+path="res://.import/scroll-mouse-1.png-484014d076a6dbb8ba7ef35148d4d5b6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/blue-cooldown-box.png"
-dest_files=[ "res://.import/blue-cooldown-box.png-fc0f7a65cbd222ffa9a88c4bedbd5ada.stex" ]
+source_file="res://Assets/GUI/PlayerGUI/scroll-mouse/scroll-mouse-1.png"
+dest_files=[ "res://.import/scroll-mouse-1.png-484014d076a6dbb8ba7ef35148d4d5b6.stex" ]
 
 [params]
 

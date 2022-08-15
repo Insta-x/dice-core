@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
-[ext_resource path="res://Assets/GUI/dice-core-shape-player2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/GUI/PlayerGUI/dice-core-shape-player2.png" type="Texture" id=1]
 [ext_resource path="res://Assets/GUI/dice-core-shape2.png" type="Texture" id=2]
 [ext_resource path="res://Src/Components/DiceCore/Adder/AdderDiceCore.gd" type="Script" id=3]
 

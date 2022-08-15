@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Src/Components/DiceCore/Multiplier/MultiplierDiceCore.gd" type="Script" id=1]
 [ext_resource path="res://Assets/GUI/dice-core-shape1.png" type="Texture" id=2]
-[ext_resource path="res://Assets/GUI/dice-core-shape-player1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/GUI/PlayerGUI/dice-core-shape-player1.png" type="Texture" id=3]
 
 [resource]
 script = ExtResource( 1 )

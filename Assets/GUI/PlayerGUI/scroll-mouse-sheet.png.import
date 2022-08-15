@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dice-core-shape-player1.png-3e92a178c87e5926f6e2a69e89d452c5.stex"
+path="res://.import/scroll-mouse-sheet.png-a662020f191bf1c1a80aa6fc245aae39.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/dice-core-shape-player1.png"
-dest_files=[ "res://.import/dice-core-shape-player1.png-3e92a178c87e5926f6e2a69e89d452c5.stex" ]
+source_file="res://Assets/GUI/PlayerGUI/scroll-mouse-sheet.png"
+dest_files=[ "res://.import/scroll-mouse-sheet.png-a662020f191bf1c1a80aa6fc245aae39.stex" ]
 
 [params]
 
