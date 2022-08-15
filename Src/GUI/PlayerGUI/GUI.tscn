@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Assets/GUI/PlayerGUI/blue-cooldown-box.png" type="Texture" id=1]
 [ext_resource path="res://Assets/GUI/PlayerGUI/left-click-mouse/left-click-mouse-1.png" type="Texture" id=2]
@@ -12,12 +12,14 @@
 [ext_resource path="res://Assets/GUI/PlayerGUI/right-click-mouse/right-click-mouse-1.png" type="Texture" id=10]
 [ext_resource path="res://Src/GUI/PlayerGUI/HackProgress.gd" type="Script" id=11]
 [ext_resource path="res://Assets/GUI/PlayerGUI/right-click-mouse/right-click-mouse-2.png" type="Texture" id=12]
+[ext_resource path="res://Assets/GUI/PlayerGUI/scroll-mouse/scroll-mouse-2.png" type="Texture" id=13]
 [ext_resource path="res://Src/GUI/PlayerGUI/GUI.gd" type="Script" id=14]
 [ext_resource path="res://Assets/GUI/PlayerGUI/limiter-frame-small.png" type="Texture" id=15]
 [ext_resource path="res://Src/GUI/PlayerGUI/GUIAnimationPlayer.gd" type="Script" id=16]
 [ext_resource path="res://Src/GUI/PlayerGUI/CritReloadPopup.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Src/GUI/PlayerGUI/PlayerDiceCoreLabel.gd" type="Script" id=18]
 [ext_resource path="res://Assets/GUI/PlayerGUI/player-indexer.png" type="Texture" id=19]
+[ext_resource path="res://Assets/GUI/PlayerGUI/scroll-mouse/scroll-mouse-1.png" type="Texture" id=20]
 
 [sub_resource type="DynamicFont" id=4]
 size = 24
@@ -434,6 +436,19 @@ margin_bottom = -50.0
 texture = ExtResource( 10 )
 script = ExtResource( 7 )
 textures = [ ExtResource( 10 ), ExtResource( 12 ) ]
+
+[node name="ScrollAnimatedRect" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -456.0
+margin_top = -100.0
+margin_right = -447.0
+margin_bottom = -76.0
+texture = ExtResource( 20 )
+script = ExtResource( 7 )
+textures = [ ExtResource( 20 ), ExtResource( 13 ) ]
 
 [node name="HackLabel" type="Label" parent="."]
 margin_left = 780.0
