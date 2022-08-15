@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/limiter-frame-small.png-eb7a645c7f6480cac0c5ab71262b4153.stex"
+path="res://.import/player-limiter.png-0aa6351ed221ce39ff0c0c2c2e60aa0f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/limiter-frame-small.png"
-dest_files=[ "res://.import/limiter-frame-small.png-eb7a645c7f6480cac0c5ab71262b4153.stex" ]
+source_file="res://Assets/GUI/PlayerGUI/player-limiter.png"
+dest_files=[ "res://.import/player-limiter.png-0aa6351ed221ce39ff0c0c2c2e60aa0f.stex" ]
 
 [params]
 

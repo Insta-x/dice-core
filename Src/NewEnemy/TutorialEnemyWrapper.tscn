@@ -33,22 +33,12 @@ margin_top = 0.0
 [node name="DiceTimerProgress" parent="GUIwrapper/EnemyGUI/VBoxContainer" index="0"]
 visible = false
 
-[node name="BehaviourLabel" parent="GUIwrapper/EnemyGUI/VBoxContainer" index="1"]
+[node name="HBoxContainer" parent="GUIwrapper/EnemyGUI/VBoxContainer" index="1"]
 margin_top = 0.0
-margin_bottom = 25.0
-
-[node name="HBoxContainer" parent="GUIwrapper/EnemyGUI/VBoxContainer" index="2"]
-margin_top = 0.0
-margin_bottom = 32.0
+margin_bottom = 40.0
 
 [node name="Label" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Indexer" index="0"]
 text = "0"
-
-[node name="DiceCore" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer" index="1"]
-self_modulate = Color( 0, 0.788235, 1, 1 )
-
-[node name="DiceCoreLabel" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/DiceCore" index="0"]
-text = "1"
 
 [node name="Label" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Limiter" index="0"]
 text = "8"

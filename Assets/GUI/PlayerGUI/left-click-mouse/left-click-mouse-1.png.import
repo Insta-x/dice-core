@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/right-click-mouse.png-1236af0a01b12766c13bf3a9f024ef5c.stex"
+path="res://.import/left-click-mouse-1.png-5dbefa0464d9e91f9252c7bdb65fb972.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/right-click-mouse.png"
-dest_files=[ "res://.import/right-click-mouse.png-1236af0a01b12766c13bf3a9f024ef5c.stex" ]
+source_file="res://Assets/GUI/PlayerGUI/left-click-mouse/left-click-mouse-1.png"
+dest_files=[ "res://.import/left-click-mouse-1.png-5dbefa0464d9e91f9252c7bdb65fb972.stex" ]
 
 [params]
 

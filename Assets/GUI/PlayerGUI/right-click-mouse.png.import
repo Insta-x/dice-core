@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player-indexer.png-c123ddf70f8642ab6453039cac642177.stex"
+path="res://.import/right-click-mouse.png-7eb4767ea61d82baa8498159b3ff718f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/player-indexer.png"
-dest_files=[ "res://.import/player-indexer.png-c123ddf70f8642ab6453039cac642177.stex" ]
+source_file="res://Assets/GUI/PlayerGUI/right-click-mouse.png"
+dest_files=[ "res://.import/right-click-mouse.png-7eb4767ea61d82baa8498159b3ff718f.stex" ]
 
 [params]
 
