@@ -211,7 +211,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1, 1.2, 1.4, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 3, 3, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( -208, -28 ), Vector2( -208, -28 ), Vector2( 0, -28 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( -272, -28 ), Vector2( -272, -28 ), Vector2( 0, -28 ), Vector2( 0, 0 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("GunContainer/TextureRect/GunLabel:visible")
@@ -234,9 +234,9 @@ script = ExtResource( 14 )
 [node name="DiceCoreContainer" type="HBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 364.0
+margin_left = 300.0
 margin_top = -104.0
-margin_right = 500.0
+margin_right = 436.0
 margin_bottom = -40.0
 alignment = 1
 
@@ -390,10 +390,14 @@ script = ExtResource( 7 )
 textures = [ ExtResource( 10 ), ExtResource( 12 ) ]
 
 [node name="HackLabel" type="Label" parent="."]
-margin_left = 780.0
-margin_top = 647.0
-margin_right = 930.0
-margin_bottom = 680.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -500.0
+margin_top = -73.0
+margin_right = -350.0
+margin_bottom = -40.0
 custom_fonts/font = SubResource( 26 )
 text = "HACK"
 align = 1
