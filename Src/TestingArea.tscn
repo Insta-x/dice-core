@@ -16,13 +16,19 @@ script = ExtResource( 8 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource( 1 )]
+margin_top = 17.0
+margin_bottom = 17.0
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="DiceSetExplain" type="Control" parent="CanvasLayer"]
 visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/DiceSetExplain"]
 margin_left = 148.0
-margin_top = 634.0
+margin_top = 648.0
 margin_right = 281.0
-margin_bottom = 667.0
+margin_bottom = 681.0
 custom_fonts/font = ExtResource( 4 )
 text = "Indexer"
 align = 1
@@ -31,12 +37,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Label2" type="Label" parent="CanvasLayer"]
-visible = false
+[node name="Label2" type="Label" parent="CanvasLayer/DiceSetExplain"]
 margin_left = 460.0
-margin_top = 634.0
+margin_top = 648.0
 margin_right = 593.0
-margin_bottom = 667.0
+margin_bottom = 681.0
 custom_fonts/font = ExtResource( 4 )
 text = "Limiter"
 align = 1
@@ -45,12 +50,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Label3" type="Label" parent="CanvasLayer"]
-visible = false
+[node name="Label3" type="Label" parent="CanvasLayer/DiceSetExplain"]
 margin_left = 188.0
-margin_top = 578.0
+margin_top = 588.0
 margin_right = 332.0
-margin_bottom = 611.0
+margin_bottom = 621.0
 custom_fonts/font = ExtResource( 4 )
 text = "Dice Core"
 align = 1
@@ -59,35 +63,32 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-visible = false
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DiceSetExplain"]
 margin_left = 260.0
-margin_top = 644.0
+margin_top = 658.0
 margin_right = 292.0
-margin_bottom = 653.0
+margin_bottom = 667.0
 texture = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
-visible = false
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/DiceSetExplain"]
 margin_left = 444.0
-margin_top = 644.0
+margin_top = 658.0
 margin_right = 476.0
-margin_bottom = 653.0
+margin_bottom = 667.0
 texture = ExtResource( 5 )
 flip_h = true
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer"]
-visible = false
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/DiceSetExplain"]
 margin_left = 316.0
-margin_top = 594.0
+margin_top = 604.0
 margin_right = 357.0
-margin_bottom = 626.0
+margin_bottom = 636.0
 texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
@@ -95,8 +96,8 @@ __meta__ = {
 
 [node name="TutorialLabel" type="Label" parent="CanvasLayer"]
 anchor_right = 1.0
-margin_top = 40.0
-margin_bottom = 14.0
+margin_top = 30.0
+margin_bottom = 100.0
 custom_fonts/font = ExtResource( 4 )
 align = 1
 valign = 1
@@ -109,6 +110,20 @@ position = Vector2( 427, 360 )
 
 [node name="DummyEnemyWrapper" parent="World" instance=ExtResource( 3 )]
 position = Vector2( 853, 360 )
+
+[node name="EnemyGUIBlocker" type="ColorRect" parent="World/DummyEnemyWrapper"]
+margin_left = -65.0
+margin_top = -97.0
+margin_right = 118.0
+margin_bottom = -53.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="EnemyGUIBlocker2" type="ColorRect" parent="World/DummyEnemyWrapper"]
+margin_left = -100.0
+margin_top = -106.0
+margin_right = 102.0
+margin_bottom = -98.0
+color = Color( 0, 0, 0, 1 )
 
 [node name="Wall" type="StaticBody2D" parent="World"]
 collision_mask = 6
