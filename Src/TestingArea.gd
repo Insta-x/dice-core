@@ -66,4 +66,8 @@ func sequence_three() -> void:
 
 
 func sequence_four() -> void:
-	pass
+	gui.set_hack_visibility(true)
+	tutorial_label.display_text("You can inject hacked seed into enemy's dice core")
+	yield(tutorial_label, "display_finished")
+	yield(get_tree().create_timer(1), "timeout")
+	tutorial_label.add_text("\nInject hack seed 13 to play the game")
