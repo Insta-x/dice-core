@@ -111,14 +111,18 @@ position = Vector2( 427, 360 )
 [node name="DummyEnemyWrapper" parent="World" instance=ExtResource( 3 )]
 position = Vector2( 853, 360 )
 
-[node name="EnemyGUIBlocker" type="ColorRect" parent="World/DummyEnemyWrapper"]
+[node name="EnemyGUIBlocker" type="Control" parent="World/DummyEnemyWrapper"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="EnemyGUIBlocker" type="ColorRect" parent="World/DummyEnemyWrapper/EnemyGUIBlocker"]
 margin_left = -65.0
 margin_top = -97.0
 margin_right = 118.0
 margin_bottom = -53.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="EnemyGUIBlocker2" type="ColorRect" parent="World/DummyEnemyWrapper"]
+[node name="EnemyGUIBlocker2" type="ColorRect" parent="World/DummyEnemyWrapper/EnemyGUIBlocker"]
 margin_left = -100.0
 margin_top = -106.0
 margin_right = 102.0
@@ -144,7 +148,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Label" type="Label" parent="World"]
+[node name="CritHitLabel" type="Label" parent="World"]
 visible = false
 margin_left = 679.0
 margin_top = 200.0
