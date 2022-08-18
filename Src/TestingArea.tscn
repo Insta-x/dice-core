@@ -22,6 +22,7 @@ margin_bottom = 17.0
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/DiceSetExplain"]
 margin_left = 168.0
@@ -67,6 +68,7 @@ margin_left = 281.0
 margin_top = 688.0
 margin_right = 322.0
 margin_bottom = 706.0
+mouse_filter = 2
 texture = ExtResource( 7 )
 flip_v = true
 __meta__ = {
@@ -78,6 +80,7 @@ margin_left = 414.0
 margin_top = 688.0
 margin_right = 455.0
 margin_bottom = 706.0
+mouse_filter = 2
 texture = ExtResource( 7 )
 flip_h = true
 flip_v = true
@@ -90,6 +93,7 @@ margin_left = 316.0
 margin_top = 604.0
 margin_right = 357.0
 margin_bottom = 636.0
+mouse_filter = 2
 texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
@@ -115,12 +119,14 @@ position = Vector2( 853, 360 )
 [node name="EnemyGUIBlocker" type="Control" parent="World/DummyEnemyWrapper"]
 margin_right = 40.0
 margin_bottom = 40.0
+mouse_filter = 2
 
 [node name="EnemyGUIBlocker" type="ColorRect" parent="World/DummyEnemyWrapper/EnemyGUIBlocker"]
 margin_left = -65.0
 margin_top = -97.0
 margin_right = 118.0
 margin_bottom = -53.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="EnemyGUIBlocker2" type="ColorRect" parent="World/DummyEnemyWrapper/EnemyGUIBlocker"]
@@ -128,6 +134,7 @@ margin_left = -100.0
 margin_top = -106.0
 margin_right = 102.0
 margin_bottom = -98.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="Wall" type="StaticBody2D" parent="World"]

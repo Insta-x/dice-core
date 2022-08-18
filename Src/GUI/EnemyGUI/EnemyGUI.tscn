@@ -123,6 +123,7 @@ func _on_DiceCoreLabel_random_finished() -> void:
 script = ExtResource( 4 )
 
 [node name="EnemyGUI" type="Control" parent="."]
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="EnemyGUI"]
 anchor_left = 0.5
@@ -133,11 +134,13 @@ margin_left = -100.0
 margin_top = -42.5
 margin_right = 116.0
 margin_bottom = 5.5
+mouse_filter = 2
 custom_constants/separation = 4
 
 [node name="DiceTimerProgress" type="TextureProgress" parent="EnemyGUI/VBoxContainer"]
 margin_right = 216.0
 margin_bottom = 4.0
+mouse_filter = 2
 max_value = 150.0
 texture_under = ExtResource( 9 )
 texture_progress = ExtResource( 8 )
@@ -148,22 +151,26 @@ time_offset = -0.9
 margin_top = 8.0
 margin_right = 216.0
 margin_bottom = 48.0
+mouse_filter = 2
 custom_constants/separation = 40
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="EnemyGUI/VBoxContainer/HBoxContainer"]
 margin_right = 72.0
 margin_bottom = 40.0
+mouse_filter = 2
 custom_constants/margin_top = 4
 
 [node name="HealthContainer" type="HBoxContainer" parent="EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer"]
 margin_top = 4.0
 margin_right = 72.0
 margin_bottom = 40.0
+mouse_filter = 2
 
 [node name="Health" type="TextureRect" parent="EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer"]
 margin_right = 32.0
 margin_bottom = 32.0
+mouse_filter = 2
 size_flags_vertical = 0
 texture = ExtResource( 5 )
 
@@ -189,6 +196,7 @@ __meta__ = {
 margin_left = 36.0
 margin_right = 72.0
 margin_bottom = 36.0
+mouse_filter = 2
 texture = ExtResource( 6 )
 
 [node name="ResultLabel" type="Label" parent="EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer/ResultNumber"]
@@ -204,10 +212,12 @@ script = SubResource( 10 )
 margin_left = 112.0
 margin_right = 216.0
 margin_bottom = 40.0
+mouse_filter = 2
 
 [node name="Indexer" type="TextureRect" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer"]
 margin_right = 32.0
 margin_bottom = 40.0
+mouse_filter = 2
 size_flags_vertical = 0
 texture = ExtResource( 11 )
 
@@ -253,12 +263,14 @@ __meta__ = {
 margin_left = 36.0
 margin_right = 68.0
 margin_bottom = 40.0
+mouse_filter = 2
 custom_constants/margin_top = 8
 
 [node name="DiceCore" type="TextureRect" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer"]
 margin_top = 8.0
 margin_right = 32.0
 margin_bottom = 40.0
+mouse_filter = 2
 size_flags_vertical = 0
 texture = ExtResource( 7 )
 
@@ -276,6 +288,7 @@ valign = 1
 margin_left = 72.0
 margin_right = 104.0
 margin_bottom = 40.0
+mouse_filter = 2
 size_flags_vertical = 0
 texture = ExtResource( 10 )
 
