@@ -7,10 +7,13 @@ onready var dice_set_explain := $CanvasLayer/DiceSetExplain
 onready var enemy_gui_blocker := $World/DummyEnemyWrapper/EnemyGUIBlocker
 onready var crit_hit_label := $World/CritHitLabel
 
+onready var input_blocker := $InputBlocker
+
 
 func _ready() -> void:
 	gui.set_dice_visibility(false)
 	gui.set_hack_visibility(false)
+	gui.set_shoot_visibility(false)
 	yield(get_tree().create_timer(2), "timeout")
 	sequence_one()
 
@@ -18,6 +21,8 @@ func _ready() -> void:
 func sequence_one() -> void:
 	tutorial_label.display_text("Use mouse to aim\nPress LMB to shoot")
 	yield(tutorial_label, "display_finished")
+	gui.set_shoot_visibility(true)
+	input_blocker.block_press.remove(0)
 	
 	yield(GlobalSignals, "player_shot")
 	sequence_two()
@@ -69,6 +74,8 @@ func sequence_three() -> void:
 func sequence_four() -> void:
 	gui.set_hack_visibility(true)
 	tutorial_label.display_text("You can inject hacked seed into enemy's dice core")
+	input_blocker.block_press.clear()
+	input_blocker.block_release.clear()
 	yield(tutorial_label, "display_finished")
 	yield(get_tree().create_timer(1), "timeout")
 	tutorial_label.add_text("\nInject hack seed 13 to play the game")
