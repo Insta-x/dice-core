@@ -3,10 +3,32 @@ extends Node2D
 
 export (bool) var invincible := false
 
+signal shoot_input
+signal hack_input(shoot, add_seed)
+
 onready var dice_wrapper := $DiceWrapper
+
 
 func _ready() -> void:
 	GlobalSignals.connect("time_over", self, "game_over")
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("shoot"):
+		emit_signal("shoot_input")
+		get_tree().set_input_as_handled()
+	
+	if event.is_action_released("scroll_up"):
+		emit_signal("hack_input", false, 1)
+		get_tree().set_input_as_handled()
+	
+	if event.is_action_released("scroll_down"):
+		emit_signal("hack_input", false, 19)
+		get_tree().set_input_as_handled()
+	
+	if event.is_action_pressed("limit_shoot"):
+		emit_signal("hack_input", true, 0)
+		get_tree().set_input_as_handled()
 
 
 func _on_DiceWrapper_number_generated(number) -> void:
