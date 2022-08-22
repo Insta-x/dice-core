@@ -274,7 +274,8 @@ stream = ExtResource( 16 )
 [node name="PickUpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 21 )
 
-[connection signal="shoot_input" from="Player" to="PlayerAnimationPlayer" method="_on_Player_shoot_input"]
+[connection signal="hack_input" from="." to="Player/PlayerHackGun" method="_on_PlayerWrapper_hack_input"]
+[connection signal="shoot_input" from="." to="PlayerAnimationPlayer" method="_on_PlayerWrapper_shoot_input"]
 [connection signal="timeout" from="Player/PlayerHackGun/Timer" to="Player/PlayerHackGun" method="_on_Timer_timeout"]
 [connection signal="area_entered" from="Player/PlayerHazardDetector" to="." method="_on_HazardDetector_area_entered"]
 [connection signal="animation_finished" from="PlayerAnimationPlayer" to="Player/PlayerGun" method="_on_PlayerAnimationPlayer_animation_finished"]
