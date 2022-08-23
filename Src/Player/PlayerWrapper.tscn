@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Player/GunSprite.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Assets/Audio/SFX/player-death.wav" type="AudioStream" id=17]
 [ext_resource path="res://Src/Player/PlayerCamera2D.gd" type="Script" id=18]
 [ext_resource path="res://Src/Player/PlayerHackGun.gd" type="Script" id=19]
+[ext_resource path="res://Src/Components/Emitter.gd" type="Script" id=20]
 [ext_resource path="res://Assets/Audio/SFX/pick-up.wav" type="AudioStream" id=21]
 [ext_resource path="res://Src/Components/Indexer.gd" type="Script" id=22]
 
@@ -199,6 +200,9 @@ monitorable = false
 position = Vector2( 4, 0 )
 shape = SubResource( 4 )
 
+[node name="AfterImageEmitter" type="Node2D" parent="Player"]
+script = ExtResource( 20 )
+
 [node name="Health" type="Node" parent="."]
 script = ExtResource( 14 )
 
@@ -274,6 +278,7 @@ stream = ExtResource( 16 )
 [node name="PickUpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 21 )
 
+[connection signal="dash_input" from="." to="Player" method="_on_PlayerWrapper_dash_input"]
 [connection signal="hack_input" from="." to="Player/PlayerHackGun" method="_on_PlayerWrapper_hack_input"]
 [connection signal="shoot_input" from="." to="PlayerAnimationPlayer" method="_on_PlayerWrapper_shoot_input"]
 [connection signal="timeout" from="Player/PlayerHackGun/Timer" to="Player/PlayerHackGun" method="_on_Timer_timeout"]

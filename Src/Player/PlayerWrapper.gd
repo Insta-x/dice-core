@@ -5,8 +5,11 @@ export (bool) var invincible := false
 
 signal shoot_input
 signal hack_input(shoot, add_seed)
+signal dash_input
 
 onready var dice_wrapper := $DiceWrapper
+
+var can_dash := true
 
 
 func _ready() -> void:
@@ -29,6 +32,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("limit_shoot"):
 		emit_signal("hack_input", true, 0)
 		get_tree().set_input_as_handled()
+	
+	if event.is_action_pressed("dash") and can_dash:
+		can_dash = false
+		emit_signal("dash_input")
+		get_tree().set_input_as_handled()
+		
+		yield(get_tree().create_timer(0.5), "timeout")
+		can_dash = true
 
 
 func _on_DiceWrapper_number_generated(number) -> void:
