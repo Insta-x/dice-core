@@ -100,6 +100,7 @@ tracks/1/keys = {
 
 [node name="SniperEnemyWrapper" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
+body = NodePath("SniperEnemy")
 
 [node name="SniperEnemy" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -158,8 +159,6 @@ anims/Shoot = SubResource( 7 )
 
 [connection signal="hack_bullet_detected" from="SniperEnemy/EnemyHazardDetector" to="." method="hacked"]
 [connection signal="player_bullet_detected" from="SniperEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
-[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
-[connection signal="number_changed" from="EnemyHealth" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer/ResultNumber/ResultLabel" method="_on_number_changed"]
 
 [editable path="SniperEnemy"]
 [editable path="GUIwrapper"]

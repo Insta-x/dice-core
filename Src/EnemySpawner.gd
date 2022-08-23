@@ -27,8 +27,8 @@ const spawn_anim_sprite := preload("res://Src/NewEnemy/Effects/SpawnAnimation.ts
 export (NodePath) onready var player = get_node(player) as Player
 
 
-func spawn() -> void:
-	var select : int = randi() % 3
+func spawn(enemy_code: int = -1) -> void:
+	var select : int = randi() % 3 if enemy_code == -1 else enemy_code
 	var dice_sel := randi() % dice_core_res.size()
 	var limit := randi() % 13 + 8
 	var index := randi() % 20 + 1
@@ -58,7 +58,7 @@ func _ready() -> void:
 func game_start():
 	for i in range(3):
 		yield(get_tree().create_timer(0.5), "timeout")
-		spawn()
+		spawn(i)
 	
 	while (true):
 		yield(get_tree().create_timer(3), "timeout")
