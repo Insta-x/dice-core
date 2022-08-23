@@ -26,7 +26,8 @@ func init(player: Player, dice_core: DiceCoreResource, new_limit: int, new_start
 	dice_wrapper.set_new_indexer(new_start)
 
 func customprocess() -> void:
-	dice_behaviour_machine.new_behaviour(iter + 1)
+	if iter == 0:
+		dice_behaviour_machine.new_behaviour(iter + 1)
 
 var iter := 0
 func _process(delta:float) -> void:
