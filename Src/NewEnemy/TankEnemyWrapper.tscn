@@ -74,7 +74,5 @@ max_health = 5
 
 [connection signal="hack_bullet_detected" from="TankEnemy/EnemyHazardDetector" to="." method="hacked"]
 [connection signal="player_bullet_detected" from="TankEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
-[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
-[connection signal="number_changed" from="EnemyHealth" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer/ResultNumber/ResultLabel" method="_on_number_changed"]
 
 [editable path="GUIwrapper"]
