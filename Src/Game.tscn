@@ -39,6 +39,8 @@ script = ExtResource( 7 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource( 1 )]
+margin_top = 17.0
+margin_bottom = 17.0
 
 [node name="PausePanel" parent="CanvasLayer" instance=ExtResource( 3 )]
 pause_mode = 2
@@ -66,12 +68,10 @@ margin_right = 170.0
 margin_bottom = 80.0
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -20.0
-margin_top = 40.0
-margin_right = 20.0
-margin_bottom = 73.0
+margin_left = 20.0
+margin_top = 64.0
+margin_right = 108.0
+margin_bottom = 97.0
 custom_colors/font_color = Color( 0.921569, 1, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "0"
@@ -82,10 +82,10 @@ script = ExtResource( 9 )
 [node name="TimeLabel" type="Label" parent="CanvasLayer"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -97.0
-margin_top = 40.0
-margin_right = -40.0
-margin_bottom = 73.0
+margin_left = -108.0
+margin_top = 64.0
+margin_right = -20.0
+margin_bottom = 97.0
 custom_colors/font_color = Color( 0.305882, 1, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "100"
@@ -96,6 +96,7 @@ script = ExtResource( 10 )
 [node name="GameWorld" parent="." instance=ExtResource( 2 )]
 
 [node name="GameCamera2D" type="Camera2D" parent="."]
+position = Vector2( 640, 360 )
 current = true
 script = ExtResource( 6 )
 
