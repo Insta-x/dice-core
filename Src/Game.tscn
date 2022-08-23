@@ -39,6 +39,8 @@ script = ExtResource( 7 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource( 1 )]
+margin_top = 17.0
+margin_bottom = 17.0
 
 [node name="PausePanel" parent="CanvasLayer" instance=ExtResource( 3 )]
 pause_mode = 2
@@ -96,6 +98,7 @@ script = ExtResource( 10 )
 [node name="GameWorld" parent="." instance=ExtResource( 2 )]
 
 [node name="GameCamera2D" type="Camera2D" parent="."]
+position = Vector2( 640, 360 )
 current = true
 script = ExtResource( 6 )
 
