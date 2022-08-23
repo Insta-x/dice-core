@@ -38,11 +38,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		emit_signal("dash_input")
 		get_tree().set_input_as_handled()
 		
-		yield(get_tree().create_timer(0.5), "timeout")
+		yield(get_tree().create_timer(1), "timeout")
 		can_dash = true
 
 
-func _on_DiceWrapper_number_generated(number) -> void:
+func _on_DiceWrapper_number_generated(number: int) -> void:
 	$DiceRollSFX.play()
 	GlobalSignals.emit_signal("player_number_generated", number)
 

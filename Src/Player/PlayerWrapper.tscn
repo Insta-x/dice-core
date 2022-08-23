@@ -201,7 +201,7 @@ monitorable = false
 position = Vector2( 4, 0 )
 shape = SubResource( 4 )
 
-[node name="AfterImageEmitter" type="Node2D" parent="Player"]
+[node name="AfterimageEmitter" type="Node2D" parent="Player"]
 script = ExtResource( 20 )
 emitted_scn = ExtResource( 23 )
 
@@ -281,7 +281,8 @@ stream = ExtResource( 16 )
 stream = ExtResource( 21 )
 
 [connection signal="dash_input" from="." to="Player" method="_on_PlayerWrapper_dash_input"]
-[connection signal="dash_input" from="." to="Player/AfterImageEmitter" method="emit"]
+[connection signal="dash_input" from="." to="DiceWrapper" method="get_number"]
+[connection signal="dash_input" from="." to="Player/AfterimageEmitter" method="emit"]
 [connection signal="hack_input" from="." to="Player/PlayerHackGun" method="_on_PlayerWrapper_hack_input"]
 [connection signal="shoot_input" from="." to="PlayerAnimationPlayer" method="_on_PlayerWrapper_shoot_input"]
 [connection signal="timeout" from="Player/PlayerHackGun/Timer" to="Player/PlayerHackGun" method="_on_Timer_timeout"]
