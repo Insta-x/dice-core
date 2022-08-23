@@ -41,14 +41,14 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
-polygon = PoolVector2Array( -512, -340, -512, 216, 512, 216, 512, -340, 1216, -768, 1216, 768, -1216, 768, -1216, -832, 1216, -768, 512, -340 )
+polygon = PoolVector2Array( -512, -296, -512, 216, 512, 216, 512, -296, 1216, -768, 1216, 768, -1216, 768, -1216, -832, 1216, -768, 512, -296 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Line2D" type="Line2D" parent="."]
 z_index = -1
-points = PoolVector2Array( 128, 64, 128, 576, 1152, 576, 1152, 20, 128, 20, 128, 128 )
+points = PoolVector2Array( 128, 128, 128, 576, 1152, 576, 1152, 64, 128, 64, 128, 192 )
 default_color = Color( 0.4, 0.501961, 1, 1 )
 __meta__ = {
 "_edit_lock_": true
