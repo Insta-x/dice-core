@@ -6,7 +6,8 @@ func _ready() -> void:
 
 
 func _on_DiceCoreLabel_random_finished() -> void:
-	play("ResultNumber")
+	play("RESET")
+	queue("ResultNumber")
 
 
 func _on_critical_hit() -> void:

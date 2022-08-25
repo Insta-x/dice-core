@@ -44,7 +44,6 @@ script/source = "extends TextureRect
 
 func _ready() -> void:
 	GlobalSignals.connect(\"player_dice_changed\", self, \"change_dice_core\")
-	GlobalSignals.connect(\"player_dice_rolled\", $DiceCoreLabel, \"_on_dice_rolled\")
 
 
 func change_dice_core(resource: DiceCoreResource) -> void:
