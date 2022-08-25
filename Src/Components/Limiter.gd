@@ -3,7 +3,7 @@ extends Node
 class_name Limiter
 
 
-export (int) var limit := 8 setget set_limit
+export (int) var limit := 3 setget set_limit
 
 
 func limit(number: int) -> int:

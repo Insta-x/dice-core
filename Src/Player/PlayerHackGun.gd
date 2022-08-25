@@ -47,7 +47,7 @@ func _on_PlayerWrapper_hack_input(shoot: bool, add_seed: int) -> void:
 	if shoot:
 		shoot()
 	
-	self.hack_seed = (hack_seed + add_seed) % 20
+	self.hack_seed = (hack_seed + add_seed) % 10
 
 
 func _on_Timer_timeout() -> void:

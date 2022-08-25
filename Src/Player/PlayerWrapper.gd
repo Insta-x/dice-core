@@ -26,7 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().set_input_as_handled()
 	
 	if event.is_action_released("scroll_down"):
-		emit_signal("hack_input", false, 19)
+		emit_signal("hack_input", false, 9)
 		get_tree().set_input_as_handled()
 	
 	if event.is_action_pressed("limit_shoot"):

@@ -21,8 +21,8 @@ export (NodePath) onready var player = get_node(player) as Player
 func spawn() -> void:
 	var select : int = randi() % 3
 	var dice_sel := randi() % dice_core_res.size()
-	var limit := randi() % 13 + 8
-	var index := randi() % 20 + 1
+	var limit := randi() % 9 + 2
+	var index := randi() % 10
 	
 	var pos : int = randi() % get_children().size()
 	if player.global_position.distance_squared_to(get_child(pos).global_position) < 100000:
