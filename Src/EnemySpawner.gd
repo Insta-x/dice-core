@@ -8,18 +8,9 @@ const enemy_scenes := [
 ]
 
 const dice_core_res := [
-	preload("res://Src/Components/DiceCore/AddMulter/Add1Mult7DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/AddMulter/Add2Mult3DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/AddMulter/Add3Mult5DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/Adder/Add3DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/Adder/Add5DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/Adder/Add7DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/MultAdder/Mult3Add2DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/MultAdder/Mult5Add3DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/MultAdder/Mult7Add1DiceCore.tres"),
+	preload("res://Src/Components/DiceCore/Adder/Add1DiceCore.tres"),
 	preload("res://Src/Components/DiceCore/Multiplier/Multiply3DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/Multiplier/Multiply5DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/Multiplier/Multiply7DiceCore.tres")
+	preload("res://Src/Components/DiceCore/SquareDiceCore.tres")
 ]
 
 const spawn_anim_sprite := preload("res://Src/NewEnemy/Effects/SpawnAnimation.tscn")
