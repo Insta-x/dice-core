@@ -3,6 +3,7 @@ extends Node
 
 signal player_shot
 signal player_hack_shot
+signal player_dashed
 signal player_hack_seed_changed
 
 signal player_health_changed

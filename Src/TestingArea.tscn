@@ -228,5 +228,5 @@ script = ExtResource( 6 )
 
 [node name="InputBlocker" type="Node" parent="."]
 script = ExtResource( 5 )
-block_press = PoolStringArray( "shoot", "limit_shoot" )
+block_press = PoolStringArray( "shoot", "dash", "limit_shoot" )
 block_release = PoolStringArray( "scroll_up", "scroll_down" )
