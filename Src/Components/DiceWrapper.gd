@@ -25,7 +25,7 @@ func hacked(hack_seed: int) -> void:
 	var pre_limit := limiter.limit
 	var pre_index := indexer.start
 	dice_core.current_seed = hack_seed
-	limiter.limit = 20
+	limiter.limit = 10
 	indexer.start = 0
 	dice_core.roll(limiter.limit)
 #	print(hack_seed, ' ', dice_core.current_seed)
