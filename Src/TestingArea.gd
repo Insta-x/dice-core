@@ -63,7 +63,7 @@ func sequence_three() -> void:
 	# Teaching dash
 	
 	var base_text := "Press spacebar to dash"
-	var second_text := "\nYour dice set will generate new bullet number if you dash"
+	var second_text := "\nYour dice set will generate new bullet number when you dash"
 	
 	tutorial_label.display_text(base_text)
 	yield(tutorial_label, "display_finished")
