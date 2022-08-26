@@ -18,11 +18,12 @@ onready var dice_timer := $DiceTimer
 func _ready():
 	$EnemyHealth.connect("enemy_hurt",body.spriteWrapper,"blink")
 
-func init(player: Player, dice_core: DiceCoreResource, new_limit: int, new_start: int) -> void:
+func init(player: Player, dice_core: DiceCoreResource, new_limit: int, new_start: int, ready_seed: int) -> void:
 	body.player = player
 	dice_wrapper.set_new_dice_core(dice_core)
 	dice_wrapper.set_new_limit(new_limit)
 	dice_wrapper.set_new_indexer(new_start)
+	dice_wrapper.dice_core.ready_seed(ready_seed)
 
 
 func hacked(hack_seed: int) -> void:

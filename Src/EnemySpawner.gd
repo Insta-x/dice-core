@@ -23,6 +23,7 @@ func spawn() -> void:
 	var dice_sel := randi() % dice_core_res.size()
 	var limit := randi() % 9 + 2
 	var index := randi() % 10
+	var dice_seed := randi() % 10
 	
 	var pos : int = randi() % get_children().size()
 	if player.global_position.distance_squared_to(get_child(pos).global_position) < 100000:
@@ -36,7 +37,7 @@ func spawn() -> void:
 	spawn_anim.global_position = get_child(pos).global_position
 	get_parent().call_deferred("add_child", enemy)
 	get_parent().call_deferred("add_child", spawn_anim)
-	enemy.call_deferred("init", player, dice_core_res[dice_sel], limit, index)
+	enemy.call_deferred("init", player, dice_core_res[dice_sel], limit, index, dice_seed)
 	GlobalGame.enemy_count += 1
 
 

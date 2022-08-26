@@ -41,3 +41,5 @@ func _on_Timer_timeout() -> void:
 	random_counter -= 1
 	text = str(randi() % 20 + 1)
 	timer.start()
+
+
