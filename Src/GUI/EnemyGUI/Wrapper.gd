@@ -35,7 +35,6 @@ func _on_health_changed(value: int) -> void:
 
 func _on_DiceWrapper_dice_core_changed(resource: DiceCoreResource) -> void:
 	dice_core_rect.texture = resource.small_dice_icon
-	dice_core_rect.self_modulate = resource.color
 
 
 func _on_DiceWrapper_limiter_changed(new_limit: int) -> void:

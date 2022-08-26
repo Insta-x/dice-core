@@ -267,6 +267,7 @@ mouse_filter = 2
 custom_constants/margin_top = 8
 
 [node name="DiceCore" type="TextureRect" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer"]
+self_modulate = Color( 1, 0.0196078, 0.27451, 1 )
 margin_top = 8.0
 margin_right = 32.0
 margin_bottom = 40.0

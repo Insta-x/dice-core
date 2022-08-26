@@ -263,6 +263,7 @@ dice_core_resource = ExtResource( 13 )
 
 [node name="Limiter" type="Node" parent="DiceWrapper"]
 script = ExtResource( 7 )
+limit = 4
 
 [node name="Indexer" type="Node" parent="DiceWrapper"]
 script = ExtResource( 22 )

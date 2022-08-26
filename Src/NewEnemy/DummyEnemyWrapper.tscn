@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Src/NewEnemy/EnemyWrapper.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/NewEnemy/TutorialEnemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Src/Components/DiceCore/Multiplier/Multiply5DiceCore.tres" type="Resource" id=3]
+[ext_resource path="res://Assets/GUI/dice-core-shape2.png" type="Texture" id=3]
 [ext_resource path="res://Src/NewEnemy/EnemyHazardDetector.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/NewEnemy/DummyEnemyHealth.gd" type="Script" id=5]
+[ext_resource path="res://Src/Components/DiceCore/Adder/Add1DiceCore.tres" type="Resource" id=6]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 38.0
@@ -31,14 +32,17 @@ margin_bottom = -60.0
 text = "0"
 
 [node name="DiceCore" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer" index="0"]
-self_modulate = Color( 1, 0.960784, 0, 1 )
+texture = ExtResource( 3 )
+
+[node name="DiceCoreLabel" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore" index="0"]
+text = "2"
 
 [node name="Label" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Limiter" index="0"]
-text = "8"
+text = "3"
 
 [node name="DiceCore" parent="DiceWrapper" index="0"]
-init_seed = 5
-dice_core_resource = ExtResource( 3 )
+init_seed = 2
+dice_core_resource = ExtResource( 6 )
 
 [node name="EnemyHealth" parent="." index="4"]
 script = ExtResource( 5 )
@@ -55,6 +59,8 @@ autostart = true
 
 [connection signal="hack_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="." method="hacked"]
 [connection signal="player_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
+[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
+[connection signal="number_changed" from="EnemyHealth" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer/ResultNumber/ResultLabel" method="_on_number_changed"]
 [connection signal="timeout" from="RegenTimer" to="EnemyHealth" method="_on_RegenTimer_timeout"]
 
 [editable path="GUIwrapper"]
