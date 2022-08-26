@@ -29,24 +29,30 @@ margin_top = -60.0
 margin_bottom = -60.0
 
 [node name="Label" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Indexer" index="0"]
-text = "0"
+text = "1"
 
 [node name="DiceCore" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer" index="0"]
 texture = ExtResource( 3 )
 
 [node name="DiceCoreLabel" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore" index="0"]
-text = "2"
+text = "1"
 
 [node name="Label" parent="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Limiter" index="0"]
-text = "3"
+text = "2"
 
 [node name="DiceCore" parent="DiceWrapper" index="0"]
-init_seed = 2
 dice_core_resource = ExtResource( 6 )
+
+[node name="Limiter" parent="DiceWrapper" index="1"]
+limit = 2
+
+[node name="Indexer" parent="DiceWrapper" index="2"]
+start = 1
 
 [node name="EnemyHealth" parent="." index="4"]
 script = ExtResource( 5 )
 body = NodePath("../TutorialEnemy")
+init_number = 2
 max_health = 9
 regen_timer = NodePath("../RegenTimer")
 
@@ -60,6 +66,7 @@ autostart = true
 [connection signal="hack_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="." method="hacked"]
 [connection signal="player_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
 [connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
+[connection signal="dice_seed_init" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_seed_init"]
 [connection signal="number_changed" from="EnemyHealth" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer/ResultNumber/ResultLabel" method="_on_number_changed"]
 [connection signal="timeout" from="RegenTimer" to="EnemyHealth" method="_on_RegenTimer_timeout"]
 

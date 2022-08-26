@@ -120,4 +120,4 @@ func sequence_five() -> void:
 	yield(tutorial_label, "display_finished")
 	
 	yield(get_tree().create_timer(1), "timeout")
-	tutorial_label.add_text("\nInject hack seed 13 to play the game")
+	tutorial_label.add_text("\nInject hack seed 6 to play the game")
