@@ -317,7 +317,9 @@ dash={
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="HazardToPlayer"
 2d_physics/layer_5="HazardToEnemy"
-2d_physics/layer_6="Pickupable"
+2d_physics/layer_6="PickupableDiceCore"
+2d_physics/layer_7="PickupableLimiter"
+2d_physics/layer_8="PickupableIndexer"
 
 [physics]
 

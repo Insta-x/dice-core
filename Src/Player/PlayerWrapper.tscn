@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Player/GunSprite.gd" type="Script" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Assets/Audio/SFX/pick-up.wav" type="AudioStream" id=21]
 [ext_resource path="res://Src/Components/Indexer.gd" type="Script" id=22]
 [ext_resource path="res://Src/Player/PlayerAfterimageSprite.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Src/Player/IndexerPickupArea.tscn" type="PackedScene" id=24]
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 18.0
@@ -190,6 +191,9 @@ one_shot = true
 dice_wrapper = NodePath("../../DiceWrapper")
 
 [node name="LimiterPickupArea" parent="Player" instance=ExtResource( 10 )]
+dice_wrapper = NodePath("../../DiceWrapper")
+
+[node name="IndexerPickupArea" parent="Player" instance=ExtResource( 24 )]
 dice_wrapper = NodePath("../../DiceWrapper")
 
 [node name="PlayerHazardDetector" type="Area2D" parent="Player"]
