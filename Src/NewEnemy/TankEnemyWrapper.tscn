@@ -19,7 +19,7 @@ font_data = ExtResource( 9 )
 [node name="TankEnemyWrapper" instance=ExtResource( 1 )]
 script = ExtResource( 6 )
 body = NodePath("TankEnemy")
-maxiter = 300
+maxiter = 150
 
 [node name="TankEnemy" parent="." index="0" instance=ExtResource( 2 )]
 collision_layer = 4

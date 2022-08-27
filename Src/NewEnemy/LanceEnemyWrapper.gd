@@ -1,16 +1,7 @@
-extends Node2D
+extends EnemyWrapper
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func customprocess() -> void:
+	if iter == 0:
+		dice_behaviour_machine.new_behaviour(0)
+	elif iter == 60:
+		dice_behaviour_machine.new_behaviour(1)
