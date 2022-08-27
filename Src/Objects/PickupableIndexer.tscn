@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Src/Objects/PickupableIndexer.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/GUI/PlayerGUI/player-indexer.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 48.0
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_size = 1
+font_data = ExtResource( 2 )
+
+[node name="PickupableIndexer" type="Area2D"]
+script = ExtResource( 1 )
+prompt_label = NodePath("Label")
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Sprite"]
+margin_left = -16.0
+margin_top = -12.0
+margin_right = 16.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -66.0
+margin_right = 20.0
+margin_bottom = -33.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "R"
+align = 1
+valign = 1

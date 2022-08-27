@@ -12,8 +12,9 @@ signal dice_rolled(next_seed, limited_seed)
 onready var current_seed := init_seed setget set_current_seed
 
 
-func _ready() -> void:
-	emit_signal("dice_seed_init", init_seed)
+func ready_seed(ready_seed: int) -> void:
+	current_seed = ready_seed
+	emit_signal("dice_seed_init", current_seed)
 
 
 func roll(modulo: int) -> void:

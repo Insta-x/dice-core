@@ -8,5 +8,5 @@
 script = ExtResource( 1 )
 dice_icon = ExtResource( 2 )
 small_dice_icon = ExtResource( 3 )
-color = Color( 0, 0.788235, 1, 1 )
+color = Color( 1, 1, 1, 1 )
 multiply_by = 3

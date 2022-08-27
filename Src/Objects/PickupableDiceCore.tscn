@@ -4,9 +4,8 @@
 [ext_resource path="res://Assets/GUI/PlayerGUI/dice-core-shape-player4.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=3]
 
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+[sub_resource type="CircleShape2D" id=3]
+radius = 48.0
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
@@ -25,10 +24,9 @@ prompt_label = NodePath("Label")
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="Label" type="Label" parent="."]
-visible = false
 margin_left = -9.0
 margin_top = -66.0
 margin_right = 10.0
@@ -36,3 +34,6 @@ margin_bottom = -33.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Q"
+__meta__ = {
+"_edit_lock_": true
+}

@@ -5,6 +5,7 @@ class_name EnemyHealth
 
 export (NodePath) onready var body = get_node(body) as NewEnemy
 export (NodePath) onready var dice_wrapper = get_node(dice_wrapper) as DiceWrapper
+export (int) var init_number := -1
 
 export (int) var max_health = 3
 export (int) var crit_damage := 3
@@ -27,7 +28,7 @@ var is_dead := false
 
 func _ready() -> void:
 	self.health = max_health
-	self.current_number = dice_wrapper.get_number(false)
+	self.current_number = randi() % 10 if init_number == -1 else init_number
 
 
 func hurt(roll: int) -> void:

@@ -45,13 +45,13 @@ dice_wrapper = NodePath("../DiceWrapper")
 wait_time = 5.0
 autostart = true
 
-[connection signal="behaviour_changed" from="DiceBehaviourMachine" to="GUIwrapper" method="_on_behaviour_changed"]
 [connection signal="dice_core_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_dice_core_changed"]
 [connection signal="indexer_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_indexer_changed"]
 [connection signal="limiter_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_limiter_changed"]
 [connection signal="number_generated" from="DiceWrapper" to="DiceBehaviourMachine" method="new_behaviour"]
 [connection signal="number_generated" from="DiceWrapper" to="EnemyHealth" method="_on_DiceWrapper_number_generated"]
 [connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
+[connection signal="dice_seed_init" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_seed_init"]
 [connection signal="died" from="EnemyHealth" to="." method="dead"]
 [connection signal="health_changed" from="EnemyHealth" to="GUIwrapper" method="_on_health_changed"]
 [connection signal="number_changed" from="EnemyHealth" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer/ResultNumber/ResultLabel" method="_on_number_changed"]

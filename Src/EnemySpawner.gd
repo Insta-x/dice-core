@@ -8,18 +8,9 @@ const enemy_scenes := [
 ]
 
 const dice_core_res := [
-	preload("res://Src/Components/DiceCore/AddMulter/Add1Mult7DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/AddMulter/Add2Mult3DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/AddMulter/Add3Mult5DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/Adder/Add3DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/Adder/Add5DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/Adder/Add7DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/MultAdder/Mult3Add2DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/MultAdder/Mult5Add3DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/MultAdder/Mult7Add1DiceCore.tres"),
+	preload("res://Src/Components/DiceCore/Adder/Add1DiceCore.tres"),
 	preload("res://Src/Components/DiceCore/Multiplier/Multiply3DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/Multiplier/Multiply5DiceCore.tres"),
-	preload("res://Src/Components/DiceCore/Multiplier/Multiply7DiceCore.tres")
+	preload("res://Src/Components/DiceCore/SquareDiceCore.tres")
 ]
 
 const spawn_anim_sprite := preload("res://Src/NewEnemy/Effects/SpawnAnimation.tscn")
@@ -30,8 +21,9 @@ export (NodePath) onready var player = get_node(player) as Player
 func spawn(enemy_code: int = -1) -> void:
 	var select : int = randi() % 3 if enemy_code == -1 else enemy_code
 	var dice_sel := randi() % dice_core_res.size()
-	var limit := randi() % 13 + 8
-	var index := randi() % 20 + 1
+	var limit := randi() % 9 + 2
+	var index := randi() % 10
+	var dice_seed := randi() % 10
 	
 	var pos : int = randi() % get_children().size()
 	if player.global_position.distance_squared_to(get_child(pos).global_position) < 100000:
@@ -45,7 +37,7 @@ func spawn(enemy_code: int = -1) -> void:
 	spawn_anim.global_position = get_child(pos).global_position
 	get_parent().call_deferred("add_child", enemy)
 	get_parent().call_deferred("add_child", spawn_anim)
-	enemy.call_deferred("init", player, dice_core_res[dice_sel], limit, index)
+	enemy.call_deferred("init", player, dice_core_res[dice_sel], limit, index, dice_seed)
 	GlobalGame.enemy_count += 1
 
 
