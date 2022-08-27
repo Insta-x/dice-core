@@ -31,7 +31,9 @@ func customprocess() -> void:
 		dice_behaviour_machine.new_behaviour(iter + 1)
 
 var iter := 0
-func _process(delta:float) -> void:
+var count = 0
+func _physics_process(delta) -> void:
+
 	iter = (iter + 1) % maxiter
 	customprocess()
 	
@@ -66,6 +68,5 @@ func dead() -> void:
 	var particle_effect := death_particle_scn.instance()
 	particle_effect.global_position = body.global_position
 	get_parent().call_deferred("add_child", particle_effect)
-	print(particle_effect.global_position)
 	queue_free()
 

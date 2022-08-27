@@ -48,6 +48,7 @@ dice_core_resource = ExtResource( 4 )
 
 [node name="EnemyHealth" parent="." index="4"]
 body = NodePath("../TutorialEnemy")
+max_health = 1
 
 [node name="DiceTimer" parent="." index="5"]
 autostart = false
@@ -55,7 +56,5 @@ autostart = false
 [connection signal="hack_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="." method="hacked"]
 [connection signal="player_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="DiceWrapper" method="get_number" flags=3]
 [connection signal="player_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
-[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
-[connection signal="number_changed" from="EnemyHealth" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer/ResultNumber/ResultLabel" method="_on_number_changed"]
 
 [editable path="GUIwrapper"]
