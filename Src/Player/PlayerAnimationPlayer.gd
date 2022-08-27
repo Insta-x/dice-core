@@ -5,7 +5,7 @@ func _ready() -> void:
 	GlobalSignals.connect("critical_hit", self, "_on_critical_hit")
 
 
-func _on_Player_shoot_input() -> void:
+func _on_PlayerWrapper_shoot_input() -> void:
 	play("Shoot")
 
 

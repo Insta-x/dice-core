@@ -132,8 +132,8 @@ dice_wrapper = NodePath("../../DiceWrapper")
 body = NodePath("../SniperEnemy")
 
 [node name="EnemyGUI" parent="GUIwrapper" index="0"]
-margin_top = -110.0
-margin_bottom = -110.0
+margin_top = -40.0
+margin_bottom = -40.0
 
 [node name="Shoot" type="Node" parent="DiceBehaviourMachine" index="1"]
 script = ExtResource( 10 )

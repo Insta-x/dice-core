@@ -15,17 +15,6 @@ func _ready() -> void:
 	GlobalSignals.connect("critical_hit", self, "_on_critical_hit")
 
 
-func _physics_process(delta: float) -> void:
-	if Input.is_action_just_released("scroll_up"):
-		self.hack_seed = (hack_seed + 1) % 20
-	
-	if Input.is_action_just_released("scroll_down"):
-		self.hack_seed = (hack_seed + 19) % 20
-	
-	if Input.is_action_just_pressed("limit_shoot"):
-		shoot()
-
-
 func shoot() -> void:
 	if not can_shoot:
 		return
@@ -51,6 +40,14 @@ func _on_critical_hit() -> void:
 func set_hack_seed(value: int) -> void:
 	hack_seed = value
 	GlobalSignals.emit_signal("player_hack_seed_changed", hack_seed)
+
+
+
+func _on_PlayerWrapper_hack_input(shoot: bool, add_seed: int) -> void:
+	if shoot:
+		shoot()
+	
+	self.hack_seed = (hack_seed + add_seed) % 20
 
 
 func _on_Timer_timeout() -> void:

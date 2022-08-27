@@ -28,7 +28,7 @@ func hacked(hack_seed: int) -> void:
 	limiter.limit = 20
 	indexer.start = 0
 	dice_core.roll(limiter.limit)
-	print(hack_seed, ' ', dice_core.current_seed)
+#	print(hack_seed, ' ', dice_core.current_seed)
 	emit_signal("number_generated", get_number(false))
 	limiter.limit = pre_limit
 	indexer.start = pre_index

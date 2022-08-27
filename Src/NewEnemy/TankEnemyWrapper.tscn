@@ -57,8 +57,8 @@ __meta__ = {
 body = NodePath("../TankEnemy")
 
 [node name="EnemyGUI" parent="GUIwrapper" index="0"]
-margin_top = -120.0
-margin_bottom = -120.0
+margin_top = -40.0
+margin_bottom = -40.0
 
 [node name="MoveRandom" type="Node" parent="DiceBehaviourMachine" index="1"]
 script = ExtResource( 5 )

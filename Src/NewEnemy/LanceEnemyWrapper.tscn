@@ -38,8 +38,8 @@ polygon = PoolVector2Array( 32, 0, -16, -16, -16, 16 )
 body = NodePath("../LanceEnemy")
 
 [node name="EnemyGUI" parent="GUIwrapper" index="0"]
-margin_top = -90.0
-margin_bottom = -90.0
+margin_top = -32.0
+margin_bottom = -32.0
 
 [node name="DoNothing" parent="DiceBehaviourMachine" index="0"]
 valid_roll = PoolIntArray( 0 )
@@ -60,7 +60,5 @@ body = NodePath("../LanceEnemy")
 
 [connection signal="hack_bullet_detected" from="LanceEnemy/EnemyHazardDetector" to="." method="hacked"]
 [connection signal="player_bullet_detected" from="LanceEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
-[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
-[connection signal="number_changed" from="EnemyHealth" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer/ResultNumber/ResultLabel" method="_on_number_changed"]
 
 [editable path="GUIwrapper"]

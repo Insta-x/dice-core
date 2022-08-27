@@ -44,7 +44,6 @@ script/source = "extends TextureRect
 
 func _ready() -> void:
 	GlobalSignals.connect(\"player_dice_changed\", self, \"change_dice_core\")
-	GlobalSignals.connect(\"player_dice_rolled\", $DiceCoreLabel, \"_on_dice_rolled\")
 
 
 func change_dice_core(resource: DiceCoreResource) -> void:
@@ -229,6 +228,7 @@ tracks/4/keys = {
 [node name="GUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 14 )
 
 [node name="DiceCoreContainer" type="HBoxContainer" parent="."]
@@ -238,11 +238,13 @@ margin_left = 300.0
 margin_top = -104.0
 margin_right = 436.0
 margin_bottom = -40.0
+mouse_filter = 2
 alignment = 1
 
 [node name="LowerLimitRect" type="TextureRect" parent="DiceCoreContainer"]
 margin_right = 32.0
 margin_bottom = 64.0
+mouse_filter = 2
 texture = ExtResource( 19 )
 stretch_mode = 4
 
@@ -266,6 +268,7 @@ self_modulate = Color( 0, 0.788235, 1, 1 )
 margin_left = 36.0
 margin_right = 100.0
 margin_bottom = 64.0
+mouse_filter = 2
 texture = ExtResource( 6 )
 stretch_mode = 4
 script = SubResource( 8 )
@@ -285,6 +288,7 @@ script = ExtResource( 18 )
 margin_left = 104.0
 margin_right = 136.0
 margin_bottom = 64.0
+mouse_filter = 2
 texture = ExtResource( 9 )
 stretch_mode = 4
 
@@ -312,6 +316,7 @@ margin_left = -64.0
 margin_top = -66.0
 margin_right = -55.0
 margin_bottom = -50.0
+mouse_filter = 2
 texture = ExtResource( 2 )
 script = ExtResource( 7 )
 textures = [ ExtResource( 2 ), ExtResource( 5 ) ]
@@ -335,11 +340,13 @@ margin_left = -75.0
 margin_top = -112.0
 margin_right = 75.0
 margin_bottom = -40.0
+mouse_filter = 2
 alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="GunContainer"]
 margin_right = 150.0
 margin_bottom = 36.0
+mouse_filter = 2
 texture = ExtResource( 21 )
 stretch_mode = 4
 
@@ -356,11 +363,13 @@ script = SubResource( 24 )
 margin_top = 40.0
 margin_right = 150.0
 margin_bottom = 72.0
+mouse_filter = 2
 custom_constants/separation = 0
 
 [node name="ReloadProgressLeft" type="TextureProgress" parent="GunContainer/HBoxContainer"]
 margin_right = 75.0
 margin_bottom = 32.0
+mouse_filter = 2
 texture_progress = ExtResource( 1 )
 fill_mode = 1
 script = ExtResource( 3 )
@@ -371,6 +380,7 @@ script = ExtResource( 3 )
 margin_left = 75.0
 margin_right = 150.0
 margin_bottom = 32.0
+mouse_filter = 2
 texture_progress = ExtResource( 1 )
 script = ExtResource( 3 )
 
@@ -385,6 +395,7 @@ margin_left = -480.0
 margin_top = -66.0
 margin_right = -471.0
 margin_bottom = -50.0
+mouse_filter = 2
 texture = ExtResource( 10 )
 script = ExtResource( 7 )
 textures = [ ExtResource( 10 ), ExtResource( 12 ) ]
@@ -412,11 +423,13 @@ margin_left = -500.0
 margin_top = -100.0
 margin_right = -350.0
 margin_bottom = -40.0
+mouse_filter = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="HackContainer"]
 margin_right = 150.0
 margin_bottom = 24.0
+mouse_filter = 2
 texture = ExtResource( 15 )
 stretch_mode = 4
 
@@ -433,11 +446,13 @@ script = SubResource( 22 )
 margin_top = 28.0
 margin_right = 150.0
 margin_bottom = 60.0
+mouse_filter = 2
 custom_constants/separation = 0
 
 [node name="HackProgress" type="TextureProgress" parent="HackContainer/HBoxContainer"]
 margin_right = 75.0
 margin_bottom = 32.0
+mouse_filter = 2
 texture_progress = ExtResource( 1 )
 fill_mode = 1
 script = ExtResource( 11 )
@@ -448,6 +463,7 @@ script = ExtResource( 11 )
 margin_left = 75.0
 margin_right = 150.0
 margin_bottom = 32.0
+mouse_filter = 2
 texture_progress = ExtResource( 1 )
 script = ExtResource( 11 )
 
@@ -462,6 +478,7 @@ margin_left = -456.0
 margin_top = -100.0
 margin_right = -447.0
 margin_bottom = -76.0
+mouse_filter = 2
 texture = ExtResource( 20 )
 script = ExtResource( 7 )
 textures = [ ExtResource( 20 ), ExtResource( 13 ) ]

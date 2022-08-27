@@ -7,70 +7,53 @@
 [node name="GameWorld" type="Node2D"]
 
 [node name="EnemySpawner" type="Node2D" parent="."]
+position = Vector2( 640, 360 )
 script = ExtResource( 2 )
 player = NodePath("../PlayerWrapper/Player")
 
 [node name="Position2D" type="Position2D" parent="EnemySpawner"]
-position = Vector2( 0, -192 )
+position = Vector2( 0, -232 )
 
 [node name="Position2D2" type="Position2D" parent="EnemySpawner"]
-position = Vector2( -448, -192 )
+position = Vector2( -448, -232 )
 
 [node name="Position2D3" type="Position2D" parent="EnemySpawner"]
-position = Vector2( -448, 192 )
+position = Vector2( -448, 152 )
 
 [node name="Position2D4" type="Position2D" parent="EnemySpawner"]
-position = Vector2( 0, 192 )
+position = Vector2( 0, 152 )
 
 [node name="Position2D5" type="Position2D" parent="EnemySpawner"]
-position = Vector2( 448, 192 )
+position = Vector2( 448, 152 )
 
 [node name="Position2D6" type="Position2D" parent="EnemySpawner"]
-position = Vector2( 448, -192 )
+position = Vector2( 448, -232 )
 
 [node name="TutorialEnemyWrapper" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, -128 )
+position = Vector2( 640, 128 )
 rotation = 1.5708
 
 [node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2( 640, 360 )
 collision_mask = 6
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
-polygon = PoolVector2Array( -512, -256, -512, 256, 512, 256, 512, -256, 1216, -768, 1216, 768, 0, 1216, -1216, 768, -1216, -832, 0, -1152, 1216, -768, 512, -256 )
+polygon = PoolVector2Array( -512, -296, -512, 216, 512, 216, 512, -296, 1216, -768, 1216, 768, -1216, 768, -1216, -832, 1216, -768, 512, -296 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Line2D" type="Line2D" parent="."]
 z_index = -1
-points = PoolVector2Array( -512, 192, -512, 256, 512, 256, 512, -256, -512, -256, -512, 256 )
-default_color = Color( 0, 1, 1, 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Line2D2" type="Line2D" parent="."]
-visible = false
-z_index = -1
-points = PoolVector2Array( -640, 384, 640, 384, 640, -384, -640, -384, -640, 384 )
-default_color = Color( 0, 1, 1, 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Line2D4" type="Line2D" parent="."]
-visible = false
-position = Vector2( -1152, -256 )
-z_index = -1
-points = PoolVector2Array( 1728, 576, 1152, 768, 1152, 1408, 1152, 768, 576, 576, 0, 960, 576, 576, 576, -64, 0, -512, 576, -64, 1152, -256, 1152, -832, 1152, -256, 1728, -64, 2304, -448, 1728, -64, 1728, 576, 2304, 960 )
-default_color = Color( 1, 0.968627, 0.152941, 1 )
+points = PoolVector2Array( 128, 128, 128, 576, 1152, 576, 1152, 64, 128, 64, 128, 192 )
+default_color = Color( 0.4, 0.501961, 1, 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="PlayerWrapper" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 128 )
+position = Vector2( 640, 448 )
 invincible = true
