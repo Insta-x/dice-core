@@ -9,6 +9,7 @@ const death_particle_scn := preload("res://Src/NewEnemy/Effects/DeathParticle.ts
 
 export (NodePath) onready var body = get_node(body) as NewEnemy
 export (int) var score := 1
+export (int) var maxiter := 1
 
 onready var enemy_gui := $GUIwrapper
 onready var dice_behaviour_machine := $DiceBehaviourMachine
@@ -24,6 +25,15 @@ func init(player: Player, dice_core: DiceCoreResource, new_limit: int, new_start
 	dice_wrapper.set_new_limit(new_limit)
 	dice_wrapper.set_new_indexer(new_start)
 
+func customprocess() -> void:
+	if iter == 0:
+		dice_behaviour_machine.new_behaviour(iter + 1)
+
+var iter := 0
+func _process(delta:float) -> void:
+	iter = (iter + 1) % maxiter
+	customprocess()
+	
 
 func hacked(hack_seed: int) -> void:
 	dice_wrapper.hacked(hack_seed)
@@ -58,6 +68,3 @@ func dead() -> void:
 	print(particle_effect.global_position)
 	queue_free()
 
-
-func _on_RollLabel_roll_anim_finished() -> void:
-	dice_behaviour_machine.new_behaviour(dice_wrapper.get_number(false))

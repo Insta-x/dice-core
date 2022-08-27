@@ -13,6 +13,7 @@ func _ready() -> void:
 
 
 func new_behaviour(roll: int) -> void:
+	
 	for child in get_children():
 		child = child as DiceBehaviour
 		

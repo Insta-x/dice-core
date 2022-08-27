@@ -43,6 +43,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SpriteWrapper"]
 material = ExtResource( 3 )
 frames = SubResource( 6 )
+frame = 3
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

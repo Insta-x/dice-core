@@ -79,11 +79,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/NewEnemy/EnemyWrapper.gd"
 }, {
-"base": "EditorVCSInterface",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://addons/godot-git-plugin/git_api.gdns"
-}, {
 "base": "Bullet",
 "class": "HackBullet",
 "language": "GDScript",
@@ -164,7 +159,6 @@ _global_script_class_icons={
 "Enemy": "",
 "EnemyHealth": "",
 "EnemyWrapper": "",
-"GitAPI": "",
 "HackBullet": "",
 "Indexer": "",
 "LimitBullet": "",
@@ -199,7 +193,7 @@ window/size/height=720
 
 [gdnative]
 
-singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+singletons=[  ]
 
 [importer_defaults]
 

@@ -11,4 +11,6 @@ func enter() -> void:
 
 
 func update(delta: float) -> void:
-	agent.goto(agent.global_position + rand_dir)
+	var x = agent.goto2(agent.global_position + rand_dir, delta)
+	if x:
+		enter()
