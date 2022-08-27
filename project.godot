@@ -130,6 +130,11 @@ _global_script_classes=[ {
 "path": "res://Src/Objects/PickupableDiceCore.gd"
 }, {
 "base": "Pickupable",
+"class": "PickupableIndexer",
+"language": "GDScript",
+"path": "res://Src/Objects/PickupableIndexer.gd"
+}, {
+"base": "Pickupable",
 "class": "PickupableLimiter",
 "language": "GDScript",
 "path": "res://Src/Objects/PickupableLimiter.gd"
@@ -179,6 +184,7 @@ _global_script_class_icons={
 "NewEnemy": "",
 "Pickupable": "",
 "PickupableDiceCore": "",
+"PickupableIndexer": "",
 "PickupableLimiter": "",
 "Player": "",
 "PlayerLimitGun": "",
@@ -263,6 +269,11 @@ pick_limiter={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+pick_indexer={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 pick_dice_core={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
@@ -306,6 +317,7 @@ dash={
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="HazardToPlayer"
 2d_physics/layer_5="HazardToEnemy"
+2d_physics/layer_6="Pickupable"
 
 [physics]
 
