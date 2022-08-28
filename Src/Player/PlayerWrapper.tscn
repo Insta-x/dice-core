@@ -209,6 +209,10 @@ shape = SubResource( 4 )
 script = ExtResource( 20 )
 emitted_scn = ExtResource( 23 )
 
+[node name="AfterImageTimer" type="Timer" parent="Player/AfterimageEmitter"]
+wait_time = 0.2
+one_shot = true
+
 [node name="Health" type="Node" parent="."]
 script = ExtResource( 14 )
 
@@ -292,6 +296,7 @@ stream = ExtResource( 21 )
 [connection signal="shoot_input" from="." to="PlayerAnimationPlayer" method="_on_PlayerWrapper_shoot_input"]
 [connection signal="timeout" from="Player/PlayerHackGun/Timer" to="Player/PlayerHackGun" method="_on_Timer_timeout"]
 [connection signal="area_entered" from="Player/PlayerHazardDetector" to="." method="_on_HazardDetector_area_entered"]
+[connection signal="timeout" from="Player/AfterimageEmitter/AfterImageTimer" to="Player/AfterimageEmitter" method="_on_AfterImageTimer_timeout"]
 [connection signal="animation_finished" from="PlayerAnimationPlayer" to="Player/PlayerGun" method="_on_PlayerAnimationPlayer_animation_finished"]
 [connection signal="dice_core_changed" from="DiceWrapper" to="." method="_on_DiceWrapper_dice_core_changed"]
 [connection signal="dice_core_changed" from="DiceWrapper" to="DiceWrapper/DiceCore" method="_on_DiceWrapper_dice_core_changed"]

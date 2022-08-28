@@ -23,79 +23,69 @@ shader_param/flash_modifier = 0.0
 [sub_resource type="Animation" id=6]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("SniperEnemy/Sprite2:position")
+tracks/0/path = NodePath("SniperEnemy/SpriteWrapper/Sprite3:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, -30 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("SniperEnemy/Sprite2:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("SniperEnemy/Sprite3:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 30 ) ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("SniperEnemy/Sprite3:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-
-[sub_resource type="Animation" id=7]
-resource_name = "Shoot"
-tracks/0/type = "value"
-tracks/0/path = NodePath("SniperEnemy/Sprite2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.8, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, -30 ), Vector2( 20, 0 ), Vector2( 15, 0 ), Vector2( 20, 0 ) ]
-}
 tracks/1/type = "value"
-tracks/1/path = NodePath("SniperEnemy/Sprite3:position")
+tracks/1/path = NodePath("SniperEnemy/SpriteWrapper/Sprite2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.8, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 30 ), Vector2( 20, 0 ), Vector2( 15, 0 ), Vector2( 20, 0 ) ]
+"values": [ Vector2( 0, -30 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Shoot"
+tracks/0/type = "value"
+tracks/0/path = NodePath("SniperEnemy/SpriteWrapper/Sprite3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 30 ), Vector2( 20, 0 ), Vector2( 15, 0 ), Vector2( 25, 0 ), Vector2( 0, 30 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SniperEnemy/SpriteWrapper/Sprite2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -30 ), Vector2( 20, 0 ), Vector2( 15, 0 ), Vector2( 25, 0 ), Vector2( 0, -30 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("SniperEnemy/SniperGun")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "shoot"
+} ]
 }
 
 [node name="SniperEnemyWrapper" instance=ExtResource( 1 )]
@@ -120,6 +110,7 @@ material = SubResource( 8 )
 material = SubResource( 8 )
 
 [node name="SniperGun" type="Node2D" parent="SniperEnemy" index="3"]
+position = Vector2( 30, 0 )
 rotation = -2.98023e-08
 script = ExtResource( 8 )
 __meta__ = {
@@ -129,20 +120,21 @@ bullet_scn = ExtResource( 7 )
 dice_wrapper = NodePath("../../DiceWrapper")
 
 [node name="GUIwrapper" parent="." index="1"]
+visible = false
 body = NodePath("../SniperEnemy")
 
 [node name="EnemyGUI" parent="GUIwrapper" index="0"]
 margin_top = -40.0
 margin_bottom = -40.0
 
-[node name="Shoot" type="Node" parent="DiceBehaviourMachine" index="1"]
+[node name="Shoot" type="Node" parent="DiceBehaviourMachine" index="0"]
 script = ExtResource( 10 )
 behaviour_name = "shoot"
 valid_roll = PoolIntArray( 1 )
 agent = NodePath("../../SniperEnemy")
-gun = NodePath("../../SniperEnemy/SniperGun")
+anim = NodePath("../../AnimationPlayer")
 
-[node name="MoveNearPlayer" type="Node" parent="DiceBehaviourMachine" index="2"]
+[node name="MoveNearPlayer" type="Node" parent="DiceBehaviourMachine" index="1"]
 script = ExtResource( 5 )
 behaviour_name = "move near player"
 valid_roll = PoolIntArray( 2 )

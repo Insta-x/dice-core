@@ -6,12 +6,11 @@ export (NodePath) onready var anim = get_node(anim) as AnimatedSprite
 
 var dir := Vector2.ZERO
 func enter() -> void:
-	anim.speed_scale = 4
-	tween.interpolate_property(agent, 'movespeed', 300, 0, 1)
-	tween.start()
+	anim.speed_scale = 2
+	print("charge")
 	dir = (agent.player.global_position - agent.global_position).normalized()
-
-func update(delta: float) -> void:
-	if dir != Vector2.ZERO:
-		agent.goto(agent.global_position + dir * 1000)
+	tween.interpolate_property(agent, 'global_rotation', agent.global_rotation, dir.angle() , 1)
+	tween.start()
 	
+	agent.look_at(agent.player.global_position)
+
