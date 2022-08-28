@@ -10,8 +10,14 @@ var dir := Vector2.ZERO
 
 
 func enter() -> void:
-	animated_sprite.speed_scale = 4
 	tween.interpolate_property(agent, 'movespeed', 300, 0, 1)
+	tween.interpolate_property(
+		animated_sprite,
+		"speed_scale",
+		animated_sprite.speed_scale,
+		0.0,
+		1.5
+	)
 	tween.start()
 	dir = (agent.player.global_position - agent.global_position).normalized()
 

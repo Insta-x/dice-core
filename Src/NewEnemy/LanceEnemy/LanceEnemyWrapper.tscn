@@ -26,6 +26,7 @@ movespeed = 160
 
 [node name="AnimatedSprite" parent="LanceEnemy/SpriteWrapper" index="0"]
 material = SubResource( 1 )
+frame = 1
 
 [node name="EnemyHazardDetector" parent="LanceEnemy" index="2" instance=ExtResource( 3 )]
 
