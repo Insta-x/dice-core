@@ -12,12 +12,14 @@ export (int) var score := 1
 export (int) var maxiter := 1
 
 onready var enemy_gui := $GUIwrapper
-onready var dice_behaviour_machine := $DiceBehaviourMachine
+onready var timed_cyclic_sm := $TimedCyclicSM
 onready var dice_wrapper := $DiceWrapper
 onready var dice_timer := $DiceTimer
 
+
 func _ready():
 	$EnemyHealth.connect("enemy_hurt",body.spriteWrapper,"blink")
+
 
 func init(player: Player, dice_core: DiceCoreResource, new_limit: int, new_start: int, ready_seed: int) -> void:
 	body.player = player
@@ -26,17 +28,6 @@ func init(player: Player, dice_core: DiceCoreResource, new_limit: int, new_start
 	dice_wrapper.set_new_indexer(new_start)
 	dice_wrapper.dice_core.ready_seed(ready_seed)
 
-func customprocess() -> void:
-	if iter == 0:
-		dice_behaviour_machine.new_behaviour(iter + 1)
-
-var iter := 0
-var count = 0
-func _physics_process(delta) -> void:
-
-	iter = (iter + 1) % maxiter
-	customprocess()
-	
 
 func hacked(hack_seed: int) -> void:
 	dice_wrapper.hacked(hack_seed)
@@ -47,7 +38,7 @@ func hacked(hack_seed: int) -> void:
 func dead() -> void:
 	set_process(false)
 	set_physics_process(false)
-	dice_behaviour_machine.set_physics_process(false)
+	timed_cyclic_sm.set_physics_process(false)
 	dice_timer.paused = true
 	GlobalSignals.emit_signal("text_popup", str(score), global_position, Color(1, 0.84, 0))
 	GlobalSignals.emit_signal("enemy_died")

@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Src/NewEnemy/EnemyWrapper.gd" type="Script" id=1]
 [ext_resource path="res://Src/Components/DiceWrapper.gd" type="Script" id=2]
 [ext_resource path="res://Src/Components/Limiter.gd" type="Script" id=3]
 [ext_resource path="res://Src/Components/DiceCore/DiceCore.gd" type="Script" id=4]
 [ext_resource path="res://Src/GUI/EnemyGUI/EnemyGUI.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Src/NewEnemy/SM/DiceBehaviourMachine.gd" type="Script" id=6]
+[ext_resource path="res://Src/NewEnemy/SM/TimedCyclicSM/TimedCyclicSM.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/NewEnemy/EnemyHealth.gd" type="Script" id=7]
-[ext_resource path="res://Src/NewEnemy/SM/DoNothing.gd" type="Script" id=8]
 [ext_resource path="res://Src/Components/Indexer.gd" type="Script" id=9]
 
 [node name="EnemyWrapper" type="Node2D"]
@@ -18,12 +17,7 @@ script = ExtResource( 1 )
 [node name="DiceTimerProgress" parent="GUIwrapper/EnemyGUI/VBoxContainer" index="0"]
 timer = NodePath("../../../../DiceTimer")
 
-[node name="DiceBehaviourMachine" type="Node" parent="."]
-script = ExtResource( 6 )
-
-[node name="DoNothing" type="Node" parent="DiceBehaviourMachine"]
-script = ExtResource( 8 )
-behaviour_name = "do nothing"
+[node name="TimedCyclicSM" parent="." instance=ExtResource( 6 )]
 
 [node name="DiceWrapper" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -48,7 +42,6 @@ autostart = true
 [connection signal="dice_core_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_dice_core_changed"]
 [connection signal="indexer_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_indexer_changed"]
 [connection signal="limiter_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_limiter_changed"]
-[connection signal="number_generated" from="DiceWrapper" to="DiceBehaviourMachine" method="new_behaviour"]
 [connection signal="number_generated" from="DiceWrapper" to="EnemyHealth" method="_on_DiceWrapper_number_generated"]
 [connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
 [connection signal="dice_seed_init" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_seed_init"]
