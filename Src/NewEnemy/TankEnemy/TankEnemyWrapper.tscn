@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Src/Components/DiceCore/Multiplier/Multiply3DiceCore.tres" type="Resource" id=2]
+[ext_resource path="res://Src/NewEnemy/EnemyWrapper.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/NewEnemy/TankEnemy/TankEnemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/NewEnemy/EnemyHazardDetector.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Src/NewEnemy/TankEnemy/TankEnemyWrapper.gd" type="Script" id=6]
+[ext_resource path="res://Src/NewEnemy/TankEnemy/MoveRandom.gd" type="Script" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 22, 34 )
+
+[node name="TankEnemyWrapper" instance=ExtResource( 3 )]
+script = ExtResource( 6 )
+body = NodePath("TankEnemy")
+maxiter = 150
+
+[node name="TankEnemy" parent="." index="0" instance=ExtResource( 4 )]
+collision_layer = 4
+collision_mask = 0
+
+[node name="EnemyHazardDetector" parent="TankEnemy" index="2" instance=ExtResource( 5 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TankEnemy/EnemyHazardDetector" index="0"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GUIwrapper" parent="." index="1"]
+body = NodePath("../TankEnemy")
+
+[node name="EnemyGUI" parent="GUIwrapper" index="0"]
+margin_top = -40.0
+margin_bottom = -40.0
+
+[node name="MoveRandom" type="Node" parent="TimedCyclicSM" index="1"]
+script = ExtResource( 7 )
+agent = NodePath("../../TankEnemy")
+
+[node name="DiceCore" parent="DiceWrapper" index="0"]
+dice_core_resource = ExtResource( 2 )
+
+[node name="EnemyHealth" parent="." index="4"]
+body = NodePath("../TankEnemy")
+max_health = 5
+
+[connection signal="hack_bullet_detected" from="TankEnemy/EnemyHazardDetector" to="." method="hacked"]
+[connection signal="player_bullet_detected" from="TankEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
+[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
+[connection signal="dice_seed_init" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_seed_init"]
+[connection signal="number_changed" from="EnemyHealth" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer/ResultNumber/ResultLabel" method="_on_number_changed"]
+
+[editable path="GUIwrapper"]

@@ -2,9 +2,9 @@ extends Node2D
 
 
 const enemy_scenes := [
-	preload("res://Src/NewEnemy/LanceEnemyWrapper.tscn"),
-	preload("res://Src/NewEnemy/SniperEnemyWrapper.tscn"),
-	preload("res://Src/NewEnemy/TankEnemyWrapper.tscn")
+	preload("res://Src/NewEnemy/LanceEnemy/LanceEnemyWrapper.tscn"),
+	preload("res://Src/NewEnemy/SniperEnemy/SniperEnemyWrapper.tscn"),
+	preload("res://Src/NewEnemy/TankEnemy/TankEnemyWrapper.tscn")
 ]
 
 const dice_core_res := [

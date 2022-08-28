@@ -32,12 +32,12 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "DiceBehaviour",
 "language": "GDScript",
-"path": "res://Src/NewEnemy/SM/DiceBehaviour.gd"
+"path": "res://Src/NewEnemy/SM/DiceBM/DiceBehaviour.gd"
 }, {
 "base": "Node",
 "class": "DiceBehaviourMachine",
 "language": "GDScript",
-"path": "res://Src/NewEnemy/SM/DiceBehaviourMachine.gd"
+"path": "res://Src/NewEnemy/SM/DiceBM/DiceBehaviourMachine.gd"
 }, {
 "base": "Node",
 "class": "DiceCore",
@@ -79,7 +79,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/NewEnemy/EnemyWrapper.gd"
 }, {
-"base": "",
+"base": "EditorVCSInterface",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
@@ -158,6 +158,16 @@ _global_script_classes=[ {
 "class": "SquareDiceCoreResource",
 "language": "GDScript",
 "path": "res://Src/Components/DiceCore/SquareDiceCore.gd"
+}, {
+"base": "Node",
+"class": "TimedCyclicSM",
+"language": "GDScript",
+"path": "res://Src/NewEnemy/SM/TimedCyclicSM/TimedCyclicSM.gd"
+}, {
+"base": "Node",
+"class": "TimedCyclicState",
+"language": "GDScript",
+"path": "res://Src/NewEnemy/SM/TimedCyclicSM/TimedCyclicState.gd"
 } ]
 _global_script_class_icons={
 "AddMulterDiceCoreResource": "",
@@ -189,7 +199,9 @@ _global_script_class_icons={
 "Player": "",
 "PlayerLimitGun": "",
 "RollBullet": "",
-"SquareDiceCoreResource": ""
+"SquareDiceCoreResource": "",
+"TimedCyclicSM": "",
+"TimedCyclicState": ""
 }
 
 [application]
