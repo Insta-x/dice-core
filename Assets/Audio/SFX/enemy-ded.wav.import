@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/enemy-ded.wav-06a18d4aabf2dacc8c230875c9fe6bf3.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/enemy-ded.wav"
+dest_files=[ "res://.import/enemy-ded.wav-06a18d4aabf2dacc8c230875c9fe6bf3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
