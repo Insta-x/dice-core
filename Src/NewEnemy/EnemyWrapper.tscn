@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Src/NewEnemy/EnemyWrapper.gd" type="Script" id=1]
 [ext_resource path="res://Src/Components/DiceWrapper.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Src/GUI/EnemyGUI/EnemyGUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/NewEnemy/SM/TimedCyclicSM/TimedCyclicSM.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/NewEnemy/EnemyHealth.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Audio/SFX/enemy-die.wav" type="AudioStream" id=8]
 [ext_resource path="res://Src/Components/Indexer.gd" type="Script" id=9]
 
 [node name="EnemyWrapper" type="Node2D"]
@@ -38,6 +39,9 @@ dice_wrapper = NodePath("../DiceWrapper")
 [node name="DiceTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
 
 [connection signal="dice_core_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_dice_core_changed"]
 [connection signal="indexer_changed" from="DiceWrapper" to="GUIwrapper" method="_on_DiceWrapper_indexer_changed"]

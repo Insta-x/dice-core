@@ -55,7 +55,7 @@ func dead() -> void:
 #	drop_limiter.upper_limit = $DiceWrapper/Limiter.upper_limit
 #	drop_limiter.global_position = body.global_position + Vector2(40, 0)
 #	get_parent().call_deferred("add_child", drop_limiter)
-	
+	$DeathSFX.play();
 	var particle_effect := death_particle_scn.instance()
 	particle_effect.global_position = body.global_position
 	get_parent().call_deferred("add_child", particle_effect)
