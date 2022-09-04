@@ -11,6 +11,8 @@ onready var input_blocker := $InputBlocker
 
 
 func _ready() -> void:
+	GlobalSignals.connect("tutorial_complete", self, "complete")
+	
 	gui.set_dice_visibility(false)
 	gui.set_hack_visibility(false)
 	gui.set_shoot_visibility(false)
@@ -121,3 +123,7 @@ func sequence_five() -> void:
 	
 	yield(get_tree().create_timer(1), "timeout")
 	tutorial_label.add_text("\nInject hack seed 6 to play the game")
+
+
+func complete() -> void:
+	get_tree().change_scene("res://Src/Game.tscn")
