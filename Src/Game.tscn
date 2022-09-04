@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Src/GUI/PlayerGUI/GUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/GameWorld.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/Font/Spritecoder_Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Src/GUI/GameGUI/ScoreLabel.gd" type="Script" id=9]
 [ext_resource path="res://Src/GUI/GameGUI/TimeLabel.gd" type="Script" id=10]
+[ext_resource path="res://Src/GUI/GameGUI/DiceSetSelection/DiceSetSelection.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
@@ -38,9 +39,40 @@ script = ExtResource( 7 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="GUI" parent="CanvasLayer" instance=ExtResource( 1 )]
+[node name="GameGUI" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="GUI" parent="CanvasLayer/GameGUI" instance=ExtResource( 1 )]
 margin_top = 17.0
 margin_bottom = 17.0
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/GameGUI"]
+margin_left = 20.0
+margin_top = 64.0
+margin_right = 108.0
+margin_bottom = 97.0
+custom_colors/font_color = Color( 0.921569, 1, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "0"
+align = 1
+valign = 1
+script = ExtResource( 9 )
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/GameGUI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -108.0
+margin_top = 64.0
+margin_right = -20.0
+margin_bottom = 97.0
+custom_colors/font_color = Color( 0.305882, 1, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "100"
+align = 1
+valign = 1
+script = ExtResource( 10 )
 
 [node name="PausePanel" parent="CanvasLayer" instance=ExtResource( 3 )]
 pause_mode = 2
@@ -67,33 +99,8 @@ margin_top = -80.0
 margin_right = 170.0
 margin_bottom = 80.0
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
-margin_left = 20.0
-margin_top = 64.0
-margin_right = 108.0
-margin_bottom = 97.0
-custom_colors/font_color = Color( 0.921569, 1, 0, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "0"
-align = 1
-valign = 1
-script = ExtResource( 9 )
-
-[node name="TimeLabel" type="Label" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -108.0
-margin_top = 64.0
-margin_right = -20.0
-margin_bottom = 97.0
-custom_colors/font_color = Color( 0.305882, 1, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "100"
-align = 1
-valign = 1
-script = ExtResource( 10 )
-
 [node name="GameWorld" parent="." instance=ExtResource( 2 )]
+visible = false
 
 [node name="GameCamera2D" type="Camera2D" parent="."]
 position = Vector2( 640, 360 )
@@ -102,3 +109,5 @@ script = ExtResource( 6 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
+
+[node name="DiceSetSelection" parent="." instance=ExtResource( 11 )]

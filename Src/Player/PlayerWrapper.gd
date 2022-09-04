@@ -14,6 +14,9 @@ var can_dash := true
 
 func _ready() -> void:
 	GlobalSignals.connect("time_over", self, "game_over")
+	GlobalSignals.connect("indexer_selected", dice_wrapper, "set_new_indexer")
+	GlobalSignals.connect("dice_core_selected", dice_wrapper, "set_new_dice_core")
+	GlobalSignals.connect("limiter_selected", dice_wrapper, "set_new_limit")
 
 
 func _unhandled_input(event: InputEvent) -> void:

@@ -30,3 +30,4 @@ signal player_warning_limiter
 signal indexer_selected
 signal dice_core_selected
 signal limiter_selected
+signal dice_set_selected
