@@ -86,7 +86,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id=2]
 resource_name = "Shoot"
 length = 2.0
-step = 0.0166667
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Player/GunAnimationPoint:position")
 tracks/0/interp = 1
@@ -94,10 +94,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.136, 0.216667, 0.493, 0.666668, 0.833333, 1.53334, 2.006 ),
+"times": PoolRealArray( 0, 0.136, 0.216667, 0.493, 0.666668, 0.833333, 1.53334, 2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 72 ), Vector2( 50, 0 ), Vector2( 40, 0 ), Vector2( 50, 0 ), Vector2( 50, 0 ), Vector2( 50, 30 ), Vector2( 50, 30 ), Vector2( 0, 72 ) ]
+"values": [ Vector2( 0, 60 ), Vector2( 50, 0 ), Vector2( 40, 0 ), Vector2( 50, 0 ), Vector2( 50, 0 ), Vector2( 50, 30 ), Vector2( 50, 30 ), Vector2( 0, 60 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("GunSprite:follow")
@@ -142,7 +142,7 @@ tracks/4/path = NodePath("PlayerShootSFX:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
-tracks/4/enabled = false
+tracks/4/enabled = true
 tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -225,7 +225,7 @@ one_shot = true
 script = ExtResource( 14 )
 
 [node name="GunSprite" type="Sprite" parent="."]
-position = Vector2( 0, 72 )
+position = Vector2( 0, 60 )
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( 0, -16 )
@@ -234,7 +234,7 @@ rigid_path = NodePath("../GunRigidBody2D")
 animation_position_path = NodePath("../Player/GunAnimationPoint")
 
 [node name="GunRigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2( 0, 72 )
+position = Vector2( 0, 60 )
 collision_layer = 0
 collision_mask = 0
 mass = 0.5
@@ -249,7 +249,7 @@ __meta__ = {
 }
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2( 0, 72 )
+position = Vector2( 0, 60 )
 node_a = NodePath("../Player")
 node_b = NodePath("../GunRigidBody2D")
 __meta__ = {
@@ -257,7 +257,7 @@ __meta__ = {
 }
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="."]
-position = Vector2( 40, 72 )
+position = Vector2( 40, 60 )
 node_a = NodePath("../Player")
 node_b = NodePath("../GunRigidBody2D")
 softness = 2.0
