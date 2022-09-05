@@ -14,6 +14,9 @@ var can_dash := true
 
 func _ready() -> void:
 	GlobalSignals.connect("time_over", self, "game_over")
+	GlobalSignals.connect("indexer_selected", dice_wrapper, "set_new_indexer")
+	GlobalSignals.connect("dice_core_selected", dice_wrapper, "set_new_dice_core")
+	GlobalSignals.connect("limiter_selected", dice_wrapper, "set_new_limit")
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -47,6 +50,10 @@ func _on_DiceWrapper_number_generated(number: int) -> void:
 	GlobalSignals.emit_signal("player_number_generated", number)
 
 
+func _on_DiceWrapper_indexer_changed(new_indexer: int) -> void:
+	GlobalSignals.emit_signal("player_indexer_changed", new_indexer)
+
+
 func _on_DiceWrapper_dice_core_changed(resource: DiceCoreResource) -> void:
 	GlobalSignals.emit_signal("player_dice_changed", resource)
 
@@ -73,4 +80,3 @@ func _on_HazardDetector_area_entered(area: Area2D) -> void:
 func game_over() -> void:
 	$Player.set_physics_process(false)
 	$Player/PlayerHazardDetector/CollisionShape2D.set_deferred("disabled", true)
-

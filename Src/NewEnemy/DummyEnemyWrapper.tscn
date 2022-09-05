@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Src/NewEnemy/EnemyWrapper.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/NewEnemy/TutorialEnemy.tscn" type="PackedScene" id=2]
@@ -7,11 +7,13 @@
 [ext_resource path="res://Src/NewEnemy/DummyEnemyHealth.gd" type="Script" id=5]
 [ext_resource path="res://Src/Components/DiceCore/Adder/Add1DiceCore.tres" type="Resource" id=6]
 [ext_resource path="res://Src/NewEnemy/SM/TimedCyclicSM/DoNothing.gd" type="Script" id=7]
+[ext_resource path="res://Src/NewEnemy/DummyEnemyWrapper.gd" type="Script" id=8]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 38.0
 
 [node name="DummyEnemyWrapper" instance=ExtResource( 1 )]
+script = ExtResource( 8 )
 body = NodePath("TutorialEnemy")
 
 [node name="TutorialEnemy" parent="." index="0" instance=ExtResource( 2 )]
@@ -70,9 +72,6 @@ autostart = true
 
 [connection signal="hack_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="." method="hacked"]
 [connection signal="player_bullet_detected" from="TutorialEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
-[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
-[connection signal="dice_seed_init" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_seed_init"]
-[connection signal="number_changed" from="EnemyHealth" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer/ResultNumber/ResultLabel" method="_on_number_changed"]
 [connection signal="timeout" from="RegenTimer" to="EnemyHealth" method="_on_RegenTimer_timeout"]
 
 [editable path="GUIwrapper"]

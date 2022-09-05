@@ -23,4 +23,4 @@ func _on_ScreenFader_animation_finished(is_fade_in: int = 1):
 	if (is_fade_in):
 		$BlinkingTimer.start(0.7)
 	else:
-		get_tree().change_scene("res://Src/Game.tscn")
+		get_tree().change_scene("res://Src/TestingArea.tscn")
