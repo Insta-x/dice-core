@@ -26,7 +26,7 @@ movespeed = 160
 
 [node name="AnimatedSprite" parent="LanceEnemy/SpriteWrapper" index="0"]
 material = SubResource( 1 )
-frame = 1
+frame = 2
 
 [node name="EnemyHazardDetector" parent="LanceEnemy" index="2" instance=ExtResource( 3 )]
 
@@ -81,9 +81,6 @@ body = NodePath("../LanceEnemy")
 
 [connection signal="hack_bullet_detected" from="LanceEnemy/EnemyHazardDetector" to="." method="hacked"]
 [connection signal="player_bullet_detected" from="LanceEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
-[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
-[connection signal="dice_seed_init" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_seed_init"]
-[connection signal="number_changed" from="EnemyHealth" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer/ResultNumber/ResultLabel" method="_on_number_changed"]
 
 [editable path="LanceEnemy"]
 [editable path="GUIwrapper"]
