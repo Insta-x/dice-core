@@ -4,6 +4,7 @@ extends Node
 const popup_text_scene := preload("res://Src/GUI/GameGUI/TextPopupWrapper.tscn")
 
 onready var game_gui := $CanvasLayer/GameGUI
+onready var win_screen := $CanvasLayer/WinScreen
 onready var game_world := $GameWorld
 
 
@@ -22,7 +23,7 @@ func start_game() -> void:
 
 
 func win_game() -> void:
-	pass
+	win_screen.show()
 
 
 func generate_popup(text: String, position: Vector2, color: Color = Color(1, 0, 0)) -> void:
