@@ -148,9 +148,6 @@ anims/Shoot = SubResource( 7 )
 
 [connection signal="hack_bullet_detected" from="SniperEnemy/EnemyHazardDetector" to="." method="hacked"]
 [connection signal="player_bullet_detected" from="SniperEnemy/EnemyHazardDetector" to="EnemyHealth" method="hurt"]
-[connection signal="dice_rolled" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_rolled"]
-[connection signal="dice_seed_init" from="DiceWrapper/DiceCore" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore/DiceCoreLabel" method="_on_dice_seed_init"]
-[connection signal="number_changed" from="EnemyHealth" to="GUIwrapper/EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer/ResultNumber/ResultLabel" method="_on_number_changed"]
 
 [editable path="SniperEnemy"]
 [editable path="GUIwrapper"]
