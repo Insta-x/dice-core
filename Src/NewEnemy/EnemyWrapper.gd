@@ -40,7 +40,7 @@ func dead() -> void:
 	set_physics_process(false)
 	timed_cyclic_sm.set_physics_process(false)
 	dice_timer.paused = true
-	GlobalSignals.emit_signal("text_popup", str(score), global_position, Color(1, 0.84, 0))
+#	GlobalSignals.emit_signal("text_popup", str(score), global_position, Color(1, 0.84, 0))
 	GlobalSignals.emit_signal("enemy_died")
 	ScoreTracker.score += score
 	yield(get_tree().create_timer(1), "timeout")
