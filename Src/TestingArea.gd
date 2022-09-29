@@ -57,6 +57,9 @@ func sequence_two() -> void:
 func sequence_two_one() -> void:
 	# Teaching about dice seed
 	
+	$CanvasLayer/DiceSetExplain/Label4.modulate.a = 0.5
+	$CanvasLayer/DiceSetExplain/TextureRect4.modulate.a = 0.5
+	
 	$CanvasLayer/DiceSetExplain/Label3.show()
 	$CanvasLayer/DiceSetExplain/TextureRect3.show()
 	
@@ -92,6 +95,9 @@ func sequence_two_two() -> void:
 func sequence_two_three() -> void:
 	# Teaching how Limiter works
 	
+	$CanvasLayer/DiceSetExplain/Label3.modulate.a = 0.5
+	$CanvasLayer/DiceSetExplain/TextureRect3.modulate.a = 0.5
+	
 	$CanvasLayer/DiceSetExplain/Label2.show()
 	$CanvasLayer/DiceSetExplain/TextureRect2.show()
 	
@@ -111,6 +117,9 @@ func sequence_two_three() -> void:
 func sequence_two_four() -> void:
 	# Teaching how Indexer works
 	
+	$CanvasLayer/DiceSetExplain/Label2.modulate.a = 0.5
+	$CanvasLayer/DiceSetExplain/TextureRect2.modulate.a = 0.5
+	
 	$CanvasLayer/DiceSetExplain/Label.show()
 	$CanvasLayer/DiceSetExplain/TextureRect.show()
 	
@@ -129,6 +138,9 @@ func sequence_two_four() -> void:
 
 func sequence_three() -> void:
 	# Teaching dash
+	
+	$CanvasLayer/DiceSetExplain/Label.modulate.a = 0.5
+	$CanvasLayer/DiceSetExplain/TextureRect.modulate.a = 0.5
 	
 	var base_text := "Press spacebar to dash"
 	var second_text := "\nYour dice set will generate new bullet number when you dash"
