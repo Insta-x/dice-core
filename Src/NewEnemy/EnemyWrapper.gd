@@ -45,10 +45,10 @@ func dead() -> void:
 	ScoreTracker.score += score
 	yield(get_tree().create_timer(1), "timeout")
 	
-	var drop_dice : PickupableDiceCore = pickup_dice_core_scn.instance()
-	drop_dice.dice_core_resource = $DiceWrapper/DiceCore.dice_core_resource
-	drop_dice.global_position = body.global_position - Vector2(40, 0)
-	get_parent().call_deferred("add_child", drop_dice)
+#	var drop_dice : PickupableDiceCore = pickup_dice_core_scn.instance()
+#	drop_dice.dice_core_resource = $DiceWrapper/DiceCore.dice_core_resource
+#	drop_dice.global_position = body.global_position - Vector2(40, 0)
+#	get_parent().call_deferred("add_child", drop_dice)
 	
 #	var drop_limiter : PickupableLimiter = pickup_limiter_scn.instance()
 #	drop_limiter.lower_limit = $DiceWrapper/Limiter.lower_limit
