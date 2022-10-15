@@ -43,7 +43,7 @@ func spawn(enemy_code: int = -1) -> void:
 
 func _ready() -> void:
 	GlobalGame.enemy_count = 1 # For TutorialEnemy
-	GlobalSignals.connect("batu_died",self,"game_start")
+	GlobalSignals.connect("game_start",self,"game_start")
 	GlobalSignals.connect("enemy_died",self,"decrease_enemy_count")
 
 

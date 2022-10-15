@@ -126,7 +126,7 @@ environment = SubResource( 1 )
 [node name="DiceSetSelection" parent="." instance=ExtResource( 11 )]
 
 [node name="GameOverTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 60.0
 one_shot = true
 
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_GameOverTimer_timeout"]
