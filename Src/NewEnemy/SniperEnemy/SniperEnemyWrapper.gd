@@ -7,5 +7,5 @@ onready var animation_player := $AnimationPlayer
 
 
 func dead() -> void:
-	.dead()
 	animation_player.stop()
+	.dead()
