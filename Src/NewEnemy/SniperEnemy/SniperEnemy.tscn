@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Src/NewEnemy/NewEnemy.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Enemy/enemy-sniper.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Art/sniper-gun.png" type="Texture" id=3]
 [ext_resource path="res://Src/NewEnemy/Effects/on-hit-shader.tres" type="Material" id=4]
 [ext_resource path="res://Src/NewEnemy/Effects/SpriteWrapper.tscn" type="PackedScene" id=5]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( 22, 0, 11, -22, -10, -22, -21, 0, -10, 22, 11, 22 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( 4, 1, 31, 25, 31, 30, 17, 30, 15, 24 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( 4, 59, 31, 35, 31, 30, 17, 30, 15, 36 )
 
 [node name="SniperEnemy" type="KinematicBody2D"]
 collision_layer = 4
@@ -16,13 +25,20 @@ __meta__ = {
 [node name="SpriteWrapper" parent="." instance=ExtResource( 5 )]
 
 [node name="Sprite" type="Sprite" parent="SpriteWrapper"]
+light_mask = 2
 material = ExtResource( 4 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="SpriteWrapper/Sprite"]
+light_mask = 2
+occluder = SubResource( 1 )
+light_mask = 2
+
 [node name="Sprite2" type="Sprite" parent="SpriteWrapper"]
+light_mask = 2
 material = ExtResource( 4 )
 position = Vector2( 0, -30 )
 texture = ExtResource( 3 )
@@ -34,7 +50,14 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="SpriteWrapper/Sprite2"]
+light_mask = 2
+position = Vector2( 0, -30 )
+occluder = SubResource( 3 )
+light_mask = 2
+
 [node name="Sprite3" type="Sprite" parent="SpriteWrapper"]
+light_mask = 2
 material = ExtResource( 4 )
 position = Vector2( 0, 30 )
 texture = ExtResource( 3 )
@@ -43,6 +66,12 @@ __meta__ = {
 "_edit_lock_": true,
 "_editor_description_": ""
 }
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="SpriteWrapper/Sprite3"]
+light_mask = 2
+position = Vector2( 0, -30 )
+occluder = SubResource( 2 )
+light_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false

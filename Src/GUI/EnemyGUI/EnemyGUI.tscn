@@ -120,12 +120,15 @@ func _on_DiceCoreLabel_random_finished() -> void:
 "
 
 [node name="GUIwrapper" type="Node2D"]
+light_mask = 0
 script = ExtResource( 4 )
 
 [node name="EnemyGUI" type="Control" parent="."]
+light_mask = 0
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="EnemyGUI"]
+light_mask = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -138,6 +141,7 @@ mouse_filter = 2
 custom_constants/separation = 4
 
 [node name="DiceTimerProgress" type="TextureProgress" parent="EnemyGUI/VBoxContainer"]
+light_mask = 0
 margin_right = 216.0
 margin_bottom = 4.0
 mouse_filter = 2
@@ -148,6 +152,7 @@ script = ExtResource( 2 )
 time_offset = -0.9
 
 [node name="HBoxContainer" type="HBoxContainer" parent="EnemyGUI/VBoxContainer"]
+light_mask = 0
 margin_top = 8.0
 margin_right = 216.0
 margin_bottom = 48.0
@@ -156,18 +161,21 @@ custom_constants/separation = 40
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="EnemyGUI/VBoxContainer/HBoxContainer"]
+light_mask = 0
 margin_right = 72.0
 margin_bottom = 40.0
 mouse_filter = 2
 custom_constants/margin_top = 4
 
 [node name="HealthContainer" type="HBoxContainer" parent="EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer"]
+light_mask = 0
 margin_top = 4.0
 margin_right = 72.0
 margin_bottom = 40.0
 mouse_filter = 2
 
 [node name="Health" type="TextureRect" parent="EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer"]
+light_mask = 0
 margin_right = 32.0
 margin_bottom = 32.0
 mouse_filter = 2
@@ -175,6 +183,7 @@ size_flags_vertical = 0
 texture = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer/Health"]
+light_mask = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -193,6 +202,7 @@ __meta__ = {
 }
 
 [node name="ResultNumber" type="TextureRect" parent="EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer"]
+light_mask = 0
 margin_left = 36.0
 margin_right = 72.0
 margin_bottom = 36.0
@@ -200,6 +210,7 @@ mouse_filter = 2
 texture = ExtResource( 6 )
 
 [node name="ResultLabel" type="Label" parent="EnemyGUI/VBoxContainer/HBoxContainer/MarginContainer/HealthContainer/ResultNumber"]
+light_mask = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 9 )
@@ -209,12 +220,14 @@ valign = 1
 script = SubResource( 10 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="EnemyGUI/VBoxContainer/HBoxContainer"]
+light_mask = 0
 margin_left = 112.0
 margin_right = 216.0
 margin_bottom = 40.0
 mouse_filter = 2
 
 [node name="Indexer" type="TextureRect" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer"]
+light_mask = 0
 margin_right = 32.0
 margin_bottom = 40.0
 mouse_filter = 2
@@ -222,6 +235,7 @@ size_flags_vertical = 0
 texture = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Indexer"]
+light_mask = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -241,6 +255,7 @@ __meta__ = {
 
 [node name="HackedLabel" type="Label" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Indexer"]
 visible = false
+light_mask = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -260,6 +275,7 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer"]
+light_mask = 0
 margin_left = 36.0
 margin_right = 68.0
 margin_bottom = 40.0
@@ -268,6 +284,7 @@ custom_constants/margin_top = 8
 
 [node name="DiceCore" type="TextureRect" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer"]
 self_modulate = Color( 1, 0.0196078, 0.27451, 1 )
+light_mask = 0
 margin_top = 8.0
 margin_right = 32.0
 margin_bottom = 40.0
@@ -276,6 +293,7 @@ size_flags_vertical = 0
 texture = ExtResource( 7 )
 
 [node name="DiceCoreLabel" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/MarginContainer/DiceCore" instance=ExtResource( 3 )]
+light_mask = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -0.5
@@ -286,6 +304,7 @@ align = 1
 valign = 1
 
 [node name="Limiter" type="TextureRect" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer"]
+light_mask = 0
 margin_left = 72.0
 margin_right = 104.0
 margin_bottom = 40.0
@@ -294,6 +313,7 @@ size_flags_vertical = 0
 texture = ExtResource( 10 )
 
 [node name="Label" type="Label" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Limiter"]
+light_mask = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -313,6 +333,7 @@ __meta__ = {
 
 [node name="HackedLabel" type="Label" parent="EnemyGUI/VBoxContainer/HBoxContainer/HBoxContainer/Limiter"]
 visible = false
+light_mask = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
