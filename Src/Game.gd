@@ -14,7 +14,7 @@ func _ready() -> void:
 	ScoreTracker.connect("score_win", self, "win_game")
 	GlobalSignals.connect("text_popup", self, "generate_popup")
 	GlobalSignals.connect("dice_set_selected", self, "start_game")
-	GlobalSignals.connect("batu_died", game_over_timer, "start")
+	GlobalSignals.connect("game_start", game_over_timer, "start")
 	get_tree().paused = true
 
 
@@ -22,6 +22,10 @@ func start_game() -> void:
 	get_tree().paused = false
 	game_gui.show()
 	game_world.show()
+	
+	yield(get_tree().create_timer(1), "timeout")
+	
+	GlobalSignals.emit_signal("game_start")
 
 
 func win_game() -> void:

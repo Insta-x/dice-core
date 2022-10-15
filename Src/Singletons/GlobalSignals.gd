@@ -22,6 +22,7 @@ signal critical_hit
 
 signal text_popup
 
+signal game_start
 signal time_over
 
 signal player_error_seed_zero
