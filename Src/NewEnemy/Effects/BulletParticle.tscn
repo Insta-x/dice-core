@@ -4,18 +4,21 @@
 
 [node name="CPUParticles2D" type="CPUParticles2D"]
 emitting = false
-amount = 15
-lifetime = 0.2
+amount = 20
+lifetime = 0.3
 one_shot = true
 explosiveness = 0.7
 emission_shape = 1
 emission_sphere_radius = 1.0
 direction = Vector2( -1, 0 )
-spread = 30.0
+spread = 65.0
 gravity = Vector2( 0, 0 )
-initial_velocity = 600.0
+initial_velocity = 800.0
 initial_velocity_random = 0.6
-scale_amount = 2.0
-scale_amount_random = 0.75
+linear_accel = -800.0
+scale_amount = 5.0
+scale_amount_random = 0.8
 color = Color( 0.337255, 1, 0.952941, 1 )
+hue_variation = 0.08
+hue_variation_random = 0.5
 script = ExtResource( 1 )

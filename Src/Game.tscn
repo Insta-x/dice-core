@@ -12,6 +12,7 @@
 [ext_resource path="res://Src/GUI/GameGUI/TimeLabel.gd" type="Script" id=10]
 [ext_resource path="res://Src/GUI/GameGUI/DiceSetSelection/DiceSetSelection.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/GUI/GameGUI/WinScreen.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/game_environment.tres" type="Environment" id=13]
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
@@ -20,21 +21,6 @@ font_data = ExtResource( 8 )
 [sub_resource type="DynamicFont" id=3]
 size = 32
 font_data = ExtResource( 8 )
-
-[sub_resource type="Environment" id=1]
-background_mode = 4
-glow_enabled = true
-glow_levels/1 = true
-glow_levels/2 = true
-glow_levels/4 = true
-glow_levels/6 = true
-glow_levels/7 = true
-glow_intensity = 1.0
-glow_blend_mode = 1
-glow_hdr_threshold = 0.6
-glow_hdr_scale = 1.0
-glow_bicubic_upscale = true
-glow_high_quality = true
 
 [node name="Game" type="Node"]
 script = ExtResource( 7 )
@@ -122,7 +108,7 @@ current = true
 script = ExtResource( 6 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
+environment = ExtResource( 13 )
 
 [node name="DiceSetSelection" parent="." instance=ExtResource( 11 )]
 
