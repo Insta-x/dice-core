@@ -31,6 +31,7 @@ glow_levels/6 = true
 glow_levels/7 = true
 glow_intensity = 1.0
 glow_blend_mode = 1
+glow_hdr_threshold = 0.6
 glow_hdr_scale = 1.0
 glow_bicubic_upscale = true
 glow_high_quality = true
