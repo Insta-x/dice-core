@@ -31,7 +31,7 @@ func _on_PlayerWrapper_dash_input() -> void:
 	if dash_dir == Vector2.ZERO:
 		return
 	
-	GlobalSignals.emit_signal("player_dashed")
+	GlobalSignals.emit_signal("player_dashed", dash_dir)
 	dashing = true
 	yield(get_tree().create_timer(0.2), "timeout")
 	dashing = false

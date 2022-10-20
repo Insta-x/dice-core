@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Player/GunSprite.gd" type="Script" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Src/Player/PlayerAfterimageSprite.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/Player/IndexerPickupArea.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Assets/Audio/SFX/player-dash.wav" type="AudioStream" id=25]
+[ext_resource path="res://Src/Player/DashParticles.gd" type="Script" id=26]
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 18.0
@@ -222,6 +223,29 @@ emitted_scn = ExtResource( 23 )
 [node name="AfterImageTimer" type="Timer" parent="Player/AfterimageEmitter"]
 wait_time = 0.2
 one_shot = true
+
+[node name="DashParticlesRemote" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../DashParticles")
+update_rotation = false
+update_scale = false
+
+[node name="DashParticles" type="CPUParticles2D" parent="."]
+emitting = false
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.5
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 12.0
+direction = Vector2( 0, 0 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 800.0
+damping = 2400.0
+scale_amount = 5.0
+scale_amount_random = 0.5
+color = Color( 0.0470588, 0.901961, 0.94902, 1 )
+script = ExtResource( 26 )
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource( 14 )
