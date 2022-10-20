@@ -51,8 +51,8 @@ __meta__ = {
 
 [node name="Line2D" type="Line2D" parent="."]
 z_index = -1
-points = PoolVector2Array( 128, 128, 128, 576, 1152, 576, 1152, 64, 128, 64, 128, 192 )
-default_color = Color( 0.4, 0.501961, 1, 1 )
+points = PoolVector2Array( 128, 128, 128, 568, 136, 576, 1144, 576, 1152, 568, 1152, 72, 1144, 64, 136, 64, 128, 72, 128, 192 )
+default_color = Color( 0.0470588, 0.901961, 0.94902, 1 )
 __meta__ = {
 "_edit_lock_": true
 }
