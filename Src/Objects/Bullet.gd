@@ -5,7 +5,7 @@ class_name Bullet
 
 var damage := 1
 export (float) var movespeed := 1.0
-var bullet_particle := preload("res://Src/NewEnemy/Effects/BulletParticle.tscn")
+export (PackedScene) var bullet_particle := preload("res://Src/NewEnemy/Effects/BulletParticle.tscn")
 
 
 func _physics_process(delta: float) -> void:
